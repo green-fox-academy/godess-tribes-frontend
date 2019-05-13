@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
 
 @Component({
   selector: 'app-login-form',
@@ -9,7 +10,11 @@ export class LoginFormComponent implements OnInit {
 
   constructor() { }
 
+  userModel: User = new User();
+
   ngOnInit() {
   }
+
+  get diagnostic() { return JSON.stringify(this.userModel); }
 
 }
