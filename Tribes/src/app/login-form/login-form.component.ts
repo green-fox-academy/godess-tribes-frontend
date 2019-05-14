@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginResultModel } from '../login-result-model';
 import { LoginService } from '../login.service';
+import { UserService } from '../user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -9,34 +11,37 @@ import { LoginService } from '../login.service';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private userService: UserService, private router: Router) { }
 
   loginResultModel: LoginResultModel;
   username: string;
   password: string;
+  errorMessage: string;
   submitted = false;
 
 
   ngOnInit() {
   }
 
-  onSubmit(){ 
+  onSubmit() { 
     this.submitted = true;
-    this.loginResultModel = {username: this.username, password: this.password};
-    // this.userService.login(
-    //   this.username,
-    //   this.password
-    // )
-      // .subscribe(r => console.log(r));
-        // r => {
-        //   if (r.token) {
-        //     this.customer.setToken(r.token);
-        //     this.router.navigateByUrl('/dashboard');
-        //   }
-        // },
-        // r => {
-        //   alert(r.error.error);
-        // });
+    this.loginService.login(
+      this.username,
+      this.password
+    )
+      .subscribe(
+        resp => {
+          if (resp.tribes_token) {
+            this.userService.setToken(resp.tribes_token);
+            this.router.navigateByUrl('/mainpage');
+          }
+          if (resp.message) {
+            this.errorMessage = resp.message;
+          }
+        },
+        resp => {
+          alert(resp.error.error);
+        });
   }
 
   get diagnostic() { return JSON.stringify(this.loginResultModel); }

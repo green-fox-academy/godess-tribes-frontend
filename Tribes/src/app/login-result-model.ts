@@ -1,4 +1,5 @@
-export class LoginResultModel{
-    username: string;
-    password: string;
+export class LoginResultModel {
+    status: string;
+    tribes_token?: string;
+    message?: string;
 }
