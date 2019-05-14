@@ -1,9 +1,9 @@
 export class User {
-    private username: string;
-    private password: string;
-    private kingdomName: string;
-    private userId: number;
-    private kingdomId: number;    
+    username: string;
+    password: string;
+    kingdomName?: string;
+    userId?: number;
+    kingdomId?: number;    
 
     constructor(){}
 }
