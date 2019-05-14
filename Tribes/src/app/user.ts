@@ -3,7 +3,7 @@ export class User {
     password: string;
     kingdomName: string;
     userId: number;
-    kingdomId: number;    
+    kingdomId: number;
 
-    constructor(){}
+    constructor() {}
 }

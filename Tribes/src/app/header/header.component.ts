@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  User = MOCKUSER;  
+  User = MOCKUSER;
 
   constructor() { }
 
