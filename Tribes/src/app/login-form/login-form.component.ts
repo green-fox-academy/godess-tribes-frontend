@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user';
-import {UserService} from '../user.service';
+import { LoginResultModel } from '../login-result-model';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login-form',
@@ -9,9 +9,9 @@ import {UserService} from '../user.service';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private loginService: LoginService) { }
 
-  userModel: User = {username: "", password: ""};
+  loginResultModel: LoginResultModel;
   username: string;
   password: string;
   submitted = false;
@@ -22,11 +22,12 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit(){ 
     this.submitted = true;
-    this.userService.login(
-      this.username,
-      this.password
-    )
-      .subscribe(r => console.log(r));
+    this.loginResultModel = {username: this.username, password: this.password};
+    // this.userService.login(
+    //   this.username,
+    //   this.password
+    // )
+      // .subscribe(r => console.log(r));
         // r => {
         //   if (r.token) {
         //     this.customer.setToken(r.token);
@@ -38,6 +39,6 @@ export class LoginFormComponent implements OnInit {
         // });
   }
 
-  get diagnostic() { return JSON.stringify(this.userModel); }
+  get diagnostic() { return JSON.stringify(this.loginResultModel); }
 
 }

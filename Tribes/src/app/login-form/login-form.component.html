@@ -1,30 +1,32 @@
-{{diagnostic}}
+
 <div class="container">
   <h1>Login to start the game:</h1>
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <form #loginForm="ngForm">
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username" name="username" id="username" required>
+      <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="username" required #usern="ngModel">
     </div>
 
     <div class="form-group">
-      <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" id="password" required>
+      <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password" required #passw="ngModel">
     </div>
-    <div [hidden]="username.valid || password.valid || username.prisitine || password.pristine"
+
+    <div [hidden]="(usern.valid && passw.valid) || usern.pristine || passw.pristine"
      class="alert alert-danger">
   All field is required.
     </div>
-    <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-success" (click) = "loginForm.reset()">Login</button>
+
+    <button type="submit" class="btn btn-success" (click) = "onSubmit()" [disabled]="!loginForm.form.valid">Login</button>
   </form>
 </div>
 <div [hidden]="!submitted">
   <h2>You submitted the following:</h2>
   <div class="row">
-    <div class="col-xs-3">Name</div>
-    <div class="col-xs-9">{{ userModel.username }}</div>
+    <div class="col-3">Name</div>
+    <div class="col-9">{{ loginResultModel.username }}</div>
   </div>
   <div class="row">
-    <div class="col-xs-3">Password</div>
-    <div class="col-xs-9">{{ userModel.password }}</div>
+    <div class="col-3">Password</div>
+    <div class="col-9">{{ loginResultModel.password }}</div>
   </div>
 
   <br>
