@@ -22,4 +22,5 @@ import { LoginFormComponent } from './login-form/login-form.component';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
