@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SettingsComponent } from './settings/settings.component';
 import { MapComponent } from './map/map.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { BuildingComponent } from './building/building.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     HeaderComponent,
     SettingsComponent,
     MapComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    BuildingComponent
   ],
   imports: [
     BrowserModule,
