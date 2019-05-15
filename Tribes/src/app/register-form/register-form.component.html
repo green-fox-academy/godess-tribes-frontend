@@ -1,24 +1,32 @@
 <div class="container">
   <h1>Registration</h1>
-  <form>
+  <form #heroForm="ngForm">
     <div class="form-group">
       <label for="username">User name</label>
-      <input type="text" class="form-control" id="username" required>        
+      <input type="text" class="form-control" id="username" required
+        [(ngModel)]="model.username" name="username">
+        username: {{model.username}}
     </div>
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="text" class="form-control" id="password" required>
+      <input #password="ngModel" type="text" class="form-control" id="password" required
+      [(ngModel)]="model.password" name="password">
     </div>
 
     <div class="form-group">
       <label for="kingdomName">Name of your kingdom</label>
-      <input type="text" class="form-control" id="kingdomName">
+      <input type="text" class="form-control" id="kingdomName"
+      [(ngModel)]="model.kingdomName" name="kingdomName">
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success"
+    (click) = validatePassword(model.password)
+    >Submit</button>
+    
   </form>
   <!-- <popup>Wrong pw please try again</popup>
   button (click)="clickButton()">Login</button> -->
 </div>
+
 
