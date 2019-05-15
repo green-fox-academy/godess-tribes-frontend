@@ -11,38 +11,47 @@ import {Router} from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private userService: UserService, private router: Router) { }
+  constructor(private loginService: LoginService, private userService: UserService, private router: Router) {}
 
   loginResultModel: LoginResultModel;
   username: string;
   password: string;
   errorMessage: string;
   submitted = false;
+  submittedError: boolean;
 
 
   ngOnInit() {
   }
 
-  onSubmit() { 
-    this.submitted = true;
-    this.loginService.login(
-      this.username,
-      this.password
-    )
-      .subscribe(
-        resp => {
-          if (resp.tribes_token) {
-            this.userService.setToken(resp.tribes_token);
-            this.router.navigateByUrl('/mainpage');
-          }
-          if (resp.message) {
-            this.errorMessage = resp.message;
-          }
-        },
-        resp => {
-          alert(resp.error.error);
-        });
-  }
+  onSubmit({value, valid}): void {
+    if (!valid) {
+      this.submittedError = true;
+      return;
+    } else {
+      this.submittedError = false;
+
+      this.submitted = true;
+      this.loginService.login(
+        this.username,
+        this.password
+      )
+        .subscribe(
+          resp => {
+            if (resp.tribes_token) {
+              this.userService.setToken(resp.tribes_token);
+              this.router.navigateByUrl('/mainpage');
+            }
+            if (resp.message) {
+              this.errorMessage = resp.message;
+            }
+          },
+          resp => {
+            alert(resp.error.error);
+          });
+      }
+  } 
+
 
   get diagnostic() { return JSON.stringify(this.loginResultModel); }
 

@@ -1,22 +1,28 @@
-
-<div class="container">
+<div class="w-50 m-auto mt-5">
   <h1>Login to start the game:</h1>
-  <form #loginForm="ngForm" (submit)="onSubmit()">
+  <form #loginForm="ngForm" (submit)="onSubmit(loginForm)">
+
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="username" required #usern="ngModel">
+      <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="username" required
+        #usern="ngModel">
     </div>
 
     <div class="form-group">
-      <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password" required #passw="ngModel">
+      <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password" required
+        #passw="ngModel">
     </div>
 
-    <div [hidden]="(usern.valid && passw.valid) || usern.pristine || passw.pristine"
-     class="alert alert-danger">
-  All field are required.
-    </div> 
+    <div *ngIf="submittedError && (usern.invalid || passw.invalid)" class="alert alert-danger">
+        All field are required.
+    </div>
+
+    <!-- <div [hidden]="(usern.valid && passw.valid) || usern.pristine || passw.pristine" class="alert alert-danger">
+      All field are required.
+    </div> -->
 
     <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+    <!-- [disabled]="!loginForm.form.valid" -->
 
-    <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Login</button>
+    <button type="submit" class="btn btn-success">Login</button>
   </form>
 </div>
