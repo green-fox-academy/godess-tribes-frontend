@@ -14,18 +14,16 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  model = this.registerService.user;
+  // model = this.registerService.user;
+  username: string;
+  password: string;
+  kingdomName: string;
 
-  passwordIsValid = false;
+  isPasswordInvalid = false;
 
-  /* validatePassword(password: string) : boolean {
-    return (password.length >= 8)
-  } */
-
-  setPasswordToValid (password: string) : void {
+  validate(password: string) : void {
     if (password.length >= 8) {
-      this.passwordIsValid = true;
+      this.isPasswordInvalid = true;
     }
   }
-
 }
