@@ -14,6 +14,14 @@ export class BuildingService {
     return BUILDINGS;
   }
 
+  getOneBuildingOfEachType(array: Building[], comp: string) {
+    const unique = array
+    .map(e => e[comp])
+    .map((e, i, final) => final.indexOf(e) === i && i)
+    .filter(e => array[e]).map(e => array[e]);
+    return unique;
+  }
+
   getBuildingByType(type: string) {
     return BUILDINGS.find(building => building.type === type);
   }
@@ -21,4 +29,5 @@ export class BuildingService {
   getBuildingById(id: number) {
     return BUILDINGS.find(building => building.id === id);
   }
+
 }

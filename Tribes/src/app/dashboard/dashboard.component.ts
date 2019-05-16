@@ -1,3 +1,4 @@
+import { BUILDINGS } from './../mock-building';
 import { BuildingService } from './../building.service';
 import { Building } from './../building';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +19,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getBuildings(): void {
-    this.buildings = this.buildingService.getBuildings();
+    this.buildings = this.buildingService.getOneBuildingOfEachType(BUILDINGS, 'type');
   }
 
 }
