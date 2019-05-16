@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Registration</h1>
-  <form #registrationForm="ngForm">
+  <form #registrationForm="ngForm" (submit)="onSubmit(registrationForm)">
     <div class="form-group">
       <label for="username">User name</label>
       <input type="text" class="form-control" id="username" required
@@ -13,14 +13,19 @@
       <label for="password">Password</label>
       <input type="text" class="form-control" id="password" required
       [(ngModel)]="password" name="password"
+      minlength="8"
       #passw="ngModel">
     </div>
 
-    <div *ngIf="isPasswordInValid" class="alert alert-danger">
+    <!-- <div *ngIf="isPasswordInValid" class="alert alert-danger">
       Password must be az least 8 characters long.
-    </div>
+    </div> -->
 
-    <div *ngIf="(usern.invalid || passw.invalid)" class="alert alert-danger">
+    <div *ngIf="passw.errors?.minlength  && passw.touched">
+      Password must be at least 8 characters long.
+    </div> 
+
+    <div *ngIf="(submittedError && (usern.invalid || passw.invalid))" class="alert alert-danger">
       All username and password fields are required.
     </div>
 
@@ -30,8 +35,7 @@
       [(ngModel)]="kingdomName" name="kingdomName">
     </div>
 
-    <button type="submit" class="btn btn-success"
-    (click) = "validate(password)">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>
 

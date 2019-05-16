@@ -18,12 +18,19 @@ export class RegisterFormComponent implements OnInit {
   username: string;
   password: string;
   kingdomName: string;
+  submittedError: boolean;
+  submitted = false;
 
   isPasswordInvalid = false;
 
-  validate(password: string) : void {
-    if (password.length >= 8) {
-      this.isPasswordInvalid = true;
-    }
-  }
+  onSubmit({value, valid}): void {
+    if (!valid) {
+      this.submittedError = true;
+      return;
+    } else {
+      this.submittedError = false;
+
+      this.submitted = true;
+  } 
+}
 }
