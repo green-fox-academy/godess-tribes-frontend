@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../user';
+import {RegisterService} from '../register.service';
 
 @Component({
   selector: 'app-register-form',
@@ -7,12 +8,13 @@ import {User} from '../user';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit {
-  model = new User();
   
-  constructor() { }
+  constructor(private registerService: RegisterService) { }
 
   ngOnInit() {
   }
+
+  model = this.registerService.user;
 
   passwordIsValid = false;
 
