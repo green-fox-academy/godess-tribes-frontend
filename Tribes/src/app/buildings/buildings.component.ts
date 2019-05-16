@@ -14,7 +14,7 @@ export class BuildingsComponent implements OnInit {
 
   constructor(private buildingService: BuildingService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getBuildings;
   }
 
