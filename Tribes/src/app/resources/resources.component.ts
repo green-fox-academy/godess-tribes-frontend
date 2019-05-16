@@ -1,4 +1,5 @@
-import { RESOURCES } from './../mock-resource';
+import { ResourceResponse } from './../resourceResponse';
+import { ResourceService } from './../resource.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,11 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourcesComponent implements OnInit {
 
-  resources = RESOURCES;
+  resources: ResourceResponse;
+  //   resources = [
+  //     { amount: 523, generation: 15, type: ResourceType.Food },
+  //     { amount : 1256, generation: 5, type: ResourceType.Gold }
+  // ];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private resourceService: ResourceService) {
+    this.getResources;
   }
 
+  ngOnInit() {
+    this.getResources();
+  }
+
+  getResources() {
+    this.resourceService.getDataFromBackend().subscribe(response=> this.resources = response.resources);
+  }
 }

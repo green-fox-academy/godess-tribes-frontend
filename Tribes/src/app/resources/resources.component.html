@@ -1,18 +1,16 @@
-<p>Resources component works!</p>
-
+<br>
 <div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-      <img src="./../../assets/images/food_icon2.svg">
-    </div>
-    <div class="col-md-aut justify-content-center">
-      <ul>
-        <li *ngFor="let resource of resources">
-          <span class="badge">{{resource.type}}</span> {{resource.amount}}
-        </li>
-      </ul>
-    </div>
-    <div class="col col-lg-2">
-      <img src="./../../assets/images/iconfinder_money_1055022.png">
-    </div>
+  <div class="row justify-content-center">
+    <ul>
+      <li *ngFor="let resource of resources">
+        <div *ngIf="resource.type==='food'">
+          <img src="./../../assets/images/food_icon2.svg">
+          <span class="badge">{{resource.amount}} unit - {{resource.generation}} unit/min</span>
+        </div>
+        <div *ngIf="resource.type==='gold'">
+          <img src="./../../assets/images/iconfinder_money_1055022.png">
+          <span class="badge">{{resource.amount}} unit - {{resource.generation}} unit/min</span>
+        </div>
+      </li>
+    </ul>
   </div>

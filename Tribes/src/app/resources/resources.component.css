@@ -1,19 +1,16 @@
 img{
-    width: 65px;
+    width: 45px;
     padding: 5px;
 }
 .badge {
     display: inline-block;
-    
-    color: white;
+    color: darkslategray;
     padding: 12px;
-    background-color: #607D8B;
     line-height: 1em;
     position: relative;
     left: -1px;
     top: 10px;
-    height: 1em;
-    
+    height: 1em; 
     border-radius: 4px;
   }
   li{
@@ -22,6 +19,10 @@ img{
   }
   .container{
       background-color: lightsteelblue;
-      width: 300px;
-      border-radius: 5px;
+      width: 20%;
+      border-radius: 50px;
+  }
+  ul{
+    margin: 2px;
+    padding: 5px;
   }
