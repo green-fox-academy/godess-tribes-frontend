@@ -1,7 +1,6 @@
 <div class="w-50 m-auto pt-5 text-center">
-  <!-- <h1>Login to start the game:</h1> -->
-  <form #loginForm="ngForm" (submit)="onSubmit(loginForm)">
 
+  <form #loginForm="ngForm" (submit)="onSubmit(loginForm)">
     <div class="form-group">
       <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="username" required
         #usern="ngModel">
@@ -16,14 +15,8 @@
         All field are required.
     </div>
 
-    <!-- <div [hidden]="(usern.valid && passw.valid) || usern.pristine || passw.pristine" class="alert alert-danger">
-      All field are required.
-    </div> -->
-
     <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
-    <!-- [disabled]="!loginForm.form.valid" -->
     
     <button type="submit" class="btn btn-success">Login</button>
-    
   </form>
 </div>

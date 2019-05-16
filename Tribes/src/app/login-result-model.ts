@@ -1,5 +1,5 @@
 export class LoginResultModel {
     status: string;
-    tribes_token?: string;
+    token?: string;
     message?: string;
 }

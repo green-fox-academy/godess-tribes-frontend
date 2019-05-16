@@ -9,10 +9,8 @@ import {Router} from '@angular/router';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
+
 export class LoginFormComponent implements OnInit {
-
-  constructor(private loginService: LoginService, private userService: UserService, private router: Router) {}
-
   loginResultModel: LoginResultModel;
   username: string;
   password: string;
@@ -20,17 +18,17 @@ export class LoginFormComponent implements OnInit {
   submitted = false;
   submittedError: boolean;
 
+  constructor(private loginService: LoginService, private userService: UserService, private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit({value, valid}): void {
     if (!valid) {
       this.submittedError = true;
       return;
+
     } else {
       this.submittedError = false;
-
       this.submitted = true;
       this.loginService.login(
         this.username,
@@ -38,8 +36,8 @@ export class LoginFormComponent implements OnInit {
       )
         .subscribe(
           resp => {
-            if (resp.tribes_token) {
-              this.userService.setToken(resp.tribes_token);
+            if (resp.token) {
+              this.userService.setToken(resp.token);
               this.router.navigateByUrl('/mainpage');
             }
             if (resp.message) {
@@ -49,10 +47,6 @@ export class LoginFormComponent implements OnInit {
           resp => {
             alert(resp.error.error);
           });
-      }
-  } 
-
-
-  get diagnostic() { return JSON.stringify(this.loginResultModel); }
-
+    }
+  }
 }
