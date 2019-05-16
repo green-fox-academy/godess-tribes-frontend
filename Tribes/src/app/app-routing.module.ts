@@ -8,7 +8,7 @@ import { MapComponent } from './map/map.component';
 import { SettingsComponent } from './settings/settings.component';
 import { KingdomComponent } from './kingdom/kingdom.component';
 import { SoldiersComponent } from './soldiers/soldiers.component';
-import { AttackComponent } from './attack/attack.component';
+import { BattleComponent } from './battle/battle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'map', component: MapComponent},
   { path: 'leaderboard', component: LeaderboardComponent},
   { path: 'buildings', component: BuildingsComponent},
+  { path: 'kingdom/battle', component: BattleComponent},
   { path: 'kingdom/soldiers', component: SoldiersComponent},
-  { path: 'kingdom/attack', component: AttackComponent},
   { path: 'kingdom/:type', component: BuildingTypeComponent},
 
 ];

@@ -25,7 +25,7 @@ export class BuildingTypeComponent implements OnInit {
 
   getBuilding(): void {
     const type = this.route.snapshot.paramMap.get('type');
-    this.building = this.buildingService.getBuilding(type);
+    this.building = this.buildingService.getBuildingByType(type);
   }
 
 }

@@ -14,7 +14,11 @@ export class BuildingService {
     return BUILDINGS;
   }
 
-  getBuilding(type: string) {
+  getBuildingByType(type: string) {
     return BUILDINGS.find(building => building.type === type);
+  }
+
+  getBuildingById(id: number) {
+    return BUILDINGS.find(building => building.id === id);
   }
 }

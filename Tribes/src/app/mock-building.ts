@@ -1,8 +1,10 @@
+import { BuildingService } from './building.service';
 import { Building } from './building';
 
+
 export const BUILDINGS: Building[] = [
-    {id: 1, type: 'townhall', level: 1, hp: 4, startedAt: 123, finishedAt: 456, imageURL: 'assets/images/building.png'},
-    {id: 2, type: 'barrak', level: 1, hp: 4, startedAt: 123, finishedAt: 456, imageURL: 'assets/images/barrak.png'},
-    {id: 3, type: 'mine', level: 1, hp: 4, startedAt: 123, finishedAt: 456, imageURL: 'assets/images/mine.png'},
-    {id: 4, type: 'farm', level: 1, hp: 4, startedAt: 123, finishedAt: 456, imageURL: 'assets/images/farm.png'},
+    new Building (1, 'townhall', 1, 1, 2),
+    new Building (2, 'barraks', 1, 1, 2),
+    new Building (3, 'mine', 1, 1, 2),
+    new Building (4, 'farm', 1, 1, 2)
 ];

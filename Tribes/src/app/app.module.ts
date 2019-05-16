@@ -15,7 +15,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { BuildingsComponent } from './buildings/buildings.component';
 import { BuildingTypeComponent } from './building-type/building-type.component';
 import { SoldiersComponent } from './soldiers/soldiers.component';
-import { AttackComponent } from './attack/attack.component';
+import { BattleComponent } from './battle/battle.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { AttackComponent } from './attack/attack.component';
     BuildingsComponent,
     BuildingTypeComponent,
     SoldiersComponent,
-    AttackComponent,
+    BattleComponent,
   ],
   imports: [
     BrowserModule,
