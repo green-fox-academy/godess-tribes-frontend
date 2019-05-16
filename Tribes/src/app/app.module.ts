@@ -12,7 +12,10 @@ import { HeaderComponent } from './header/header.component';
 import { SettingsComponent } from './settings/settings.component';
 import { MapComponent } from './map/map.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { BuildingComponent } from './building/building.component';
+import { BuildingsComponent } from './buildings/buildings.component';
+import { BuildingTypeComponent } from './building-type/building-type.component';
+import { SoldiersComponent } from './soldiers/soldiers.component';
+import { AttackComponent } from './attack/attack.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { BuildingComponent } from './building/building.component';
     SettingsComponent,
     MapComponent,
     LeaderboardComponent,
-    BuildingComponent,
+    BuildingsComponent,
+    BuildingTypeComponent,
+    SoldiersComponent,
+    AttackComponent,
   ],
   imports: [
     BrowserModule,
