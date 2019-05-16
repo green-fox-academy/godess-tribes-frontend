@@ -8,6 +8,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { MapComponent } from './map/map.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { BuildingComponent } from './building/building.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BuildingComponent } from './building/building.component';
     SettingsComponent,
     MapComponent,
     LeaderboardComponent,
-    BuildingComponent
+    BuildingComponent,
+    ResourcesComponent
   ],
   imports: [
     BrowserModule,
