@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../user';
 import {RegisterService} from '../register.service';
+import {UserService} from '../user.service';
+import {User} from '../user';
+import {RegisterResultModel} from '../register-result-model';
 
 @Component({
   selector: 'app-register-form',
@@ -14,12 +16,12 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  // model = this.registerService.user;
+  user = new User();
   username: string;
   password: string;
   kingdomName: string;
   submittedError: boolean;
-  submitted = false;
+  errorMessage: string;
 
   isPasswordInvalid = false;
 
@@ -30,7 +32,27 @@ export class RegisterFormComponent implements OnInit {
     } else {
       this.submittedError = false;
 
-      this.submitted = true;
+      this.registerService.register(
+        this.username,
+        this.password,
+        this.kingdomName
+      )
+      .subscribe(
+        resp => {
+
+          if (!resp.status) {
+            this.user.userId = resp.id;
+            this.user.username = resp.username;
+            this.user.kingdomId = resp.kingdomId;  
+          }
+          if (resp.status) {
+            this.errorMessage = resp.message;
+          }
+        },
+        resp => {
+          alert(resp.error.error);
+        });
   } 
 }
 }
+
