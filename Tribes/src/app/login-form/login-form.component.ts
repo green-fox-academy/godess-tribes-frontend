@@ -38,7 +38,7 @@ export class LoginFormComponent implements OnInit {
           resp => {
             if (resp.token) {
               this.userService.setToken(resp.token);
-              this.router.navigateByUrl('/mainpage');
+              this.router.navigateByUrl('/kingdom');
             }
             if (resp.message) {
               this.errorMessage = resp.message;
