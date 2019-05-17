@@ -1,7 +1,7 @@
 
 import { Resource } from './resource';
 
-export class ResourceResponse{
-    resources : Resource[];
+export class ResourceResponse {
+    resources: Resource[];
 
 }

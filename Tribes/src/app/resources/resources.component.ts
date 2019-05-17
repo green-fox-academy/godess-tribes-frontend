@@ -10,11 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class ResourcesComponent implements OnInit {
 
   resources: ResourceResponse;
-  //   resources = [
-  //     { amount: 523, generation: 15, type: ResourceType.Food },
-  //     { amount : 1256, generation: 5, type: ResourceType.Gold }
-  // ];
-
+ 
   constructor(private resourceService: ResourceService) {
     this.getResources;
   }
@@ -24,6 +20,6 @@ export class ResourcesComponent implements OnInit {
   }
 
   getResources() {
-    this.resourceService.getDataFromBackend().subscribe(response=> this.resources = response.resources);
+    this.resourceService.getDataFromBackend().subscribe(response => this.resources = response.resources);
   }
 }
