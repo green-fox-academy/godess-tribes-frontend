@@ -1,3 +1,4 @@
+import { ResourcesComponent } from './resources/resources.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'kingdom/soldiers', component: SoldiersComponent},
   { path: 'kingdom/battle', component: BattleComponent},
   { path: 'kingdom/:type', component: BuildingTypeComponent},
+  { path: 'kingdom/resources', component: ResourcesComponent},
 
 ];
 
