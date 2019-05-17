@@ -18,12 +18,9 @@ export class BuildingService {
     const unique = array
     .map(e => e[comp])
     .map((e, i, final) => final.indexOf(e) === i && i)
-    .filter(e => array[e]).map(e => array[e]);
+    .filter(e => array[e])
+    .map(e => array[e]);
     return unique;
-  }
-
-  getBuildingByType(type: string) {
-    return BUILDINGS.find(building => building.type === type);
   }
 
   getBuildingById(id: number) {

@@ -19,13 +19,5 @@ export class BuildingTypeComponent implements OnInit {
     private location: Location
   ) { }
 
-  ngOnInit(): void {
-    this.getBuilding();
-  }
-
-  getBuilding(): void {
-    const type = this.route.snapshot.paramMap.get('type');
-    this.building = this.buildingService.getBuildingByType(type);
-  }
-
+  ngOnInit() {}
 }
