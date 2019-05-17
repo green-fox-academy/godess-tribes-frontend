@@ -2,7 +2,7 @@ import { MapComponent } from './../map/map.component';
 import { LeaderboardComponent } from './../leaderboard/leaderboard.component';
 import { SettingsComponent } from './../settings/settings.component';
 
-import { MOCKUSER } from './../../mock-user';
+import { MOCKUSER } from '../mock-user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  User = MOCKUSER;
+  user = MOCKUSER;
 
   constructor() { }
 

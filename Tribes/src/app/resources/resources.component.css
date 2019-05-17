@@ -1,0 +1,28 @@
+img{
+    width: 45px;
+    padding: 5px;
+}
+.badge {
+    display: inline-block;
+    color: darkslategray;
+    padding: 12px;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: 10px;
+    height: 1em; 
+    border-radius: 4px;
+  }
+  li{
+    list-style-type: none;
+    color: #607D8B;
+  }
+  .container{
+      background-color: lightsteelblue;
+      width: 60%;
+      border-radius: 50px;
+  }
+  ul{
+    margin: 2px;
+    padding: 5px;
+  }
