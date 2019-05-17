@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'kingdom/soldiers', component: SoldiersComponent, canActivate: [AuthGuard] },
   { path: 'kingdom/battle', component: BattleComponent, canActivate: [AuthGuard] },
   { path: 'kingdom/:type', component: BuildingTypeComponent, canActivate: [AuthGuard] },
-  { path: 'kingdom/resources', component: ResourcesComponent,canActivate: [AuthGuard] },
+  { path: 'kingdom/resources', component: ResourcesComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

@@ -45,7 +45,7 @@ export class LoginFormComponent implements OnInit {
             if (resp.message) {
               this.errorMessage = resp.message;
             }
-            //TODO: replace it with generic error page
+            // TODO: replace it with generic error page
             alert(resp.error.error);
           });
     }
