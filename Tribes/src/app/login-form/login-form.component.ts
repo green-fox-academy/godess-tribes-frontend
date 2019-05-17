@@ -39,12 +39,13 @@ export class LoginFormComponent implements OnInit {
             if (resp.token) {
               this.userService.setToken(resp.token);
               this.router.navigateByUrl('/kingdom');
-            }
+            }            
+          },
+          resp => {
             if (resp.message) {
               this.errorMessage = resp.message;
             }
-          },
-          resp => {
+            //TODO: replace it with generic error page
             alert(resp.error.error);
           });
     }

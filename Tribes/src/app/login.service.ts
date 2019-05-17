@@ -11,10 +11,10 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  login(usern: string, passw: string): Observable<LoginResultModel> {
+  login(username: string, password: string): Observable<LoginResultModel> {
     return this.http.post<LoginResultModel>(this.rootUrl + '/login', {
-      username: usern,
-      password: passw
+      username: username,
+      password: password
     });
   }
 }
