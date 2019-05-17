@@ -1,21 +1,34 @@
-import { BuildingComponent } from './building/building.component';
+import { NgModule, Component } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { BuildingTypeComponent } from './building-type/building-type.component';
+import { BuildingsComponent } from './buildings/buildings.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { MapComponent } from './map/map.component';
 import { SettingsComponent } from './settings/settings.component';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { KingdomComponent } from './kingdom/kingdom.component';
+import { SoldiersComponent } from './soldiers/soldiers.component';
+import { BattleComponent } from './battle/battle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'kingdom', component: KingdomComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'logout', redirectTo: '/', pathMatch: 'full'},
   { path: 'map', component: MapComponent},
   { path: 'leaderboard', component: LeaderboardComponent},
-  { path: 'buildings', component: BuildingComponent},
+  { path: 'buildings', component: BuildingsComponent},
+  { path: 'kingdom/soldiers', component: SoldiersComponent},
+  { path: 'kingdom/battle', component: BattleComponent},
+  { path: 'kingdom/:type', component: BuildingTypeComponent},
+
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [
+    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes)
+  ],
   exports: [ RouterModule ]
 })
 
