@@ -1,0 +1,14 @@
+img {
+    width: 65px;
+}
+
+nav{
+    font-family:'Freckle Face', cursive;
+}
+
+a{
+    color: whitesmoke;
+    font-size: 25px;
+    text-align: center;
+    padding: 5px;
+}
