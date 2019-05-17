@@ -1,25 +1,25 @@
+import { BUILDINGS } from './../mock-building';
 import { BuildingService } from './../building.service';
 import { Building } from './../building';
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
-  selector: 'app-buildings',
-  templateUrl: './buildings.component.html',
-  styleUrls: ['./buildings.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class BuildingsComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   buildings: Building[] = [];
 
   constructor(private buildingService: BuildingService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getBuildings();
   }
 
   getBuildings(): void {
-    this.buildings = this.buildingService.getBuildings();
+    this.buildings = this.buildingService.getOneBuildingOfEachType(BUILDINGS, 'type');
   }
 
 }
