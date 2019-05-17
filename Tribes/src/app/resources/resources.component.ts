@@ -12,7 +12,7 @@ export class ResourcesComponent implements OnInit {
   resources: ResourceResponse;
  
   constructor(private resourceService: ResourceService) {
-    this.getResources;
+    this.getResources();
   }
 
   ngOnInit() {
