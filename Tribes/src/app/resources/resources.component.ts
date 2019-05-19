@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class ResourcesComponent implements OnInit {
 
   resources: ResourceResponse;
- 
+
   constructor(private resourceService: ResourceService) {
     this.getResources();
   }

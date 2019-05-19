@@ -1,0 +1,22 @@
+<div class="w-50 m-auto pt-5 text-center">
+
+  <form #loginForm="ngForm" (submit)="onSubmit(loginForm)">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Username" name="username" [(ngModel)]="username" required
+        #usern="ngModel">
+    </div>
+
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password" required
+        #passw="ngModel">
+    </div>
+
+    <div *ngIf="submittedError && (usern.invalid || passw.invalid)" class="alert alert-danger">
+        All field are required.
+    </div>
+
+    <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+    
+    <button type="submit" class="btn btn-success">Login</button>
+  </form>
+</div>

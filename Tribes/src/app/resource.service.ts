@@ -16,5 +16,5 @@ export class ResourceService {
 
   getDataFromBackend(): Observable<ResourceResponse> {
     return this.http.get<ResourceResponse>(this.rootUrl + '/kingdom/resources');
-  } 
+  }
 }
