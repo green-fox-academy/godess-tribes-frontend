@@ -4,6 +4,7 @@ import {UserService} from '../user.service';
 import { LoginService} from '../login.service';
 import {User} from '../user';
 import {Router} from '@angular/router';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-register-form',
@@ -15,7 +16,8 @@ export class RegisterFormComponent implements OnInit {
     private registerService: RegisterService,
     private loginService: LoginService,
     private userService: UserService,
-    private router: Router) { }
+    private router: Router,
+    private dialog: MatDialog) { }
 
   user = new User();
   username: string;
@@ -59,11 +61,12 @@ export class RegisterFormComponent implements OnInit {
                   if (resp2.token) {
                     this.userService.setToken(resp2.token);
                     this.router.navigateByUrl('/kingdom');
+                    this.dialog.closeAll();
                   }
                 });
         },
         resp => {
-          alert(resp.error.error);
+ //         alert(resp.message);
           this.errorMessage = resp.message;
         });
     }
