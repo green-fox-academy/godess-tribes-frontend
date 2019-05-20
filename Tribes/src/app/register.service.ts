@@ -10,7 +10,7 @@ import { User } from './user';
 export class RegisterService {
  // rootUrl = 'http://virtserver.swaggerhub.com/szutsj/godess-tribes-backend/1.0.0';
  // rootUrl: string = 'https://app.swaggerhub.com/apis-docs/adamgyulavari/tribes/1.0.0#/'
- rootUrl = 'http://localhost:8080'
+ rootUrl = 'http://localhost:8080';
   constructor(private http: HttpClient) { }
 
   register(username: string, password: string, kingdomName: string): Observable<User> {

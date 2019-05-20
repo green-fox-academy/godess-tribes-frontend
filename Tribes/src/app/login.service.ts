@@ -7,7 +7,7 @@ import { LoginResultModel } from './login-result-model';
   providedIn: 'root'
 })
 export class LoginService {
-  rootUrl = 'http://virtserver.swaggerhub.com/szutsj/godess-tribes-backend/1.0.0';
+  rootUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 

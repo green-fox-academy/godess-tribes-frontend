@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 
 import { AppComponent } from './app.component';
 
@@ -51,7 +52,8 @@ import { BattleComponent } from './battle/battle.component';
     FormsModule,
     HttpClientModule,
     NoopAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    ShowHidePasswordModule,
   ],
   bootstrap: [AppComponent],
   entryComponents: [RegisterFormComponent]
