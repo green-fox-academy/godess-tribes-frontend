@@ -5,5 +5,5 @@ export class User {
     kingdomName: string;
     kingdomId: number;
 
-    constructor(){}
+    constructor() {}
 }

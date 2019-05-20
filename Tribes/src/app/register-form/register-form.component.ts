@@ -15,8 +15,7 @@ export class RegisterFormComponent implements OnInit {
     private registerService: RegisterService,
     private loginService: LoginService,
     private userService: UserService,
-    private router: Router)
-    { }
+    private router: Router) { }
 
   user = new User();
   username: string;
@@ -52,21 +51,20 @@ export class RegisterFormComponent implements OnInit {
             this.processStarted = false;
             this.user.id = resp.id;
             this.user.username = resp.username;
-            this.user.kingdomId = resp.kingdomId;
+            this.user.kingdomName = resp.kingdomName;
             this.submitted = true;
             this.loginService.login(this.username, this.password)
-            .subscribe(
-              resp => {
-                if (resp.token) {
-                  this.userService.setToken(resp.token);
-                  this.router.navigateByUrl('/kingdom');
-                }
-              },
-            )
+              .subscribe(
+                resp2 => {
+                  if (resp2.token) {
+                    this.userService.setToken(resp2.token);
+                    this.router.navigateByUrl('/kingdom');
+                  }
+                });
         },
         resp => {
           alert(resp.error.error);
-            this.errorMessage = resp.message;
+          this.errorMessage = resp.message;
         });
     }
   }
