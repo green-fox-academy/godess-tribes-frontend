@@ -20,6 +20,6 @@ export class ResourcesComponent implements OnInit {
   }
 
   getResources() {
-    this.resourceService.getDataFromBackend().subscribe(response => this.resources = response.resources);
+    this.resourceService.getDataFromBackend().subscribe(response => this.resources.resources = response.resources);
   }
 }

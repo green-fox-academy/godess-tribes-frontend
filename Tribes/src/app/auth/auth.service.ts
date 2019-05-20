@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 export class AuthService implements HttpInterceptor {
 
   public getToken(): string {
-    return localStorage.getItem('token');
+    return localStorage.getItem('TOKEN');
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
