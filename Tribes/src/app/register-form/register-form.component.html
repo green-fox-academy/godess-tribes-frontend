@@ -10,16 +10,16 @@
         [disabled]="processStarted">
     </div>
 
-    <show-hide-password>
     <div class="form-group">
       <label for="password">Password</label>
+      <show-hide-password size="sm" [btnOutline]="true">
       <input type="text" class="form-control" id="password" required
       [(ngModel)]="password" name="password"
       minlength="8"
       #passw="ngModel"
       [disabled]="processStarted">
+    </show-hide-password>
     </div>
-  </show-hide-password>
 
     <div *ngIf="passw.errors?.minlength  && passw.touched" class="alert alert-danger">
       Password must be at least 8 characters long.
