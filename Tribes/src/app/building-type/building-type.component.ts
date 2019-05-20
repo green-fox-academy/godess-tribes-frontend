@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class BuildingTypeComponent implements OnInit {
 
-  building: Building;
+  buildings: Building[];
 
   constructor(
     private route: ActivatedRoute,
@@ -20,4 +20,5 @@ export class BuildingTypeComponent implements OnInit {
   ) { }
 
   ngOnInit() {}
+
 }

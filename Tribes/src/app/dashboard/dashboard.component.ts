@@ -22,4 +22,9 @@ export class DashboardComponent implements OnInit {
     this.buildings = this.buildingService.getOneBuildingOfEachType(BUILDINGS, 'type');
   }
 
+  checkNumberOfBuildingsByType(): number {
+    this.buildings = this.buildingService.getBuildingsByType('barraks');
+    return this.buildings.length;
+  }
+
 }

@@ -1,3 +1,4 @@
+import { BuildingTypeComponent } from './building-type/building-type.component';
 import { BUILDINGS } from './mock-building';
 import { Building } from './building';
 import { Injectable } from '@angular/core';
@@ -25,6 +26,16 @@ export class BuildingService {
 
   getBuildingById(id: number) {
     return BUILDINGS.find(building => building.id === id);
+  }
+
+  getBuildingsByType(comp: string): Building[] {
+    let buildingsByType: Building[] = [];
+    BUILDINGS.map(e => {
+      if(e.type === comp){
+        buildingsByType.push(e);
+      }
+    })
+    return buildingsByType;
   }
 
 }
