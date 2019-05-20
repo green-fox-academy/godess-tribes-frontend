@@ -12,3 +12,9 @@
     font-display: bold;
     text-align: center;
   }
+
+  .mat-dialog-close {
+    color: #a94442;
+    /* position: absolute;
+    right: 100px; */
+  }

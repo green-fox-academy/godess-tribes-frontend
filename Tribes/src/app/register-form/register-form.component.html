@@ -1,11 +1,13 @@
-<div class="container">
+<div class="container-fluid">
+  <button class="mat-dialog-close pull-right" mat-dialog-close>X</button>
   <h1>Registration</h1>
   <form #registrationForm="ngForm" (submit)="onSubmit(registrationForm)">
     <div class="form-group">
       <label for="username">User name</label>
       <input type="text" class="form-control" id="username" required
         [(ngModel)]="username" name="username"
-        #usern="ngModel">
+        #usern="ngModel"
+        [disabled]="processStarted">
     </div>
 
     <div class="form-group">
@@ -13,7 +15,8 @@
       <input type="text" class="form-control" id="password" required
       [(ngModel)]="password" name="password"
       minlength="8"
-      #passw="ngModel">
+      #passw="ngModel"
+      [disabled]="processStarted">
     </div>
 
     <div *ngIf="passw.errors?.minlength  && passw.touched" class="alert alert-danger">
@@ -31,13 +34,15 @@
     <div class="form-group">
       <label for="kingdomName">Name of your kingdom</label>
       <input type="text" class="form-control" id="kingdomName"
-      [(ngModel)]="kingdomName" name="kingdomName">
+      [(ngModel)]="kingdomName" name="kingdomName"
+      [disabled]="processStarted">
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="processStarted">Submit</button>
   </form>
   <div class="submitted" *ngIf="submitted">
-    Congratulations, you've successfully registered. Your username is {{user.username}}, your kingdom id is {{user.kingdomId}}. 
+    <p>Congratulations, you've successfully registered. Your username is {{user.username}}, your kingdom id is {{user.kingdomId}}.</p>
+    <button type="submit" class="btn btn-success" (click)="login()">Start the game</button>
   </div>
 </div>
 
