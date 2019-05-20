@@ -1,0 +1,16 @@
+<br>
+<div class="container">
+  <div class="row justify-content-center">
+    <ul>
+      <li *ngFor="let resource of resources">
+        <div *ngIf="resource.type==='food'">
+          <img src="./../../assets/images/chicken.png">
+          <span class="badge">{{resource.amount}} unit - {{resource.generation}} unit/min</span>
+        </div>
+        <div *ngIf="resource.type==='gold'">
+          <img src="./../../assets/images/money.png">
+          <span class="badge">{{resource.amount}} unit - {{resource.generation}} unit/min</span>
+        </div>
+      </li>
+    </ul>
+  </div>

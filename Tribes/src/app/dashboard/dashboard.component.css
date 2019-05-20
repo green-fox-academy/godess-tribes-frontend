@@ -1,0 +1,16 @@
+img {
+    width: 200px;
+    padding: 10px;
+}
+
+a :hover {
+    border: none;
+	background: white;
+	color: #f2f2f2;
+	padding: 5px;
+	font-size: 18px;
+	border-radius: 5px;
+	position: relative;
+	box-sizing: border-box;
+	transition: all 500ms ease; 
+}

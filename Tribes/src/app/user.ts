@@ -1,4 +1,5 @@
 export class User {
+<<<<<<< HEAD
     id: number;
     username: string;
     password: string;
@@ -6,4 +7,13 @@ export class User {
     kingdomId: number;    
 
     constructor(){}
+=======
+    username: string;
+    password: string;
+    kingdomName: string;
+    userId: number;
+    kingdomId: number;
+
+    constructor() {}
+>>>>>>> master
 }
