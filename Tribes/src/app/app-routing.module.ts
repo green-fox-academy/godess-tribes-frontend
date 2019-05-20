@@ -14,7 +14,6 @@ import { SoldiersComponent } from './soldiers/soldiers.component';
 import { BattleComponent } from './battle/battle.component';
 
 const routes: Routes = [
-  {path: 'register', component: RegisterFormComponent},
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'kingdom', component: KingdomComponent, canActivate: [AuthGuard] },
