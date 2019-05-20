@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginResultModel } from './login-result-model';
+import { ROOT_URL } from './constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  rootUrl = 'http://virtserver.swaggerhub.com/szutsj/godess-tribes-backend/1.0.0';
+  rootUrl = ROOT_URL;
 
   constructor(private http: HttpClient) { }
 

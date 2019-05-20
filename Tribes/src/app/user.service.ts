@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-
-const TOKEN = 'TOKEN';
+import { TOKEN } from './constants';
 
 @Injectable({
   providedIn: 'root'
