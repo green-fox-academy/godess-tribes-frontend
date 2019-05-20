@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {RegisterService} from '../register.service';
 import {UserService} from '../user.service';
 import {User} from '../user';
-import {RegisterResultModel} from '../register-result-model';
 
 @Component({
   selector: 'app-register-form',
@@ -10,11 +9,7 @@ import {RegisterResultModel} from '../register-result-model';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit {
-  
   constructor(private registerService: RegisterService) { }
-
-  ngOnInit() {
-  }
 
   user = new User();
   username: string;
@@ -22,8 +17,11 @@ export class RegisterFormComponent implements OnInit {
   kingdomName: string;
   submittedError: boolean;
   errorMessage: string;
+  submitted = false;
 
-  isPasswordInvalid = false;
+  ngOnInit() {
+  }
+
 
   onSubmit({value, valid}): void {
     if (!valid) {
@@ -39,20 +37,15 @@ export class RegisterFormComponent implements OnInit {
       )
       .subscribe(
         resp => {
-
-          if (!resp.status) {
-            this.user.userId = resp.id;
+            this.user.id = resp.id;
             this.user.username = resp.username;
-            this.user.kingdomId = resp.kingdomId;  
-          }
-          if (resp.status) {
-            this.errorMessage = resp.message;
-          }
+            this.user.kingdomId = resp.kingdomId;
+            this.submitted = true;
         },
         resp => {
           alert(resp.error.error);
+            this.errorMessage = resp.message;
         });
-  } 
+    }
+  }
 }
-}
-

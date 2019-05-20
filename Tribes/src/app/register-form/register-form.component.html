@@ -1,13 +1,11 @@
 <div class="container">
   <h1>Registration</h1>
-  response: {{user.userId}}
   <form #registrationForm="ngForm" (submit)="onSubmit(registrationForm)">
     <div class="form-group">
       <label for="username">User name</label>
       <input type="text" class="form-control" id="username" required
         [(ngModel)]="username" name="username"
         #usern="ngModel">
-        username: {{username}}
     </div>
 
     <div class="form-group">
@@ -18,12 +16,12 @@
       #passw="ngModel">
     </div>
 
-    <div *ngIf="passw.errors?.minlength  && passw.touched">
+    <div *ngIf="passw.errors?.minlength  && passw.touched" class="alert alert-danger">
       Password must be at least 8 characters long.
-    </div> 
+    </div>
 
     <div *ngIf="(submittedError && (usern.invalid || passw.invalid))" class="alert alert-danger">
-      All username and password fields are required.
+      Username and password fields are required.
     </div>
 
     <div *ngIf="errorMessage">
@@ -38,6 +36,9 @@
 
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
+  <div class="submitted" *ngIf="submitted">
+    Congratulations, you've successfully registered. Your username is {{user.username}}, your kingdom id is {{user.kingdomId}}. 
+  </div>
 </div>
 
 

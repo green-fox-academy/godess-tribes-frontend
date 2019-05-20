@@ -1,4 +1,4 @@
 export class RegisterResultModel {
-    status: string;
+    status?: string;
     message?: string;
 }
