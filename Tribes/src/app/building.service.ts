@@ -31,4 +31,8 @@ export class BuildingService {
     return BUILDINGS.filter(building => building.type === type);
   }
 
+  getTownhallLevel(): number {
+    return BUILDINGS.find(building => building.type === 'townhall').level;
+  }
+
 }

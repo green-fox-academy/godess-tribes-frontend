@@ -4,6 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { MAX_UPGRADE_LEVELS } from '../constants';
+import { PRODUCTION_RATE} from '../constants';
+import { COST_NEW_BUILDING } from '../constants';
+import { COST_BASE_UPGRADE } from '../constants';
 
 @Component({
   selector: 'app-building-type',
@@ -16,6 +19,8 @@ export class BuildingTypeComponent implements OnInit {
   levels: number[] = [];
   type: string;
   maxLevel = MAX_UPGRADE_LEVELS;
+  costNewBuilding = COST_NEW_BUILDING;
+  townhallLevel: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +31,7 @@ export class BuildingTypeComponent implements OnInit {
   ngOnInit() {
     this.getBuildingsByType();
     this.createLevelArray();
+    this.getTownhallLevel();
   }
 
   getBuildingsByType(): void {
@@ -39,8 +45,19 @@ export class BuildingTypeComponent implements OnInit {
     }
   }
 
-  getNumberOfBuildingsByLevel(level): number {
-    return this.buildings.filter(building => building.level === level).length;
+  getTownhallLevel(): void {
+    this.townhallLevel = this.buildingService.getTownhallLevel();
+  }
 
+  getNumberOfBuildingsByLevel(level: number): number {
+    return this.buildings.filter(building => building.level === level).length;
+  }
+
+  getProductionRate(level: number): number{
+    return PRODUCTION_RATE*level;
+  }
+
+  getUpgardeingcost(level: number): number{
+    return COST_BASE_UPGRADE*level;
   }
 }
