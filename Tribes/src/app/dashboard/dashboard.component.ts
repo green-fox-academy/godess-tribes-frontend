@@ -1,7 +1,9 @@
+import { Component, OnInit } from '@angular/core';
 import { BUILDINGS } from './../mock-building';
 import { BuildingService } from './../building.service';
 import { Building } from './../building';
-import { Component, OnInit } from '@angular/core';
+import { ResourceService } from './../resource.service';
+import { ResourceResponse } from './../resourceResponse';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,17 +12,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  buildings: Building[] = [];
+  buildings: Building[];
+  resources: ResourceResponse;
+  amountOfGold: number;
 
-  constructor(private buildingService: BuildingService) { }
+  constructor(private buildingService: BuildingService,
+    private resourceService: ResourceService) { }
 
-  ngOnInit() {
-    this.checkNumberOfBuildingsByType('farm');
+  ngOnInit() {}
+
+  goldResourceAvailable(type: string): void {
+    this.resources.resources.forEach(resource => {
+      if (resource.type === 'gold'){
+        this.amountOfGold === resource.amount;
+      }
+    });
   }
 
-  // getBuildings(): void {
-  //   this.buildings = this.buildingService.getOneBuildingOfEachType(BUILDINGS, 'type');
-  // }
+  getResources() {
+    this.resourceService.getDataFromBackend().subscribe(response => this.resources.resources = response.resources);
+  }
 
   checkNumberOfBuildingsByType(buildingtype: string): number {
     this.buildings = this.buildingService.getBuildingsByType(buildingtype);
