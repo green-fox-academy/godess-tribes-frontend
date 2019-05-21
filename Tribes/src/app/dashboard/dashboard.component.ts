@@ -15,16 +15,20 @@ export class DashboardComponent implements OnInit {
   constructor(private buildingService: BuildingService) { }
 
   ngOnInit() {
-    this.getBuildings();
+    this.checkNumberOfBuildingsByType('farm');
   }
 
-  getBuildings(): void {
-    this.buildings = this.buildingService.getOneBuildingOfEachType(BUILDINGS, 'type');
-  }
+  // getBuildings(): void {
+  //   this.buildings = this.buildingService.getOneBuildingOfEachType(BUILDINGS, 'type');
+  // }
 
-  checkNumberOfBuildingsByType(): number {
-    this.buildings = this.buildingService.getBuildingsByType('barraks');
+  checkNumberOfBuildingsByType(buildingtype: string): number {
+    this.buildings = this.buildingService.getBuildingsByType(buildingtype);
     return this.buildings.length;
   }
+
+  numberOfFarms = this.checkNumberOfBuildingsByType('farm');
+  numberOfMines = this.checkNumberOfBuildingsByType('mine');
+  numberOfBarracks = this.checkNumberOfBuildingsByType('barrack');
 
 }
