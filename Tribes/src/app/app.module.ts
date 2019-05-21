@@ -24,6 +24,7 @@ import { ResourcesComponent } from './resources/resources.component';
 import { BuildingTypeComponent } from './building-type/building-type.component';
 import { SoldiersComponent } from './soldiers/soldiers.component';
 import { BattleComponent } from './battle/battle.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { BattleComponent } from './battle/battle.component';
     BuildingTypeComponent,
     SoldiersComponent,
     BattleComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
