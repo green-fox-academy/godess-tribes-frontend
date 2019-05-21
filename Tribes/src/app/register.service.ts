@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { User } from './user';
 
@@ -13,11 +14,17 @@ export class RegisterService {
  rootUrl = 'http://localhost:8080';
   constructor(private http: HttpClient) { }
 
+
   register(username: string, password: string, kingdomName: string): Observable<User> {
     return this.http.post<User>(this.rootUrl + '/register', {
       username: username,
       password: password,
       kingdomName: kingdomName,
-    });
+    })
+   /*  .pipe(
+      catchError((error: any) =>{
+        return throwError(error.message || 'server error');
+      })
+    ) */
   }
 }

@@ -5,6 +5,7 @@ import { LoginService} from '../login.service';
 import {User} from '../user';
 import {Router} from '@angular/router';
 import { MatDialog } from '@angular/material';
+import { RegisterResultModel } from '../register-result-model';
 
 @Component({
   selector: 'app-register-form',
@@ -27,6 +28,7 @@ export class RegisterFormComponent implements OnInit {
   errorMessage: string;
   submitted = false;
   processStarted = false;
+  registerResult = new RegisterResultModel();
 
   ngOnInit() {
   }
@@ -65,10 +67,13 @@ export class RegisterFormComponent implements OnInit {
                   }
                 });
         },
-        resp => {
- //         alert(resp.message);
+        error => {
+            this.registerResult = error;
+        }
+   /*      resp => {
           this.errorMessage = resp.message;
-        });
+        } */
+        );
     }
   }
 }
