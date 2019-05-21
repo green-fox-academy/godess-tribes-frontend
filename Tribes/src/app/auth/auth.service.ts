@@ -10,12 +10,13 @@ export class AuthService implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
-    request = request.clone({
-      setHeaders: {
-        Authorization: `Bearer ${this.getToken()}`
-      }
-    });
+    if ((request.url.search('/login') === -1) && (request.url.search('/register') === -1)) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${this.getToken()}`
+        }
+      });
+    }
     return next.handle(request);
   }
 }
