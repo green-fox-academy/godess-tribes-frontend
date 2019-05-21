@@ -2,5 +2,18 @@
     <div>
       <app-header></app-header>
     </div>
-    <p>{{building.type}} works!</p>
+    <div class="row align-items-center justify-content-center mb-5">
+      <img src="assets/images/{{type}}.png" class="main-image"/>
+      <div class="h2"> Details of your {{type}}s</div>
+    </div>
+    <div *ngFor = "let level of levels" class="row mt-5">
+      <div class="col-2">
+        <div  *ngFor="let i of [].constructor(level)" class="image-position">
+          <img src="assets/images/{{type}}.png" class="level-image"/>
+        </div>
+      </div>
+      <span *ngIf="getNumberOfBuildingsByLevel(level) > 0">{{getNumberOfBuildingsByLevel(level)}} unit(s)</span>
+      <span *ngIf="getNumberOfBuildingsByLevel(level) == 0">You don't have any {{type}} of level {{level}}</span>
+    </div>
+    
 </div>

@@ -27,4 +27,8 @@ export class BuildingService {
     return BUILDINGS.find(building => building.id === id);
   }
 
+  getBuildingsbyType(type: string) {
+    return BUILDINGS.filter(building => building.type === type);
+  }
+
 }
