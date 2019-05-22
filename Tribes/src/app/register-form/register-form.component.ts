@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {RegisterService} from '../register.service';
-import {UserService} from '../user.service';
-import { LoginService} from '../login.service';
-import {User} from '../user';
-import {Router} from '@angular/router';
+import { RegisterService } from '../register.service';
+import { UserService } from '../user.service';
+import { LoginService } from '../login.service';
+import { User } from '../user';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { RegisterResultModel } from '../register-result-model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register-form',
@@ -25,7 +26,8 @@ export class RegisterFormComponent implements OnInit {
   password: string;
   kingdomName: string;
   submittedError: boolean;
-  errorMessage: string;
+  isError = false;
+  error: HttpErrorResponse;
   submitted = false;
   processStarted = false;
   registerResult = new RegisterResultModel();
@@ -68,12 +70,9 @@ export class RegisterFormComponent implements OnInit {
                 });
         },
         error => {
-            this.registerResult = error;
-        }
-   /*      resp => {
-          this.errorMessage = resp.message;
-        } */
-        );
+          this.isError = true;
+          this.error = error;
+        });
     }
   }
 }

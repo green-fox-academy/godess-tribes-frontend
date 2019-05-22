@@ -29,9 +29,8 @@
       Username and password fields are required.
     </div>
 
-    <div *ngIf="errorMessage">
-      <!-- {{errorMessage}} -->
-      {{registerResult.message}}
+    <div *ngIf="isError">
+      {{error}}
     </div>
 
     <div class="form-group">

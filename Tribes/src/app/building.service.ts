@@ -26,5 +26,4 @@ export class BuildingService {
   getBuildingById(id: number) {
     return BUILDINGS.find(building => building.id === id);
   }
-
 }
