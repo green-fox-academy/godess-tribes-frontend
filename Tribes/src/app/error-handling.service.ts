@@ -20,11 +20,9 @@ export class ErrorHandlingService {
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error.message}`);
-        return throwError(
-          `${error.error.message} Please try an other one.`);
+      return throwError(`${error.error.message}`);
     }
     // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
+    return throwError('Something bad happened; please try again later.');
   }
 }
