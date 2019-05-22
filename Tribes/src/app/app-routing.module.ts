@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { BuildingTypeComponent } from './building-type/building-type.component';
 import { BuildingsComponent } from './buildings/buildings.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'kingdom/battle', component: BattleComponent, canActivate: [AuthGuard] },
   { path: 'kingdom/:type', component: BuildingTypeComponent, canActivate: [AuthGuard] },
   { path: 'kingdom/resources', component: ResourcesComponent, canActivate: [AuthGuard] },
+  { path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
