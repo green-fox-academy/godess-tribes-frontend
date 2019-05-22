@@ -56,9 +56,9 @@ export class RegisterFormComponent implements OnInit {
             this.submitted = true;
             this.loginService.login(this.username, this.password)
               .subscribe(
-                resp2 => {
-                  if (resp2.token) {
-                    this.userService.setToken(resp2.token);
+                response => {
+                  if (response.token) {
+                    this.userService.setToken(response.token);
                     this.router.navigateByUrl('/kingdom');
                     this.dialog.closeAll();
                   }

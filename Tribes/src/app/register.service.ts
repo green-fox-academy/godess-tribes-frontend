@@ -18,9 +18,9 @@ export class RegisterService {
 
   register(username: string, password: string, kingdomName: string): Observable<User> {
     return this.http.post<User>(this.rootUrl + '/register', {
-      username: username,
-      password: password,
-      kingdomName: kingdomName,
+      username,
+      password,
+      kingdomName,
     })
     .pipe(
       catchError(this.errorHandlingService.handleError)
