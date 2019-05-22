@@ -8,6 +8,8 @@ import { MAX_UPGRADE_LEVELS } from '../constants';
 import { PRODUCTION_RATE} from '../constants';
 import { COST_NEW_BUILDING } from '../constants';
 import { COST_BASE_UPGRADE } from '../constants';
+import { TOWNHALL_FOOD_CAPACITY } from '../constants';
+import { TOWNHALL_GOLD_CAPACITY } from '../constants';
 import { ResourceType } from '../enums_resources';
 
 @Component({
@@ -70,5 +72,13 @@ export class BuildingTypeComponent implements OnInit {
   getGoldAmount() {
     this.resourceService.getDataFromBackend()
     .subscribe(response => this.goldAmount = response.resources.find(resource => resource.resourceTypeENUM === ResourceType.GOLD).amount);
+  }
+
+  getTownhallFoodCapacity(level: number): number {
+    return TOWNHALL_FOOD_CAPACITY * level;
+  }
+
+  getTownhallGoldCapacity(level: number): number {
+    return TOWNHALL_GOLD_CAPACITY * level;
   }
 }

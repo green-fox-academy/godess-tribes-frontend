@@ -4,13 +4,31 @@
   </div>
   <div class="row">
     <div class="col-8">
+      <div *ngIf="type === 'townhall'">
+          <div class="row align-items-center justify-content-center mb-5">
+            <img src="assets/images/{{type}}.png" class="main-image" />
+            <div class="h2">Details of your {{type}}</div>
+          </div>
+          <div class="row mt-5 justify-content-center align-items-center">
+            <p class="h3">Your townhall is at level {{townhallLevel}}.</p>
+          </div>
+          <div class="row mt-3 justify-content-center align-items-center">
+            <p>Capacity: {{getTownhallFoodCapacity(townhallLevel)}} food and {{getTownhallGoldCapacity(townhallLevel)}} gold</p>
+          </div>
+          <div *ngIf="towhalllevel !== 3" class="text-center mt-3">
+            <button class="btn btn-warning"
+                [disabled]="getUpgardeingCost(townhallLevel) > goldAmount">Upgrade<br><small>for
+                  {{getUpgardeingCost(townhallLevel)}} gold</small></button>
+          </div>
+        </div>
+  <div *ngIf="type !== 'townhall'">
       <div class="row align-items-center justify-content-center mb-5">
         <img src="assets/images/{{type}}.png" class="main-image" />
         <div class="h2"> Details of your {{type}}s</div>
       </div>
       <div *ngFor="let level of levels" class="row mt-5 align-items-center">
-        <div class="col-2">
-          <div *ngFor="let i of [].constructor(level)" class="image-position">
+        <div class="col-2 text-center justify-content-center">
+          <div *ngFor="let i of [].constructor(level)" class="text-center image-position">
             <img src="assets/images/{{type}}.png" class="level-image" />
           </div>
         </div>
@@ -33,6 +51,7 @@
         [disabled]="costNewBuilding > goldAmount">Buy a new {{type}}<br><small>for {{costNewBuilding}} gold</small></button>
       </div>
     </div>
+  </div>
     <div class="col-4">
       <app-statusboard></app-statusboard>
     </div>
