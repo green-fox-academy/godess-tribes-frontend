@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../register.service';
 import { UserService } from '../user.service';
 import { LoginService } from '../login.service';
-import { User } from '../user';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { RegisterResultModel } from '../register-result-model';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -21,16 +19,14 @@ export class RegisterFormComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog) { }
 
-  user = new User();
   username: string;
   password: string;
   kingdomName: string;
   submittedError: boolean;
-  isError = false;
-  error: HttpErrorResponse;
   submitted = false;
   processStarted = false;
-  registerResult = new RegisterResultModel();
+  isError = false;
+  error: HttpErrorResponse;
 
   ngOnInit() {
   }
@@ -55,9 +51,8 @@ export class RegisterFormComponent implements OnInit {
       .subscribe(
         resp => {
             this.processStarted = false;
-            this.user.id = resp.id;
-            this.user.username = resp.username;
-            this.user.kingdomName = resp.kingdomName;
+            this.username = resp.username;
+            this.kingdomName = resp.kingdomName;
             this.submitted = true;
             this.loginService.login(this.username, this.password)
               .subscribe(
