@@ -1,4 +1,5 @@
 import { BuildingService } from './../building.service';
+import { ResourceService } from './../resource.service';
 import { Building } from './../building';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -7,6 +8,7 @@ import { MAX_UPGRADE_LEVELS } from '../constants';
 import { PRODUCTION_RATE} from '../constants';
 import { COST_NEW_BUILDING } from '../constants';
 import { COST_BASE_UPGRADE } from '../constants';
+import { ResourceType } from '../enums_resources';
 
 @Component({
   selector: 'app-building-type',
@@ -21,11 +23,13 @@ export class BuildingTypeComponent implements OnInit {
   maxLevel = MAX_UPGRADE_LEVELS;
   costNewBuilding = COST_NEW_BUILDING;
   townhallLevel: number;
+  havingEnoughResourse: boolean;
 
   constructor(
     private route: ActivatedRoute,
     private buildingService: BuildingService,
-    private location: Location
+    private location: Location,
+    private resourceService: ResourceService,
   ) { }
 
   ngOnInit() {
@@ -57,7 +61,12 @@ export class BuildingTypeComponent implements OnInit {
     return PRODUCTION_RATE*level;
   }
 
-  getUpgardeingcost(level: number): number{
+  getUpgardeingCost(level: number): number{
     return COST_BASE_UPGRADE*level;
   }
-}
+
+  checkIfHaveEnoughResources(cost: number): boolean {
+    this.resourceService.getDataFromBackend().subscribe(response => response.resources.find(resources.type === ResourceType.Gold).amount > cost)
+    return 10>5;
+  }
+} 
