@@ -1,4 +1,4 @@
 export enum ResourceType {
-    Food = 'food',
-    Gold = 'gold',
+    FOOD = 'FOOD',
+    GOLD = 'GOLD',
 }

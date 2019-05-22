@@ -10,7 +10,7 @@ export class AuthService implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if ((request.url.search('/login') === -1) && (request.url.search('/register') === -1)) {
+    if ((request.url.search('/login') === -1) || (request.url.search('/register') === -1)) {
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${this.getToken()}`

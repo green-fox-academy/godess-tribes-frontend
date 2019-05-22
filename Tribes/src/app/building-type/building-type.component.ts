@@ -24,6 +24,7 @@ export class BuildingTypeComponent implements OnInit {
   costNewBuilding = COST_NEW_BUILDING;
   townhallLevel: number;
   havingEnoughResourse: boolean;
+  goldAmount: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,7 @@ export class BuildingTypeComponent implements OnInit {
     this.getBuildingsByType();
     this.createLevelArray();
     this.getTownhallLevel();
+    this.getGoldAmount();
   }
 
   getBuildingsByType(): void {
@@ -65,8 +67,8 @@ export class BuildingTypeComponent implements OnInit {
     return COST_BASE_UPGRADE*level;
   }
 
-  checkIfHaveEnoughResources(cost: number): boolean {
-    this.resourceService.getDataFromBackend().subscribe(response => response.resources.find(resources.type === ResourceType.Gold).amount > cost)
-    return 10>5;
+  getGoldAmount() {
+    this.resourceService.getDataFromBackend()
+    .subscribe(response => this.goldAmount = response.resources.find(resource => resource.resourceTypeENUM === ResourceType.GOLD).amount);
   }
-} 
+}
