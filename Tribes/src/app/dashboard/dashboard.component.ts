@@ -1,3 +1,5 @@
+import { COST_NEW_BUILDING } from './../constants';
+import { ResourceType } from './../enums_resources';
 import { Component, OnInit } from '@angular/core';
 import { BUILDINGS } from './../mock-building';
 import { BuildingService } from './../building.service';
@@ -14,23 +16,18 @@ export class DashboardComponent implements OnInit {
 
   buildings: Building[];
   resources: ResourceResponse;
-  amountOfGold: number;
+  goldAmount: number;
 
   constructor(private buildingService: BuildingService,
     private resourceService: ResourceService) { }
 
-  ngOnInit() {}
-
-  goldResourceAvailable(type: string): void {
-    this.resources.resources.forEach(resource => {
-      if (resource.type === 'gold'){
-        this.amountOfGold === resource.amount;
-      }
-    });
+  ngOnInit() {
+    this.getGoldAmount();
   }
 
-  getResources() {
-    this.resourceService.getDataFromBackend().subscribe(response => this.resources.resources = response.resources);
+  getGoldAmount() {
+    this.resourceService.getDataFromBackend()
+    .subscribe(response => this.goldAmount = response.resources.find(resource => resource.resourceTypeENUM === ResourceType.GOLD).amount)
   }
 
   checkNumberOfBuildingsByType(buildingtype: string): number {

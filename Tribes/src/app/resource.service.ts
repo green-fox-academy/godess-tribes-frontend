@@ -4,13 +4,15 @@ import { Resource } from './resource';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ROOT_URL } from './constants';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ResourceService {
 
-  rootUrl = 'http://virtserver.swaggerhub.com/szutsj/godess-tribes-backend/1.0.0';
+  rootUrl = ROOT_URL;
 
   constructor(private http: HttpClient) { }
 

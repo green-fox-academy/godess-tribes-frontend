@@ -10,11 +10,11 @@
         <a><img class="inactive" src="assets/images/barrack.png"></a>
       </li>
     </div>
-    <!-- <div *ngIf="numberOfBarracks === 0 && ">
+    <div *ngIf="numberOfBarracks === 0 && goldAmount > COST_NEW_BUILDING">
       <li class="list-group-item">
         <img class="inactive" src="assets/images/barrack.png">
       </li>
-    </div> -->
+    </div>
     <div *ngIf="numberOfBarracks > 0">
       <li class="list-group-item">
         <a routerLink="barrack"><img src="assets/images/barrack.png">
