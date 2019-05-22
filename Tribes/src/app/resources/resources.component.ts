@@ -9,17 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResourcesComponent implements OnInit {
 
-  resources: ResourceResponse;
+//  resources: ResourceResponse;
 
   constructor(private resourceService: ResourceService) {
-    this.getResources();
+//    this.getResources();
   }
 
   ngOnInit() {
-    this.getResources();
+ //   this.getResources();
   }
 
-  getResources() {
+  /* getResources() {
     this.resourceService.getDataFromBackend().subscribe(response => this.resources.resources = response.resources);
-  }
+  } */
 }
