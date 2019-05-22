@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ShowHidePasswordModule } from 'ngx-show-hide-password';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthService } from './auth/auth.service';
 
 import { AppComponent } from './app.component';
 
@@ -56,7 +58,14 @@ import { BattleComponent } from './battle/battle.component';
     ShowHidePasswordModule,
   ],
   bootstrap: [AppComponent],
-  entryComponents: [RegisterFormComponent]
+  entryComponents: [RegisterFormComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthService,
+      multi: true
+    }
+  ]
 })
 
 export class AppModule { }
