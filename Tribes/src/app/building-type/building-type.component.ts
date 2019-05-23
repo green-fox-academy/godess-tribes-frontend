@@ -70,7 +70,7 @@ export class BuildingTypeComponent implements OnInit {
 
   getGoldAmount() {
     this.resourceService.getDataFromBackend()
-    .subscribe(response => this.goldAmount = response.resources.find(resource => resource.resourceTypeENUM === ResourceType.GOLD).amount);
+    .subscribe(response => this.goldAmount = response.resources.find(resource => resource.resourceTypeENUM === 'GOLD').amount);
   }
 
   getTownhallFoodCapacity(level: number): number {

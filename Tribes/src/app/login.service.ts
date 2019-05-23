@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { ROOT_URL } from './constants';
+import { Injectable, PACKAGE_ROOT_URL } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginResultModel } from './login-result-model';
-import { ROOT_URL } from './constants';
 
 @Injectable({
   providedIn: 'root'

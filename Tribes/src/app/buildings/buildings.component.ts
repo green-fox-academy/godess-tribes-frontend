@@ -1,6 +1,6 @@
 import { BuildingService } from './../building.service';
-import { Building } from './../building';
 import { Component, OnInit } from '@angular/core';
+import { BuildingsResponse } from '../buildings-response';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuildingsComponent implements OnInit {
 
-  buildings: Building[] = [];
+  buildings: BuildingsResponse;
 
   constructor(private buildingService: BuildingService) { }
 
@@ -19,7 +19,7 @@ export class BuildingsComponent implements OnInit {
   }
 
   getBuildings(): void {
-    this.buildings = this.buildingService.getBuildings();
+    this.buildingService.getBuildingsFromAPI().subscribe(response => this.buildings.buildingDTOS = response.buildingDTOS);
   }
 
 }

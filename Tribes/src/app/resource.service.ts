@@ -1,5 +1,4 @@
 import { ResourceResponse } from './resourceResponse';
-
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,6 +7,7 @@ import { ROOT_URL } from './constants';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ResourceService {
 
   rootUrl = ROOT_URL;
