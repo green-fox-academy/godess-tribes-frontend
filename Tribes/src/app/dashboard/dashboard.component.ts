@@ -1,7 +1,10 @@
-import { BUILDINGS } from './../mock-building';
-import { BuildingService } from './../building.service';
-import { Building } from './../building';
+import { BuildingsResponse } from '../buildings-response';
+import { COST_NEW_BUILDING } from './../constants';
+import { ResourceType } from './../enums_resources';
 import { Component, OnInit } from '@angular/core';
+import { BuildingService } from './../building.service';
+import { ResourceService } from './../resource.service';
+import { ResourceResponse } from './../resourceResponse';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,16 +13,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  buildings: Building[] = [];
+  buildings: BuildingsResponse;
+  resources: ResourceResponse;
+  goldAmount: number;
+  costOfNewBuilding = COST_NEW_BUILDING;
+  numberOfFarms: number;
+  numberOfMines: number;
+  numberOfBarracks: number;
 
-  constructor(private buildingService: BuildingService) { }
+  constructor(private buildingService: BuildingService, private resourceService: ResourceService) { }
 
   ngOnInit() {
-    this.getBuildings();
+    this.getGoldAmount();
+    this.getNumberOfFarms();
+    this.getNumberOfMines();
+    this.getNumberOfBarracks();
   }
 
-  getBuildings(): void {
-    this.buildings = this.buildingService.getOneBuildingOfEachType(BUILDINGS, 'type');
+  getGoldAmount() {
+    this.resourceService.getDataFromBackend()
+    .subscribe(response => this.goldAmount = response.resources
+      .find(resource => resource.resourceTypeENUM === ResourceType.GOLD).amount);
+  }
+
+  getNumberOfFarms() {
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.numberOfFarms = response.buildingDTOS
+      .filter(building => building.buldingTypeENUM === 'FARM').length);
+  }
+
+  getNumberOfMines() {
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.numberOfMines = response.buildingDTOS
+      .filter(building => building.buldingTypeENUM === 'MINE').length);
+  }
+
+  getNumberOfBarracks() {
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.numberOfBarracks = response.buildingDTOS
+      .filter(building => building.buldingTypeENUM === 'BARRACK').length);
   }
 
 }

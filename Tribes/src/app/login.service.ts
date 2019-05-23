@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { ROOT_URL } from './constants';
+import { Injectable, PACKAGE_ROOT_URL } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginResultModel } from './login-result-model';
@@ -7,11 +8,10 @@ import { LoginResultModel } from './login-result-model';
   providedIn: 'root'
 })
 export class LoginService {
-  rootUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<LoginResultModel> {
-    return this.http.post<LoginResultModel>(this.rootUrl + '/login', { username, password });
+    return this.http.post<LoginResultModel>(ROOT_URL + '/login', { username, password });
   }
 }
