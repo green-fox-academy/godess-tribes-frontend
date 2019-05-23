@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { MAX_UPGRADE_LEVELS } from '../constants';
-import { PRODUCTION_RATE} from '../constants';
+import { PRODUCTION_RATE } from '../constants';
 import { COST_NEW_BUILDING } from '../constants';
 import { COST_BASE_UPGRADE } from '../constants';
 import { TOWNHALL_FOOD_CAPACITY } from '../constants';
@@ -56,7 +56,7 @@ export class BuildingTypeComponent implements OnInit {
   }
 
   createLevelArray(): void {
-    for(let i: number = 1; i <= MAX_UPGRADE_LEVELS; i++) {
+    for (let i = 1; i <= MAX_UPGRADE_LEVELS; i++) {
       this.levels.push(i);
     }
   }
@@ -65,12 +65,12 @@ export class BuildingTypeComponent implements OnInit {
     return this.buildings.filter(building => building.level === level).length;
   }
 
-  getProductionRate(level: number): number{
-    return PRODUCTION_RATE*level;
+  getProductionRate(level: number): number {
+    return PRODUCTION_RATE * level;
   }
 
-  getUpgradingCost(level: number): number{
-    return COST_BASE_UPGRADE*level;
+  getUpgradingCost(level: number): number {
+    return COST_BASE_UPGRADE * level;
   }
 
   getGoldAmount() {
