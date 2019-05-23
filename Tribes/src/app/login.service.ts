@@ -8,14 +8,10 @@ import { ROOT_URL } from './constants';
   providedIn: 'root'
 })
 export class LoginService {
-  rootUrl = ROOT_URL;
 
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<LoginResultModel> {
-    return this.http.post<LoginResultModel>(this.rootUrl + '/login', {
-      username: username,
-      password: password
-    });
+    return this.http.post<LoginResultModel>(ROOT_URL + '/login', { username, password });
   }
 }

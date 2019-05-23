@@ -7,6 +7,8 @@ import { TOKEN } from './constants';
 
 export class UserService {
 
+  constructor() { }
+
   setToken(token: string): void {
     localStorage.setItem(TOKEN, token);
   }
