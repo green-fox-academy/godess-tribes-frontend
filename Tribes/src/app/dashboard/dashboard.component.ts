@@ -21,8 +21,7 @@ export class DashboardComponent implements OnInit {
   numberOfMines: number;
   numberOfBarracks: number;
 
-  constructor(private buildingService: BuildingService,
-    private resourceService: ResourceService) { }
+  constructor(private buildingService: BuildingService, private resourceService: ResourceService) { }
 
   ngOnInit() {
     this.getGoldAmount();
@@ -34,32 +33,25 @@ export class DashboardComponent implements OnInit {
   getGoldAmount() {
     this.resourceService.getDataFromBackend()
     .subscribe(response => this.goldAmount = response.resources
-      .find(resource => resource.resourceTypeENUM === ResourceType.GOLD).amount)
+      .find(resource => resource.resourceTypeENUM === ResourceType.GOLD).amount);
   }
 
   getNumberOfFarms() {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfFarms = response.buildingDTOS
-      .filter(building => building.buldingTypeENUM === 'FARM').length)
+      .filter(building => building.buldingTypeENUM === 'FARM').length);
   }
 
   getNumberOfMines() {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfMines = response.buildingDTOS
-      .filter(building => building.buldingTypeENUM === 'MINE').length)
+      .filter(building => building.buldingTypeENUM === 'MINE').length);
   }
 
   getNumberOfBarracks() {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfBarracks = response.buildingDTOS
-      .filter(building => building.buldingTypeENUM === 'BARRACK').length)
+      .filter(building => building.buldingTypeENUM === 'BARRACK').length);
   }
-
-  // checkNumberOfBuildingsByType(buildingtype: string): number {
-  //   this.buildings = this.buildingService.getBuildingsByType(buildingtype);
-  //   return this.buildings.length;
-  // }
-  // numberOfMines = this.getBuildingListByType('mine');
-  // numberOfBarracks = this.getBuildingListByType('barrack');
 
 }

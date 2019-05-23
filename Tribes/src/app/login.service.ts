@@ -12,9 +12,6 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<LoginResultModel> {
-    return this.http.post<LoginResultModel>(ROOT_URL + '/login', {
-      username: username,
-      password: password
-    });
+    return this.http.post<LoginResultModel>(ROOT_URL + '/login', { username, password });
   }
 }

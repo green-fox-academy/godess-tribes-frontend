@@ -14,5 +14,4 @@ export class BuildingService {
   getBuildingsFromAPI(): Observable<BuildingsResponse> {
     return this.http.get<BuildingsResponse>(ROOT_URL + '/kingdom/buildings');
   }
-
 }
