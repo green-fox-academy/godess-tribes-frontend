@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getKingdomName() {
-    this.headerService.getDataFromBackend().subscribe(response => this.name = response.name);
+    this.headerService.getDataFromBackend().subscribe(response => this.name.name = response.name);
   }
 
 }
