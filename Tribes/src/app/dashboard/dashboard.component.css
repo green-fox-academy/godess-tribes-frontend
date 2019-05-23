@@ -38,17 +38,6 @@ a :hover {
 	opacity: 0.9;
 }
 
-img :hover {
-    border: none;
-	color: #f2f2f2;
-	padding: 5px;
-	border-radius: 5px;
-	position: relative;
-	box-sizing: border-box;
-	transition: all 300ms ease;
-	opacity: 1;
-}
-
 .count-notif{
 	vertical-align:middle;
 	margin-left:-15px;
@@ -60,9 +49,19 @@ img :hover {
 	padding:3px;
 }
 
-.badge-primary{
-	border-radius: 14px;
-	font-size: 20px;
+.badge-add{
+    border-radius: 14px;
+	font-size: 30px;
+	position: relative;
+	top: 130px;
+	left: -40px;
+	color: #212529;
+   background-color: #ffc107;
 }
 
+.badge-warning {
+    padding:3px;
+    color: #212529;
+   background-color: #ffc107;
+}
 

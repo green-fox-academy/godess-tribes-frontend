@@ -13,7 +13,7 @@ import { HeaderService } from '../header.service';
 })
 export class HeaderComponent implements OnInit {
 
-  name: KingdomNameResponse;
+  name: string;
 
   constructor(private headerService: HeaderService) {
     this.getKingdomName();
