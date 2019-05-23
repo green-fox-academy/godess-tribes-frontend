@@ -30,17 +30,4 @@ export class BuildingService {
   getBuildingsFromAPI(): Observable<BuildingsResponse> {
     return this.http.get<BuildingsResponse>(ROOT_URL + '/kingdom/buildings');
   }
-
-  getBuildingById(id: number) {
-    return BUILDINGS.find(building => building.id === id);
-  }
-
-  getBuildingsbyType(type: string) {
-    return BUILDINGS.filter(building => building.buldingTypeENUM === type.toUpperCase());
-  }
-
-  getTownhallLevel(): number {
-    return BUILDINGS.find(building => building.buldingTypeENUM === 'TOWNHALL').level;
-  }
-
 }

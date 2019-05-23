@@ -19,7 +19,7 @@ import { ResourceType } from '../enums_resources';
 })
 export class BuildingTypeComponent implements OnInit {
 
-  buildings: Building[];
+  buildings: Building[] = [];
   levels: number[] = [];
   type: string;
   maxLevel = MAX_UPGRADE_LEVELS;
@@ -41,15 +41,6 @@ export class BuildingTypeComponent implements OnInit {
     this.getTownhallLevel();
     this.getGoldAmount();
   }
-
-  // getBuildingsByType(): void {
-  //   this.type = this.route.snapshot.paramMap.get('type');
-  //   this.buildings = this.buildingService.getBuildingsbyType(this.type);
-  // }
-
-  // getTownhallLevel(): void {
-  //   this.townhallLevel = this.buildingService.getTownhallLevel();
-  // }
 
   getBuildingsByType() {
     this.type = this.route.snapshot.paramMap.get('type');
@@ -78,7 +69,7 @@ export class BuildingTypeComponent implements OnInit {
     return PRODUCTION_RATE*level;
   }
 
-  getUpgardeingCost(level: number): number{
+  getUpgradingCost(level: number): number{
     return COST_BASE_UPGRADE*level;
   }
 

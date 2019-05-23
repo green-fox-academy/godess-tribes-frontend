@@ -27,11 +27,9 @@
         <div class="h2"> Details of your {{type}}s</div>
       </div>
       <div *ngFor="let level of levels" class="row mt-5 align-items-center">
-        <div class="col-2 text-center">
-          
+        <div class="col-2 level-icons">
           <div *ngFor="let i of [].constructor(level)" class="mx-auto text-center image-position">
             <img src="assets/images/{{type}}.png" class="level-image" />
-          
           </div>
         </div>
         <div class="col-4">
@@ -44,8 +42,8 @@
         </div>
         <div class="col-3" *ngIf="level !== 3">
           <button class="btn btn-warning"
-            [disabled]="(getNumberOfBuildingsByLevel(level) === 0) || (townhallLevel !== level) || (getUpgardeingCost(level) > goldAmount)">Upgrade<br><small>for
-              {{getUpgardeingCost(level)}} gold</small></button>
+            [disabled]="(getNumberOfBuildingsByLevel(level) === 0) || (townhallLevel === level) || (getUpgradingCost(level) > goldAmount)">Upgrade<br><small>for
+              {{getUpgradingCost(level)}} gold</small></button>
         </div>
       </div>
       <div class="row justify-content-center">
