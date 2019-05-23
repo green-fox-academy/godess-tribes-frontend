@@ -7,6 +7,7 @@ import { MapComponent } from './map/map.component';
 import { SettingsComponent } from './settings/settings.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RegisterFormComponent } from './register-form/register-form.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { KingdomComponent } from './kingdom/kingdom.component';

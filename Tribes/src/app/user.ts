@@ -1,8 +1,8 @@
 export class User {
+    id: number;
     username: string;
     password: string;
     kingdomName: string;
-    userId: number;
     kingdomId: number;
 
     constructor() {}
