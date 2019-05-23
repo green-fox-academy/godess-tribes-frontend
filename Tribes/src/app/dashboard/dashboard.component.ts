@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   costOfNewBuilding = COST_NEW_BUILDING;
   numberOfFarms: number;
   numberOfMines: number;
-  numberOfBarracks: number;
+  numberOfBarracks = 0;
 
   constructor(private buildingService: BuildingService, private resourceService: ResourceService) { }
 
@@ -48,10 +48,10 @@ export class DashboardComponent implements OnInit {
       .filter(building => building.buldingTypeENUM === 'MINE').length);
   }
 
-  getNumberOfBarracks() {
+ /*  getNumberOfBarracks() {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfBarracks = response.buildingDTOS
       .filter(building => building.buldingTypeENUM === 'BARRACK').length);
-  }
+  } */
 
 }

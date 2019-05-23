@@ -53,8 +53,8 @@ a :hover {
     border-radius: 14px;
 	font-size: 30px;
 	position: relative;
-	top: 130px;
-	left: -40px;
+	top: -20px;
+	left: 0px;
 	color: #212529;
    background-color: #ffc107;
 }

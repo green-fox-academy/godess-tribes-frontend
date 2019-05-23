@@ -1,19 +1,11 @@
 <div class="container-center">
   <h1>DASHBOARD</h1>
   <h3>Click on one of the icons below to see the details</h3>
+  goldamount {{goldAmount}}
   <ul class="list-group list-group-horizontal-md">
     <li class="list-group-item" style="margin-left: 10px; margin-right: 50px">
       <a routerLink="townhall"><img src="assets/images/townhall.png"></a>
     </li>
-
-    <div *ngIf="numberOfBarracks === 0 && costOfNewBuilding > goldAmount">
-      <li class="list-group-item">
-        <a class="inactive">
-          <img src="assets/images/barrack.png">
-          <span class="badge badge-add pull-right">+</span>
-        </a>
-      </li>
-    </div>
 
     <div *ngIf="numberOfBarracks === 0">
       <li class="list-group-item">
@@ -43,9 +35,9 @@
           <span class="badge badge-add pull-right">+</span>
           </a>
         </div>
-        <div *ngIf="costOfNewBuilding <= goldAmount"></div>
+        <div *ngIf="costOfNewBuilding <= goldAmount">
           <a routerLink="addNew">
-            <span class="badge badge-add pull-right">+</span>
+          <span class="badge badge-add pull-right">+</span>
           </a>
         </div>
       </li>
