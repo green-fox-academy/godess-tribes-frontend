@@ -27,9 +27,11 @@
         <div class="h2"> Details of your {{type}}s</div>
       </div>
       <div *ngFor="let level of levels" class="row mt-5 align-items-center">
-        <div class="col-2 text-center justify-content-center">
-          <div *ngFor="let i of [].constructor(level)" class="text-center image-position">
+        <div class="col-2 text-center">
+          
+          <div *ngFor="let i of [].constructor(level)" class="mx-auto text-center image-position">
             <img src="assets/images/{{type}}.png" class="level-image" />
+          
           </div>
         </div>
         <div class="col-4">

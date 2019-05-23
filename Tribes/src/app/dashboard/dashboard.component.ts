@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getBuildings(): void {
-    this.buildings = this.buildingService.getOneBuildingOfEachType(BUILDINGS, 'type');
+    this.buildings = this.buildingService.getOneBuildingOfEachType(BUILDINGS, 'buldingTypeENUM');
   }
 
 }

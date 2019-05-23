@@ -42,19 +42,32 @@ export class BuildingTypeComponent implements OnInit {
     this.getGoldAmount();
   }
 
-  getBuildingsByType(): void {
+  // getBuildingsByType(): void {
+  //   this.type = this.route.snapshot.paramMap.get('type');
+  //   this.buildings = this.buildingService.getBuildingsbyType(this.type);
+  // }
+
+  // getTownhallLevel(): void {
+  //   this.townhallLevel = this.buildingService.getTownhallLevel();
+  // }
+
+  getBuildingsByType() {
     this.type = this.route.snapshot.paramMap.get('type');
-    this.buildings = this.buildingService.getBuildingsbyType(this.type);
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.buildings = response.buildingDTOS
+                            .filter(building => building.buldingTypeENUM === this.type.toUpperCase()));
+  }
+
+  getTownhallLevel(): void {
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.townhallLevel = response.buildingDTOS
+                            .find(building => building.buldingTypeENUM === 'TOWNHALL').level);
   }
 
   createLevelArray(): void {
     for(let i: number = 1; i <= MAX_UPGRADE_LEVELS; i++) {
       this.levels.push(i);
     }
-  }
-
-  getTownhallLevel(): void {
-    this.townhallLevel = this.buildingService.getTownhallLevel();
   }
 
   getNumberOfBuildingsByLevel(level: number): number {

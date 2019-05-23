@@ -1,6 +1,10 @@
 import { BUILDINGS } from './mock-building';
 import { Building } from './building';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BuildingsResponse } from './buildings-response';
+import { ROOT_URL } from './constants';
 
 
 @Injectable({
@@ -8,7 +12,7 @@ import { Injectable } from '@angular/core';
 })
 export class BuildingService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getBuildings(): Building[] {
     return BUILDINGS;
@@ -23,16 +27,20 @@ export class BuildingService {
     return unique;
   }
 
+  getBuildingsFromAPI(): Observable<BuildingsResponse> {
+    return this.http.get<BuildingsResponse>(ROOT_URL + '/kingdom/buildings');
+  }
+
   getBuildingById(id: number) {
     return BUILDINGS.find(building => building.id === id);
   }
 
   getBuildingsbyType(type: string) {
-    return BUILDINGS.filter(building => building.type === type);
+    return BUILDINGS.filter(building => building.buldingTypeENUM === type.toUpperCase());
   }
 
   getTownhallLevel(): number {
-    return BUILDINGS.find(building => building.type === 'townhall').level;
+    return BUILDINGS.find(building => building.buldingTypeENUM === 'TOWNHALL').level;
   }
 
 }
