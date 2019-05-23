@@ -4,12 +4,7 @@ import { Building } from './../building';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { MAX_UPGRADE_LEVELS } from '../constants';
-import { PRODUCTION_RATE } from '../constants';
-import { COST_NEW_BUILDING } from '../constants';
-import { COST_BASE_UPGRADE } from '../constants';
-import { TOWNHALL_FOOD_CAPACITY } from '../constants';
-import { TOWNHALL_GOLD_CAPACITY } from '../constants';
+import { MAX_UPGRADE_LEVELS, PRODUCTION_RATE, COST_NEW_BUILDING, COST_BASE_UPGRADE, TOWNHALL_FOOD_CAPACITY, TOWNHALL_GOLD_CAPACITY } from '../constants';
 import { ResourceType } from '../enums_resources';
 
 @Component({
