@@ -1,9 +1,8 @@
+import { BuildingsResponse } from '../buildings-response';
 import { COST_NEW_BUILDING } from './../constants';
 import { ResourceType } from './../enums_resources';
 import { Component, OnInit } from '@angular/core';
-import { BUILDINGS } from './../mock-building';
 import { BuildingService } from './../building.service';
-import { Building } from './../building';
 import { ResourceService } from './../resource.service';
 import { ResourceResponse } from './../resourceResponse';
 
@@ -14,29 +13,53 @@ import { ResourceResponse } from './../resourceResponse';
 })
 export class DashboardComponent implements OnInit {
 
-  buildings: Building[];
+  buildings: BuildingsResponse;
   resources: ResourceResponse;
   goldAmount: number;
+  costOfNewBuilding = COST_NEW_BUILDING;
+  numberOfFarms: number;
+  numberOfMines: number;
+  numberOfBarracks: number;
 
   constructor(private buildingService: BuildingService,
     private resourceService: ResourceService) { }
 
   ngOnInit() {
     this.getGoldAmount();
+    this.getNumberOfFarms();
+    this.getNumberOfMines();
+    this.getNumberOfBarracks();
   }
 
   getGoldAmount() {
     this.resourceService.getDataFromBackend()
-    .subscribe(response => this.goldAmount = response.resources.find(resource => resource.resourceTypeENUM === ResourceType.GOLD).amount)
+    .subscribe(response => this.goldAmount = response.resources
+      .find(resource => resource.resourceTypeENUM === ResourceType.GOLD).amount)
   }
 
-  checkNumberOfBuildingsByType(buildingtype: string): number {
-    this.buildings = this.buildingService.getBuildingsByType(buildingtype);
-    return this.buildings.length;
+  getNumberOfFarms() {
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.numberOfFarms = response.buildingDTOS
+      .filter(building => building.buldingTypeENUM === 'FARM').length)
   }
 
-  numberOfFarms = this.checkNumberOfBuildingsByType('farm');
-  numberOfMines = this.checkNumberOfBuildingsByType('mine');
-  numberOfBarracks = this.checkNumberOfBuildingsByType('barrack');
+  getNumberOfMines() {
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.numberOfMines = response.buildingDTOS
+      .filter(building => building.buldingTypeENUM === 'MINE').length)
+  }
+
+  getNumberOfBarracks() {
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.numberOfBarracks = response.buildingDTOS
+      .filter(building => building.buldingTypeENUM === 'BARRACK').length)
+  }
+
+  // checkNumberOfBuildingsByType(buildingtype: string): number {
+  //   this.buildings = this.buildingService.getBuildingsByType(buildingtype);
+  //   return this.buildings.length;
+  // }
+  // numberOfMines = this.getBuildingListByType('mine');
+  // numberOfBarracks = this.getBuildingListByType('barrack');
 
 }
