@@ -3,13 +3,6 @@ img {
 	padding: 3px;
 }
 
-a img h1 {
-	position: absolute;
-	top: 200px;
-	left: 0;
-	width: 100%;
- }
-
 .list-group-item {
 	border: none;
 	padding: 0px;
@@ -38,13 +31,15 @@ a :hover {
 	opacity: 0.9;
 }
 
-.count-notif{
+.count-notif {
 	vertical-align:middle;
 	margin-left:-15px;
 	margin-top: -80px;
 	font-size:30px;
 }
 
-.badge-warning{
+.badge-warning {
 	padding:3px;
+	color: #212529;
+    background-color: #ffc107;
 }
