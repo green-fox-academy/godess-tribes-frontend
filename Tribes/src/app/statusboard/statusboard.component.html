@@ -2,3 +2,13 @@
 <div>
     <app-resources></app-resources>
 </div>
+<div class="container">
+    <div>
+        <ul>
+            <li *ngFor="let building of listOfBuildings">
+                <img style="width: 30px"src="./../../assets/images/chicken.png">
+                <span class="badge">Id : {{building.id}} - Level : {{building.level}}</span>
+    </li>
+    </ul>
+</div>
+</div>
