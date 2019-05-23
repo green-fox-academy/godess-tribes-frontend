@@ -5,10 +5,10 @@ const TOKEN = 'TOKEN';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
   constructor() { }
-
 
   setToken(token: string): void {
     localStorage.setItem(TOKEN, token);

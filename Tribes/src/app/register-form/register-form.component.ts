@@ -39,35 +39,34 @@ export class RegisterFormComponent implements OnInit {
     if (!valid) {
       this.submittedError = true;
       return;
-    } else {
-      this.startProcess();
-      this.submittedError = false;
-
-      this.registerService.register(
-        this.username,
-        this.password,
-        this.kingdomName
-      )
-      .subscribe(
-        resp => {
-            this.processStarted = false;
-            this.username = resp.username;
-            this.kingdomName = resp.kingdomName;
-            this.submitted = true;
-            this.loginService.login(this.username, this.password)
-              .subscribe(
-                response => {
-                  if (response.token) {
-                    this.userService.setToken(response.token);
-                    this.router.navigateByUrl('/kingdom');
-                    this.dialog.closeAll();
-                  }
-                });
-        },
-        error => {
-          this.isError = true;
-          this.error = error;
-        });
     }
+    this.startProcess();
+    this.submittedError = false;
+
+    this.registerService.register(
+    this.username,
+    this.password,
+    this.kingdomName
+      )
+    .subscribe(
+      resp => {
+        this.processStarted = false;
+        this.username = resp.username;
+        this.kingdomName = resp.kingdomName;
+        this.submitted = true;
+        this.loginService.login(this.username, this.password)
+          .subscribe(
+            response => {
+              if (response.token) {
+                this.userService.setToken(response.token);
+                this.router.navigateByUrl('/kingdom');
+                this.dialog.closeAll();
+              }
+            });
+        },
+      error => {
+        this.isError = true;
+        this.error = error;
+        });
   }
 }
