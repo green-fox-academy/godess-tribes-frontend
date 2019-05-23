@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { BuildingTypeComponent } from './building-type/building-type.component';
 import { BuildingsComponent } from './buildings/buildings.component';
@@ -6,6 +7,7 @@ import { MapComponent } from './map/map.component';
 import { SettingsComponent } from './settings/settings.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RegisterFormComponent } from './register-form/register-form.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { KingdomComponent } from './kingdom/kingdom.component';
@@ -25,6 +27,7 @@ const routes: Routes = [
   { path: 'kingdom/battle', component: BattleComponent, canActivate: [AuthGuard] },
   { path: 'kingdom/:type', component: BuildingTypeComponent, canActivate: [AuthGuard] },
   { path: 'kingdom/resources', component: ResourcesComponent, canActivate: [AuthGuard] },
+  { path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({

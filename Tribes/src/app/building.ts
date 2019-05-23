@@ -1,6 +1,6 @@
 export class Building {
     id: number;
-    type: string;
+    buldingTypeENUM: string;
     level: number;
     startedAt: number;
     finishedAt: number;
@@ -8,7 +8,7 @@ export class Building {
 
     constructor(id: number, type: string, level: number, startedAt: number, finishedAt: number) {
         this.id = id;
-        this.type = type;
+        this.buldingTypeENUM = type;
         this.level = level;
         this.startedAt = startedAt;
         this.finishedAt = finishedAt;
