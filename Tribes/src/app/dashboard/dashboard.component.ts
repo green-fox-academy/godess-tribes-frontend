@@ -53,5 +53,4 @@ export class DashboardComponent implements OnInit {
     .subscribe(response => this.numberOfBarracks = response.buildingDTOS
       .filter(building => building.buldingTypeENUM === 'BARRACK').length);
   }
-
 }
