@@ -1,5 +1,5 @@
 import { ROOT_URL } from './constants';
-import { ResourceResponse } from './resourceResponse';
+import { ResourceResponse } from './resource-response';
 
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';

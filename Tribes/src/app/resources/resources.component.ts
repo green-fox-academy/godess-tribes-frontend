@@ -1,4 +1,4 @@
-import { ResourceResponse } from './../resourceResponse';
+import { ResourceResponse } from '../resource-response';
 import { ResourceService } from './../resource.service';
 import { Component, OnInit } from '@angular/core';
 import { Resource} from './../resource';
