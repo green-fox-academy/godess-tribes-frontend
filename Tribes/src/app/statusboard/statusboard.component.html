@@ -32,5 +32,12 @@
                 </div>
             </li>
         </ul>
+        <ul>
+                <li *ngFor="let soldier of listOfSoldiers">
+                        <img src="./../../assets/images/generate_soldiers.png">
+                        <span class="badge">Id : {{soldier.id}} | Level : {{soldier.level}}</span>
+                        <span class="badge">Soldier development</span>
+                </li>
+            </ul>
     </div>
 </div>
