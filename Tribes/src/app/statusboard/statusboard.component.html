@@ -6,9 +6,31 @@
     <div>
         <ul>
             <li *ngFor="let building of listOfBuildings">
-                <img style="width: 30px"src="./../../assets/images/chicken.png">
-                <span class="badge">Id : {{building.id}} - Level : {{building.level}}</span>
-    </li>
-    </ul>
-</div>
+                <div *ngIf="building.buldingTypeENUM ==='MINE'">
+                    <img src="./../../assets/images/mine.png">
+                    <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
+                        {{building.level}}</span>
+                    <span class="badge">Under construction</span>
+                </div>
+                <div *ngIf="building.buldingTypeENUM ==='BARRACK'">
+                    <img src="./../../assets/images/barrack.png">
+                    <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
+                        {{building.level}}</span>
+                    <span class="badge">Under construction</span>
+                </div>
+                <div *ngIf="building.buldingTypeENUM ==='TOWNHALL'">
+                    <img src="./../../assets/images/townhall.png">
+                    <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
+                        {{building.level}}</span>
+                    <span class="badge">Under construction</span>
+                </div>
+                <div *ngIf="building.buldingTypeENUM ==='FARM'">
+                    <img src="./../../assets/images/farm.png">
+                    <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
+                        {{building.level}}</span>
+                    <span class="badge">Under construction</span>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
