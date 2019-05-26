@@ -7,15 +7,15 @@
       <a routerLink="townhall"><img src="assets/images/townhall.png"></a>
     </li>
 <!-- barrak -->
-    <div *ngIf="numberOfBarracks === 0">
+    <div class="zero-building" *ngIf="numberOfBarracks === 0">
       <li class="list-group-item">
         <a class="inactive">
           <img src="assets/images/barrack.png">
         </a>
         <div *ngIf="costOfNewBuilding > goldAmount">
-          <a class="inactive">
-          <span class="badge badge-add pull-right">+</span>
-          </a>
+            <div class="inactive">
+              <span class="badge badge-add pull-right">+</span>
+            </div>
         </div>
         <div *ngIf="costOfNewBuilding <= goldAmount">
           <a routerLink="addNew">
@@ -31,9 +31,9 @@
           <span class="badge badge-warning count-notif">x {{ numberOfBarracks }}</span>
         </a>
         <div *ngIf="costOfNewBuilding > goldAmount">
-          <a class="inactive">
+          <div class="inactive">
           <span class="badge badge-add pull-right">+</span>
-          </a>
+          </div>
         </div>
         <div *ngIf="costOfNewBuilding <= goldAmount">
           <a routerLink="addNew">
@@ -51,9 +51,9 @@
         <span class="badge badge-warning count-notif">x {{ numberOfFarms }}</span>
       </a>
       <div *ngIf="costOfNewBuilding > goldAmount">
-        <a class="inactive">
+        <div class="inactive">
           <span class="badge badge-add pull-right">+</span>
-        </a>
+        </div>
       </div>
       <div *ngIf="costOfNewBuilding <= goldAmount">
         <a routerLink="addNew">
@@ -67,9 +67,9 @@
         <span class="badge badge-warning count-notif">x {{ numberOfMines }}</span>
       </a>
       <div *ngIf="costOfNewBuilding > goldAmount">
-        <a class="inactive">
+        <div class="inactive">
           <span class="badge badge-add pull-right">+</span>
-        </a>
+        </div>
       </div>
       <div *ngIf="costOfNewBuilding <= goldAmount">
         <a routerLink="addNew">

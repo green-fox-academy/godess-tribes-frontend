@@ -51,12 +51,23 @@ a :hover {
    background-color: #ffc107;
 }
 
-.badge-add{
+.badge-add {
     border-radius: 14px;
 	font-size: 30px;
 	position: relative;
 	top: -45px;
 	left: -10px;
 	color: #212529;
-   background-color: #ffc107;
+   	background-color: #ffc107;
 }
+
+.zero-building .badge-add {
+	border-radius: 14px;
+	font-size: 30px;
+	position: relative;
+	top: -45px;
+	left: 20px;
+	color: #212529;
+   	background-color: #ffc107;
+}
+

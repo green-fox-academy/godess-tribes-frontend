@@ -28,6 +28,8 @@ export class DashboardComponent implements OnInit {
     this.getNumberOfFarms();
     this.getNumberOfMines();
     this.getNumberOfBarracks();
+    this.numOfB;
+    
   }
 
   getGoldAmount() {
