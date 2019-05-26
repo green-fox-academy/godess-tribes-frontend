@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
   getGoldAmount() {
     this.resourceService.getDataFromBackend()
     .subscribe(response => this.goldAmount = response.resources
-      .find(resource => resource.resourceTypeENUM === ResourceType.GOLD).amount);
+      .find(resource => resource.resourceTypeENUM === 'GOLD').amount);
   }
 
   getNumberOfFarms() {
