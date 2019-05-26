@@ -19,7 +19,7 @@ export class ResourcesComponent implements OnInit {
  //   this.getResources();
   }
 
-  /* getResources() {
-    this.resourceService.getDataFromBackend().subscribe(response => this.resources.resources = response.resources);
-  } */
+  getResources() {
+    this.resourceService.getDataFromBackend().subscribe(response => this.resources = response);
+  }
 }
