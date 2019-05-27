@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'kingdom', component: KingdomComponent, canActivate: [AuthGuard] },
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
-  { path: 'logout', redirectTo: '/', pathMatch: 'full'},
+  { path: 'logout', redirectTo: '/login', pathMatch: 'full'},
   { path: 'map', component: MapComponent, canActivate: [AuthGuard] },
   { path: 'leaderboard', component: LeaderboardComponent, canActivate: [AuthGuard] },
   { path: 'buildings', component: BuildingsComponent, canActivate: [AuthGuard] },
