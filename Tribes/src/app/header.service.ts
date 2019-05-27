@@ -9,7 +9,6 @@ import { ROOT_URL } from './constants';
 })
 export class HeaderService {
 
-
   constructor(private http: HttpClient) { }
 
   getDataFromBackend(): Observable<KingdomResponse> {
