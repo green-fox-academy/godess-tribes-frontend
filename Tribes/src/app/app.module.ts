@@ -29,6 +29,7 @@ import { SoldiersComponent } from './soldiers/soldiers.component';
 import { BattleComponent } from './battle/battle.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ServerErrorInterceptor } from './interceptors/server-error-interceptor';
+import { GenericErrorComponent } from './generic-error/generic-error.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ServerErrorInterceptor } from './interceptors/server-error-interceptor'
     SoldiersComponent,
     BattleComponent,
     PageNotFoundComponent,
+    GenericErrorComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,9 +16,10 @@ export class ServerErrorInterceptor implements HttpInterceptor {
     catchError((error: HttpErrorResponse) => {
       if (error.error.message === 'Unauthorized') {
         this.router.navigateByUrl('/login');
-      } else {
-        return throwError(error);
+      } else if (error.status === 0){
+        this.router.navigateByUrl('/error');
       }
+      return throwError(error);
     }));
   }
 }
