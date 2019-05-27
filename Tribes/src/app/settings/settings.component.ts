@@ -11,9 +11,12 @@ import { HeaderService } from '../header.service';
 export class SettingsComponent implements OnInit {
   kingdomName: string;
 
-  constructor(private headerService: HeaderService) { }
+  constructor(private headerService: HeaderService) {
+    this.getKingdomName();
+   }
 
   ngOnInit() {
+    this.getKingdomName();
   }
 
   getKingdomName () {

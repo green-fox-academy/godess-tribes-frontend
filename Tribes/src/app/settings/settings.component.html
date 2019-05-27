@@ -4,7 +4,8 @@
     <form>
       <div class="form-group">
         <label for="name">Kingdom name</label>
-        <input type="text" class="form-control" id="name" required>
+        <input type="text" class="form-control" id="name" required
+        [(ngModel)]="kingdomName" name="name">
       </div>
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
