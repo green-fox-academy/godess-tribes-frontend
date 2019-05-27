@@ -28,6 +28,7 @@ import { BuildingTypeComponent } from './building-type/building-type.component';
 import { SoldiersComponent } from './soldiers/soldiers.component';
 import { BattleComponent } from './battle/battle.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ServerErrorInterceptor } from './interceptors/server-error-interceptor';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ServerErrorInterceptor,
       multi: true
     }
   ]

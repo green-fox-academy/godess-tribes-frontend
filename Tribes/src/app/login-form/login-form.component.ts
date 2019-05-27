@@ -35,18 +35,17 @@ export class LoginFormComponent implements OnInit {
         this.password
       )
         .subscribe(
-          resp => {
-            if (resp.token) {
-              this.userService.setToken(resp.token);
+          response => {
+            if (response.token) {
+              this.userService.setToken(response.token);
               this.router.navigateByUrl('/kingdom');
             }
           },
-          resp => {
-            if (resp.message) {
-              this.errorMessage = resp.message;
+          error => {
+            if (error) {
+              this.errorMessage = error;
             }
             // TODO: replace it with generic error page
-            alert(resp.error.error);
           });
     }
   }
