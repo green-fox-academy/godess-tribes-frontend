@@ -4,7 +4,6 @@ img{
 }
 .badge {
     display: inline-block;
-    color: darkslategray;
     padding: 12px;
     line-height: 1em;
     position: relative;
@@ -12,6 +11,7 @@ img{
     top: 10px;
     height: 1em;
     border-radius: 4px;
+    background-color: lightsteelblue;
   }
   li{
     list-style-type: none;
@@ -19,7 +19,7 @@ img{
   }
   .container{
       background-color: lightsteelblue;
-      width: 60%;
+      width: 70%;
       border-radius: 50px;
   }
   ul{
