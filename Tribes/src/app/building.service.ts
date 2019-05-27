@@ -10,7 +10,8 @@ import { ROOT_URL } from './constants';
 })
 export class BuildingService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+   }
 
   getBuildingsFromAPI(): Observable<BuildingsResponse> {
     return this.http.get<BuildingsResponse>(ROOT_URL + '/kingdom/buildings');
