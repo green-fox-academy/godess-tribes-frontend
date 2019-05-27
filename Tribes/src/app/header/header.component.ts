@@ -1,4 +1,4 @@
-import { KingdomNameResponse } from './../kingdomNameResponse';
+import {KingdomResponse} from  './../kingdom-response';
 import { MapComponent } from './../map/map.component';
 import { LeaderboardComponent } from './../leaderboard/leaderboard.component';
 import { SettingsComponent } from './../settings/settings.component';
@@ -13,7 +13,7 @@ import { HeaderService } from '../header.service';
 })
 export class HeaderComponent implements OnInit {
 
-  name: string;
+  kingdomName: string;
 
   constructor(private headerService: HeaderService) {
     this.getKingdomName();
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getKingdomName() {
-    this.headerService.getDataFromBackend().subscribe(response => this.name.name = response.name);
+    this.headerService.getDataFromBackend().subscribe(response => this.kingdomName = response.kingdomName);
   }
 
 }

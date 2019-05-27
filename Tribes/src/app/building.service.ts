@@ -1,4 +1,5 @@
 import { BuildingsResponse } from './buildings-response';
+import { SoldierResponse } from './soldiers-response';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,5 +14,9 @@ export class BuildingService {
 
   getBuildingsFromAPI(): Observable<BuildingsResponse> {
     return this.http.get<BuildingsResponse>(ROOT_URL + '/kingdom/buildings');
+  }
+
+  getSoldiersFromAPI(): Observable<SoldierResponse> {
+    return this.http.get<SoldierResponse>(ROOT_URL + '/kingdom/soldiers')
   }
 }

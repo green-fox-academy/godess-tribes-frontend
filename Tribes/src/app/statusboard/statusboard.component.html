@@ -2,3 +2,42 @@
 <div>
     <app-resources></app-resources>
 </div>
+<div class="container-fluid">
+    <div>
+        <ul>
+            <li *ngFor="let building of listOfBuildings">
+                <div *ngIf="building.buldingTypeENUM ==='MINE'">
+                    <img src="./../../assets/images/mine.png">
+                    <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
+                        {{building.level}}</span>
+                    <span class="badge">Under construction</span>
+                </div>
+                <div *ngIf="building.buldingTypeENUM ==='BARRACK'">
+                    <img src="./../../assets/images/barrack.png">
+                    <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
+                        {{building.level}}</span>
+                    <span class="badge">Under construction</span>
+                </div>
+                <div *ngIf="building.buldingTypeENUM ==='TOWNHALL'">
+                    <img src="./../../assets/images/townhall.png">
+                    <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
+                        {{building.level}}</span>
+                    <span class="badge">Under construction</span>
+                </div>
+                <div *ngIf="building.buldingTypeENUM ==='FARM'">
+                    <img src="./../../assets/images/farm.png">
+                    <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
+                        {{building.level}}</span>
+                    <span class="badge">Under construction</span>
+                </div>
+            </li>
+        </ul>
+        <ul>
+                <li *ngFor="let soldier of listOfSoldiers">
+                        <img src="./../../assets/images/generate_soldiers.png">
+                        <span class="badge">Id : {{soldier.id}} | Level : {{soldier.level}}</span>
+                        <span class="badge">Soldier development</span>
+                </li>
+            </ul>
+    </div>
+</div>
