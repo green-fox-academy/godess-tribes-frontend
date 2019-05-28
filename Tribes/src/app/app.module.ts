@@ -52,11 +52,8 @@ import { GenericErrorComponent } from './generic-error/generic-error.component';
     SoldiersComponent,
     BattleComponent,
     PageNotFoundComponent,
-<<<<<<< HEAD
     AddNewBadgeComponent,
-=======
     GenericErrorComponent,
->>>>>>> master
   ],
   imports: [
     BrowserModule,
