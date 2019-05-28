@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   costOfNewBuilding = COST_NEW_BUILDING;
   numberOfFarms: number;
   numberOfMines: number;
-  numberOfBarracks: number;
+  numberOfBarracks : number;
 
   constructor(private buildingService: BuildingService, private resourceService: ResourceService) { }
 
