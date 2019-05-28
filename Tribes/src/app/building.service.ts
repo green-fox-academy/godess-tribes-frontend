@@ -18,6 +18,6 @@ export class BuildingService {
   }
 
   getSoldiersFromAPI(): Observable<SoldierResponse> {
-    return this.http.get<SoldierResponse>(ROOT_URL + '/kingdom/soldiers')
+    return this.http.get<SoldierResponse>(ROOT_URL + '/kingdom/soldiers');
   }
 }

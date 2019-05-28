@@ -4,7 +4,8 @@ import { Building } from './../building';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { MAX_UPGRADE_LEVELS, PRODUCTION_RATE, COST_NEW_BUILDING, COST_BASE_UPGRADE, TOWNHALL_FOOD_CAPACITY, TOWNHALL_GOLD_CAPACITY } from '../constants';
+import { MAX_UPGRADE_LEVELS, PRODUCTION_RATE, COST_NEW_BUILDING, COST_BASE_UPGRADE,
+        TOWNHALL_FOOD_CAPACITY, TOWNHALL_GOLD_CAPACITY } from '../constants';
 import { ResourceType } from '../enums_resources';
 
 @Component({
@@ -41,13 +42,13 @@ export class BuildingTypeComponent implements OnInit {
     this.type = this.route.snapshot.paramMap.get('type');
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.buildings = response.buildingDTOS
-                            .filter(building => building.buldingTypeENUM === this.type.toUpperCase()));
+                            .filter(building => building.buildingTypeENUM === this.type.toUpperCase()));
   }
 
   getTownhallLevel(): void {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.townhallLevel = response.buildingDTOS
-                            .find(building => building.buldingTypeENUM === 'TOWNHALL').level);
+                            .find(building => building.buildingTypeENUM === 'TOWNHALL').level);
   }
 
   createLevelArray(): void {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { HeaderService } from '../header.service';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 
 @Component({
@@ -11,7 +13,7 @@ import { HeaderService } from '../header.service';
 export class SettingsComponent implements OnInit {
   kingdomName: string;
 
-  constructor(private headerService: HeaderService) {
+  constructor(private headerService: HeaderService, private router: Router) {
     this.getKingdomName();
    }
 
@@ -29,6 +31,6 @@ export class SettingsComponent implements OnInit {
   }
 
   goBack() {
-
+    this.router.navigateByUrl('/kingdom')
   }
 }
