@@ -28,6 +28,7 @@ import { BuildingTypeComponent } from './building-type/building-type.component';
 import { SoldiersComponent } from './soldiers/soldiers.component';
 import { BattleComponent } from './battle/battle.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddNewBadgeComponent } from './add-new-badge/add-new-badge.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     SoldiersComponent,
     BattleComponent,
     PageNotFoundComponent,
+    AddNewBadgeComponent,
   ],
   imports: [
     BrowserModule,

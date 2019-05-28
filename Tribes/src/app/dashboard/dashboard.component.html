@@ -13,15 +13,17 @@
       <div class="zero-building" *ngIf="numberOfBarracks === 0">
         <div class="inactive">
           <img src="assets/images/barrack.png">
-          <div *ngIf="costOfNewBuilding > goldAmount">
-            <span class="badge badge-add pull-right">+</span>
-          </div>
         </div>
-        <!-- <div *ngIf="costOfNewBuilding <= goldAmount">
+
+        <div class="inactive" *ngIf="costOfNewBuilding > goldAmount">
+          <span class="badge badge-add pull-right">+</span>
+        </div>
+
+        <div *ngIf="costOfNewBuilding <= goldAmount">
           <a routerLink="addNew">
             <span class="badge badge-add pull-right">+</span>
           </a>
-        </div> -->
+        </div>
       </div>
 
       <div *ngIf="numberOfBarracks > 0">
