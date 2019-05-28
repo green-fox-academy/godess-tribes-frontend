@@ -17,7 +17,7 @@ export class ServerErrorInterceptor implements HttpInterceptor {
       if (error.error.message === 'Unauthorized') {
         this.router.navigateByUrl('/login');
         localStorage.removeItem('TOKEN');
-      } else if ((error.status === 0) || (error.status >= 500) || (error.error instanceof ErrorEvent)){
+      } else if ((error.status === 0) || (error.status >= 500) || (error.error instanceof ErrorEvent)) {
         this.router.navigateByUrl('/error');
       }
       return throwError(error);

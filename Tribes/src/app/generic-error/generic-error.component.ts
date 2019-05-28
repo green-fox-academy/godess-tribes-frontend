@@ -6,15 +6,14 @@ import { Location } from '@angular/common';
   templateUrl: './generic-error.component.html',
   styleUrls: ['./generic-error.component.css']
 })
+
 export class GenericErrorComponent implements OnInit {
 
   constructor(private location: Location) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  goBack(){
+  goBack() {
     this.location.back();
   }
-
 }
