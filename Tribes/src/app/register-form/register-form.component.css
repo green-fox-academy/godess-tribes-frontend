@@ -14,5 +14,36 @@
 }
 
 .mat-dialog-close {
-    color: #a94442;
+    color: #046777;
+    font-size: x-large;
+    border: none;
+}
+
+.mat-dialog-close:focus{
+    outline: 0;
+}
+
+.container-fluid {
+    width: 90%;
+}
+
+#button {
+    background-color: #e0634d;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#button:hover {
+    background-color: #d48273;
+    opacity: 0.6;
+}
+
+#button:focus {
+    outline: 0;
 }

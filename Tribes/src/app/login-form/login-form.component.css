@@ -15,6 +15,10 @@
     opacity: 0.6;
 }
 
+#button:focus {
+  outline: 0;
+}
+
 .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948;
   }

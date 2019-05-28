@@ -14,7 +14,7 @@
 
     <div class="form-group">
       <label for="password">Password</label>
-      <show-hide-password size="sm" [btnOutline]="true">
+      <show-hide-password size="md" [btnOutline]="true">
       <input type="password" class="form-control" id="password" required
         [(ngModel)]="password" name="password"
         minlength="8"
@@ -42,7 +42,9 @@
         {{error}}
     </div>
 
-    <button type="submit" class="btn btn-success" [disabled]="processStarted">Submit</button>
+    <div class="text-center">
+      <button type="submit" id="button" [disabled]="processStarted">Register</button>
+    </div>
   </form>
 
   <div class="submitted" *ngIf="submitted" class="alert alert-success">

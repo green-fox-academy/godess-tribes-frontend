@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <div class="col-8">
-      <div *ngIf="type === 'townhall'">
+      <div *ngIf="type === 'TOWNHALL'">
           <div class="row align-items-center justify-content-center mb-5">
             <img src="assets/images/{{type}}.png" class="main-image" />
             <div class="h2">Details of your {{type}}</div>
@@ -21,7 +21,7 @@
                   {{getUpgardeingCost(townhallLevel)}} gold</small></button>
           </div>
         </div>
-  <div *ngIf="type !== 'townhall'">
+  <div *ngIf="type !== 'TOWNHALL'">
       <div class="row align-items-center justify-content-center mb-5">
         <img src="assets/images/{{type}}.png" class="main-image" />
         <div class="h2"> Details of your {{type}}s</div>

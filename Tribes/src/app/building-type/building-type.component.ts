@@ -41,13 +41,13 @@ export class BuildingTypeComponent implements OnInit {
     this.type = this.route.snapshot.paramMap.get('type');
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.buildings = response.buildingDTOS
-                            .filter(building => building.buldingTypeENUM === this.type.toUpperCase()));
+                            .filter(building => building.buildingTypeENUM === this.type.toUpperCase()));
   }
 
   getTownhallLevel(): void {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.townhallLevel = response.buildingDTOS
-                            .find(building => building.buldingTypeENUM === 'TOWNHALL').level);
+                            .find(building => building.buildingTypeENUM === 'TOWNHALL').level);
   }
 
   createLevelArray(): void {

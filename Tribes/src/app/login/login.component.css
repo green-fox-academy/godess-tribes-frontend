@@ -25,6 +25,10 @@
     opacity: 0.6;
 }
 
+#button:focus {
+    outline: 0;
+}
+
 .row {
     margin: 50px 50px 100px 100px;
 }
