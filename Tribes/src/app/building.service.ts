@@ -1,5 +1,5 @@
-import { BuildingsResponse } from './buildings-response';
 import { SoldierResponse } from './soldiers-response';
+import { BuildingsResponse } from './buildings-response';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -10,7 +10,8 @@ import { ROOT_URL } from './constants';
 })
 export class BuildingService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+   }
 
   getBuildingsFromAPI(): Observable<BuildingsResponse> {
     return this.http.get<BuildingsResponse>(ROOT_URL + '/kingdom/buildings');
