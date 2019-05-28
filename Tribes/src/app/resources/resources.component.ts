@@ -1,6 +1,7 @@
+import { ResourceResponse } from '../resource-response';
 import { ResourceService } from './../resource.service';
 import { Component, OnInit } from '@angular/core';
-import {Resource} from './../resource';
+import { Resource} from './../resource';
 
 @Component({
   selector: 'app-resources',
@@ -9,7 +10,7 @@ import {Resource} from './../resource';
 })
 export class ResourcesComponent implements OnInit {
 
-resources: Resource[];
+  resources: Resource[];
 
   constructor(private resourceService: ResourceService) {
     this.getResources();

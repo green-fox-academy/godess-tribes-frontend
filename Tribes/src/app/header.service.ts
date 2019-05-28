@@ -1,8 +1,9 @@
 import { KingdomResponse } from './kingdom-response';
+import { ROOT_URL } from './constants';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ROOT_URL } from './constants';
+
 
 @Injectable({
   providedIn: 'root'

@@ -4,7 +4,7 @@ import { ResourceType } from './../enums_resources';
 import { Component, OnInit } from '@angular/core';
 import { BuildingService } from './../building.service';
 import { ResourceService } from './../resource.service';
-import { ResourceResponse } from './../resourceResponse';
+import { ResourceResponse } from './../resource-response';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
   getGoldAmount() {
     this.resourceService.getDataFromBackend()
     .subscribe(response => this.goldAmount = response.resources
-      .find(resource => resource.resourceTypeENUM === 'GOLD').amount);
+      .find(resource => resource.type === 'GOLD').amount);
   }
 
   getNumberOfFarms() {
