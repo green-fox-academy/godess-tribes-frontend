@@ -63,3 +63,8 @@ a :hover {
 	color: #212529;
    	background-color: #ffc107;
 }
+
+.zero-building {
+	position: relative;
+	left: 20px;
+}
