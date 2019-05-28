@@ -17,8 +17,8 @@
           </div>
           <div *ngIf="towhalllevel !== 3" class="text-center mt-3">
             <button class="btn btn-warning"
-                [disabled]="getUpgardeingCost(townhallLevel) > goldAmount">Upgrade<br><small>for
-                  {{getUpgardeingCost(townhallLevel)}} gold</small></button>
+                [disabled]="getUpgradingCost(townhallLevel) > goldAmount">Upgrade<br><small>for
+                  {{getUpgradingCost(townhallLevel)}} gold</small></button>
           </div>
         </div>
   <div *ngIf="type !== 'townhall'">
