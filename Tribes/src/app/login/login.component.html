@@ -1,31 +1,31 @@
-<div class="container m-auto justify-content-center">
-    <h2 class="text-center mt-5"><span>Welcome to Travian,</span><br><span> a strategy game played by thousands of
-            people around the World!</span></h2>
+<div class="container-fluid m-auto justify-content-center">
+    <div class="text-center mt-5">
+        <h1>Welcome to Tribes</h1>
+        <h2>a strategy game soon to be played by thousands of people around the World!</h2>
+    </div>
     <app-login-form></app-login-form>
     <div class="justify-content-center text-center mt-3">
-        <div class="text-center">Are you new in the game?</div>
+        <div class="text-center">Are you new to the game?</div>
         <div class="text-center">
-            <button class="btn btn-dark" (click)="openRegistrationDialog()">Register here!</button>
+            <button id="button" (click)="openRegistrationDialog()">Register here!</button>
         </div>
     </div>
-    <div class="row mt-5">
-        <div class="col-3 text-center">
-            <img src="../../assets/images/build_kingdom.png" class="img-fluid" />
-            <p class="text-center">Build your own Kingdom with a headquarter, strategic buildings of production and
-                storage</p>
+    <div class="row">
+        <div class="col-md">
+            <img src="../../assets/images/build_kingdom.png"/>
+            <p>Build your own Kingdom with a headquarter,<br/>strategic buildings of production and storage</p>
         </div>
-        <div class="col-3 text-center">
-            <img src="../../assets/images/gold.png" class="img-fluid" />
-            <p class="text-center">Manage your farm and mine to produce resources</p>
+        <div class="col-md">
+            <img src="../../assets/images/gold.png"/>
+            <p>Manage your farm and mine to produce resources</p>
         </div>
-        <div class="col-3 text-center">
-            <img src="../../assets/images/army_2.png" class="img-fluid" />
-            <p class="text-center">Build up a strong cohort to attack enemies around your kingdom</p>
+        <div class="col-md">
+            <img src="../../assets/images/army_2.png"/>
+            <p>Build up a strong cohort to attack<br/>enemies around your kingdom</p>
         </div>
-        <div class="col-3 text-center">
-            <img src="../../assets/images/Fight.png" class="img-fluid" />
-            <p class="text-center">Fight with other Kingdoms to gain resources, broaden your territory and boost your
-                troops up</p>
+        <div class="col-md">
+            <img src="../../assets/images/Fight.png"/>
+            <p>Fight with other Kingdoms to gain resources,<br/>broaden your territory and boost your troops up</p>
         </div>
     </div>
 </div>

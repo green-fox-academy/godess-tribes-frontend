@@ -1,12 +1,11 @@
 <div class="container-center">
-  <h1>DASHBOARD</h1>
   <h3>Click on one of the icons below to see the details</h3>
 
   <ul class="list-group list-group-horizontal-md">
     <li class="list-group-item" style="margin-left: 10px; margin-right: 50px">
       <a routerLink="townhall"><img src="assets/images/townhall.png"></a>
     </li>
-<!-- barrak -->
+
     <li class="list-group-item">
       <div class="zero-building" *ngIf="numberOfBarracks === 0">
         <div class="inactive">
@@ -24,7 +23,6 @@
     </li>
   </ul>
 
-<!-- farm -->
   <ul class="list-group list-group-horizontal-md">
     <li class="list-group-item">
       <div class="zero-building" *ngIf="numberOfFarms === 0">
@@ -42,7 +40,6 @@
       </div>
     </li>
 
-<!-- mine -->
     <li class="list-group-item" style="margin-left: 20px; margin-right: 50px">
       <div class="zero-building" *ngIf="numberOfMines === 0">
         <div class="inactive">

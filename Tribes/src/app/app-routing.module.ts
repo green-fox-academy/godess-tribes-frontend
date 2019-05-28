@@ -13,6 +13,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { KingdomComponent } from './kingdom/kingdom.component';
 import { SoldiersComponent } from './soldiers/soldiers.component';
 import { BattleComponent } from './battle/battle.component';
+import { GenericErrorComponent } from './generic-error/generic-error.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'kingdom/battle', component: BattleComponent, canActivate: [AuthGuard] },
   { path: 'kingdom/:type', component: BuildingTypeComponent, canActivate: [AuthGuard] },
   { path: 'kingdom/resources', component: ResourcesComponent, canActivate: [AuthGuard] },
+  { path: 'error', component: GenericErrorComponent},
   { path: '**', component: PageNotFoundComponent},
 ];
 

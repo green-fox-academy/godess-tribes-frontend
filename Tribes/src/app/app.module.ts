@@ -29,6 +29,8 @@ import { SoldiersComponent } from './soldiers/soldiers.component';
 import { BattleComponent } from './battle/battle.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddNewBadgeComponent } from './add-new-badge/add-new-badge.component';
+import { ServerErrorInterceptor } from './interceptors/server-error-interceptor';
+import { GenericErrorComponent } from './generic-error/generic-error.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,11 @@ import { AddNewBadgeComponent } from './add-new-badge/add-new-badge.component';
     SoldiersComponent,
     BattleComponent,
     PageNotFoundComponent,
+<<<<<<< HEAD
     AddNewBadgeComponent,
+=======
+    GenericErrorComponent,
+>>>>>>> master
   ],
   imports: [
     BrowserModule,
@@ -67,6 +73,11 @@ import { AddNewBadgeComponent } from './add-new-badge/add-new-badge.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ServerErrorInterceptor,
       multi: true
     }
   ]
