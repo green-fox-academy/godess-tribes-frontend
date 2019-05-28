@@ -6,9 +6,9 @@ export class Building {
     finishedAt: number;
     imageURL?: string;
 
-    constructor(id: number, type: string, level: number, startedAt: number, finishedAt: number) {
+    constructor(id: number, buildingTypeEnum: string, level: number, startedAt: number, finishedAt: number) {
         this.id = id;
-        this.buildingTypeENUM = type;
+        this.buildingTypeENUM = buildingTypeEnum;
         this.level = level;
         this.startedAt = startedAt;
         this.finishedAt = finishedAt;
