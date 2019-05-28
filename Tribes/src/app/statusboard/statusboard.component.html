@@ -1,31 +1,34 @@
 <h1>STATUSBOARD</h1>
 <div>
+    <h3>Available resources</h3>
     <app-resources></app-resources>
 </div>
-
-<div class="container-fluid">
+<div>
+    <app-notifications></app-notifications>
+</div>
+<!-- <div class="container-fluid">
     <div>
         <ul>
             <li *ngFor="let building of listOfBuildings">
-                <div *ngIf="building.buldingTypeENUM ==='MINE'">
+                <div *ngIf="building.buildingTypeENUM ==='MINE'">
                     <img src="./../../assets/images/mine.png">
                     <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
                         {{building.level}}</span>
                     <span class="badge">Under construction</span>
                 </div>
-                <div *ngIf="building.buldingTypeENUM ==='BARRACK'">
+                <div *ngIf="building.buildingTypeENUM ==='BARRACK'">
                     <img src="./../../assets/images/barrack.png">
                     <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
                         {{building.level}}</span>
                     <span class="badge">Under construction</span>
                 </div>
-                <div *ngIf="building.buldingTypeENUM ==='TOWNHALL'">
+                <div *ngIf="building.buildingTypeENUM ==='TOWNHALL'">
                     <img src="./../../assets/images/townhall.png">
                     <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
                         {{building.level}}</span>
                     <span class="badge">Under construction</span>
                 </div>
-                <div *ngIf="building.buldingTypeENUM ==='FARM'">
+                <div *ngIf="building.buildingTypeENUM ==='FARM'">
                     <img src="./../../assets/images/farm.png">
                     <span class="badge">Type : {{building.buldingTypeENUM}} | Id : {{building.id}} | Level :
                         {{building.level}}</span>
@@ -40,5 +43,5 @@
                         <span class="badge">Soldier development</span>
                 </li>
             </ul>
-    </div>
-</div>
+    </div> -->
+<!-- </div> -->

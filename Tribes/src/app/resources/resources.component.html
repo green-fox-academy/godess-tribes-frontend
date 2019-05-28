@@ -1,15 +1,12 @@
-<br>
+
 <div class="container">
-  <div class="row justify-content-center">
     <ul>
       <li *ngFor="let resource of resources">
-        <div *ngIf="resource.Type ==='FOOD'">
-          <img src="./../../assets/images/chicken.png">
-          <span class="badge">{{resource.amount}} unit - {{resource.generationRate}} unit/min</span>
+        <div *ngIf="resource.type ==='FOOD'">
+          <span><img src="./../../assets/images/chicken.png"> {{resource.amount}} unit - {{resource.generationRate}} unit/min</span>
         </div>
-        <div *ngIf="resource.Type ==='GOLD'">
-          <img src="./../../assets/images/money.png">
-          <span class="badge">{{resource.amount}} unit - {{resource.generationRate}} unit/min</span>
+        <div *ngIf="resource.type ==='GOLD'">
+          <span><img src="./../../assets/images/money.png"> {{resource.amount}} unit - {{resource.generationRate}} unit/min</span>
         </div>
       </li>
     </ul>
