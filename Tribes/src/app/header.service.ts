@@ -22,6 +22,6 @@ export class HeaderService {
   }
 
   updateKingdomNameOnBackend(name: string): Observable<any> {
-    return this.http.post(ROOT_URL + '/kingdom', {name}, this.httpOptions);
+    return this.http.put(ROOT_URL + '/kingdom', {name}, this.httpOptions);
   }
 }
