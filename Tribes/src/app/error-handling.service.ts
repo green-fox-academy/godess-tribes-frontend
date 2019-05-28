@@ -21,12 +21,7 @@ export class ErrorHandlingService {
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error.message}`);
-
-      if(error.status === 0){
-        return throwError('Something bad happened; please try again later.');
-      } else {
-        return throwError(`${error.error.message}`);
-      }
+      return throwError(`${error.error.message}`);
     }
   }
 }

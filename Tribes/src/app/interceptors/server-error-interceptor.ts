@@ -12,11 +12,12 @@ export class ServerErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     return next.handle(request).pipe(
-    retry(1),
+    retry(2),
     catchError((error: HttpErrorResponse) => {
       if (error.error.message === 'Unauthorized') {
         this.router.navigateByUrl('/login');
-      } else if (error.status === 0){
+        localStorage.removeItem('TOKEN');
+      } else if ((error.status === 0) || (error.status >= 500) || (error.error instanceof ErrorEvent)){
         this.router.navigateByUrl('/error');
       }
       return throwError(error);
