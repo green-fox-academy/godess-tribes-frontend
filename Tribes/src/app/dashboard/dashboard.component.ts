@@ -39,18 +39,18 @@ export class DashboardComponent implements OnInit {
   getNumberOfFarms() {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfFarms = response.buildingDTOS
-      .filter(building => building.buldingTypeENUM === 'FARM').length);
+      .filter(building => building.buildingTypeENUM === 'FARM').length);
   }
 
   getNumberOfMines() {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfMines = response.buildingDTOS
-      .filter(building => building.buldingTypeENUM === 'MINE').length);
+      .filter(building => building.buildingTypeENUM === 'MINE').length);
   }
 
   getNumberOfBarracks() {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfBarracks = response.buildingDTOS
-      .filter(building => building.buldingTypeENUM === 'BARRACK').length);
+      .filter(building => building.buildingTypeENUM === 'BARRACK').length);
   }
 }
