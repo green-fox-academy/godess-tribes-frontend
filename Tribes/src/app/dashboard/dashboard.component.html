@@ -8,7 +8,7 @@
     <li class="list-group-item" style="margin-left: 10px; margin-right: 50px">
       <a routerLink="townhall"><img src="assets/images/townhall.png"></a>
     </li>
-
+<!-- barrak -->
     <div class="zero-building" *ngIf="numberOfBarracks === 0">
       <li class="list-group-item">
         <a class="inactive">
@@ -44,25 +44,44 @@
         </div>
       </li>
     </div>
-
   </ul>
+<!-- farm and mine -->
   <ul class="list-group list-group-horizontal-md">
-    <li class="list-group-item">
-      <a routerLink="farm"><img src="assets/images/farm.png">
-        <span class="badge badge-warning count-notif">x {{ numberOfFarms }}</span>
-      </a>
-      <div *ngIf="costOfNewBuilding > goldAmount">
-        <div class="inactive">
-          <span class="badge badge-add pull-right">+</span>
+    <div class="zero-building" *ngIf="numberOfFarms === 0">
+      <li class="list-group-item">
+          <div class="inactive">
+            <img src="assets/images/farm.png">
+            <div *ngIf="costOfNewBuilding > goldAmount">
+              <span class="badge badge-add pull-right">+</span>
+            </div>
         </div>
-      </div>
-      <div *ngIf="costOfNewBuilding <= goldAmount">
-        <a routerLink="addNew">
-          <span class="badge badge-add pull-right">+</span>
-        </a>
-      </div>
-    </li>
+        <div *ngIf="costOfNewBuilding <= goldAmount">
+          <a routerLink="addNew">
+            <span class="badge badge-add pull-right">+</span>
+          </a>
+        </div>
+      </li>
+    </div>
 
+    <div *ngIf="numberOfFarms > 0">
+        <li class="list-group-item">
+          <a routerLink="farm"><img src="assets/images/farm.png">
+            <span class="badge badge-warning count-notif">x {{ numberOfFarms }}</span>
+          </a>
+          <div *ngIf="costOfNewBuilding > goldAmount">
+            <div class="inactive">
+              <span class="badge badge-add pull-right">+</span>
+              </div>
+          </div>
+          <div *ngIf="costOfNewBuilding <= goldAmount">
+            <a routerLink="addNew">
+              <span class="badge badge-add pull-right">+</span>
+            </a>
+          </div>
+        </li>
+      </div>
+
+<!-- mine -->
     <li class="list-group-item" style="margin-left: 20px; margin-right: 50px">
       <a routerLink="mine"><img src="assets/images/mine.png">
         <span class="badge badge-warning count-notif">x {{ numberOfMines }}</span>
