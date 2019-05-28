@@ -24,5 +24,4 @@ export class AddNewBadgeComponent implements OnInit {
     .subscribe(response => this.goldAmount = response.resources
       .find(resource => resource.type === 'GOLD').amount);
   }
-
 }
