@@ -3,13 +3,13 @@
   <div class="row justify-content-center">
     <ul>
       <li *ngFor="let resource of resources">
-        <div *ngIf="resource.type==='food'">
+        <div *ngIf="resource.Type ==='FOOD'">
           <img src="./../../assets/images/chicken.png">
-          <span class="badge">{{resource.amount}} unit - {{resource.generation}} unit/min</span>
+          <span class="badge">{{resource.amount}} unit - {{resource.generationRate}} unit/min</span>
         </div>
-        <div *ngIf="resource.type==='gold'">
+        <div *ngIf="resource.Type ==='GOLD'">
           <img src="./../../assets/images/money.png">
-          <span class="badge">{{resource.amount}} unit - {{resource.generation}} unit/min</span>
+          <span class="badge">{{resource.amount}} unit - {{resource.generationRate}} unit/min</span>
         </div>
       </li>
     </ul>
