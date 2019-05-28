@@ -29,13 +29,3 @@ a :hover {
 	transition: all 300ms ease;
 	opacity: 0.9;
 }
-
-.zero-building .badge-add {
-	border-radius: 14px;
-	font-size: 30px;
-	position: relative;
-	top: -45px;
-	left: 20px;
-	color: #212529;
-   	background-color: #ffc107;
-}
