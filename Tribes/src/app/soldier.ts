@@ -4,8 +4,4 @@ export class Soldier {
     level: number;
     startedAt: Date;
     finsihedAd: Date;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master

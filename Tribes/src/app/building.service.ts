@@ -1,4 +1,3 @@
-import { SoldierResponse } from './soldiers-response';
 import { BuildingsResponse } from './buildings-response';
 import { SoldierResponse } from './soldiers-response';
 import { Injectable } from '@angular/core';
