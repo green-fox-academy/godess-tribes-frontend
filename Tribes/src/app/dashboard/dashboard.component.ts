@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   resources: ResourceResponse;
   goldAmount: number;
   costOfNewBuilding = COST_NEW_BUILDING;
-  numberOfFarms = 0;
+  numberOfFarms: number;
   numberOfMines: number;
   numberOfBarracks: number;
 
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getGoldAmount();
- //   this.getNumberOfFarms();
+    this.getNumberOfFarms();
     this.getNumberOfMines();
     this.getNumberOfBarracks();
   }
