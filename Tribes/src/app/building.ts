@@ -2,11 +2,11 @@ export class Building {
     id: number;
     buildingTypeENUM: string;
     level: number;
-    startedAt: Date;
-    finishedAt: Date;
+    startedAt: number;
+    finishedAt: number;
     imageURL?: string;
 
-    constructor(id: number, type: string, level: number, startedAt: Date, finishedAt: Date) {
+    constructor(id: number, type: string, level: number, startedAt: number, finishedAt: number) {
         this.id = id;
         this.buildingTypeENUM = type;
         this.level = level;

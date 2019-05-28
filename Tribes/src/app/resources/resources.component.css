@@ -6,7 +6,7 @@ li{
   list-style-type: none;
   color: whitesmoke;
 }
-.container{
-background-color: #e0634d;
+.container-fluid{
+background-color:#c75c5c;
 border-radius: 20px;
 }
