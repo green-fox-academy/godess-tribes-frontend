@@ -31,6 +31,6 @@ export class SettingsComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigateByUrl('/kingdom')
+    this.router.navigateByUrl('/kingdom');
   }
 }
