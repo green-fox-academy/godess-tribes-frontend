@@ -1,6 +1,4 @@
 import { BuildingsResponse } from '../buildings-response';
-import { COST_NEW_BUILDING } from './../constants';
-import { ResourceType } from './../enums_resources';
 import { Component, OnInit } from '@angular/core';
 import { BuildingService } from './../building.service';
 import { ResourceService } from './../resource.service';
@@ -16,7 +14,6 @@ export class DashboardComponent implements OnInit {
   buildings: BuildingsResponse;
   resources: ResourceResponse;
   goldAmount: number;
-  costOfNewBuilding = COST_NEW_BUILDING;
   numberOfFarms: number;
   numberOfMines: number;
   numberOfBarracks: number;
@@ -24,16 +21,9 @@ export class DashboardComponent implements OnInit {
   constructor(private buildingService: BuildingService, private resourceService: ResourceService) { }
 
   ngOnInit() {
-    this.getGoldAmount();
     this.getNumberOfFarms();
     this.getNumberOfMines();
     this.getNumberOfBarracks();
-  }
-
-  getGoldAmount() {
-    this.resourceService.getDataFromBackend()
-    .subscribe(response => this.goldAmount = response.resources
-      .find(resource => resource.type === 'GOLD').amount);
   }
 
   getNumberOfFarms() {
