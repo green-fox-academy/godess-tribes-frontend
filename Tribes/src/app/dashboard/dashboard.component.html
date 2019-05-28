@@ -1,8 +1,6 @@
 <div class="container-center">
   <h1>DASHBOARD</h1>
   <h3>Click on one of the icons below to see the details</h3>
-  goldamount: {{goldAmount}}
-  number of farms: {{ numberOfFarms }}
 
   <ul class="list-group list-group-horizontal-md">
     <li class="list-group-item" style="margin-left: 10px; margin-right: 50px">
@@ -33,31 +31,14 @@
         <div class="inactive">
           <img src="assets/images/farm.png">
         </div>
-          
-        <div class="inactive" *ngIf="costOfNewBuilding > goldAmount">
-            <span class="badge badge-add pull-right">+</span>
-        </div>
-
-        <div *ngIf="costOfNewBuilding <= goldAmount">
-          <a routerLink="addNew">
-            <span class="badge badge-add pull-right">+</span>
-          </a>
-        </div>
-
+        <app-add-new-badge></app-add-new-badge>
       </div>
 
       <div *ngIf="numberOfFarms > 0">
         <a routerLink="farm"><img src="assets/images/farm.png">
           <span class="badge badge-warning count-notif">x {{ numberOfFarms }}</span>
         </a>
-        <div class="inactive" *ngIf="costOfNewBuilding > goldAmount">
-          <span class="badge badge-add pull-right">+</span>
-        </div>
-      </div>
-      <div *ngIf="costOfNewBuilding <= goldAmount">
-        <a routerLink="addNew">
-          <span class="badge badge-add pull-right">+</span>
-        </a>
+        <app-add-new-badge></app-add-new-badge>
       </div>
     </li>
 
@@ -66,29 +47,15 @@
       <div class="zero-building" *ngIf="numberOfMines === 0">
         <div class="inactive">
           <img src="assets/images/mine.png">
-          <div *ngIf="costOfNewBuilding > goldAmount">
-            <span class="badge badge-add pull-right">+</span>
-          </div>
         </div>
-        <div *ngIf="costOfNewBuilding <= goldAmount">
-          <a routerLink="addNew">
-            <span class="badge badge-add pull-right">+</span>
-          </a>
-        </div>
+        <app-add-new-badge></app-add-new-badge>
       </div>
 
       <div *ngIf="numberOfMines > 0">
         <a routerLink="mine"><img src="assets/images/mine.png">
           <span class="badge badge-warning count-notif">x {{ numberOfMines }}</span>
         </a>
-        <div class = "inactive" *ngIf="costOfNewBuilding > goldAmount">
-          <span class="badge badge-add pull-right">+</span>
-        </div>
-        <div *ngIf="costOfNewBuilding <= goldAmount">
-          <a routerLink="addNew">
-            <span class="badge badge-add pull-right">+</span>
-          </a>
-        </div>
+        <app-add-new-badge></app-add-new-badge>
       </div>
     </li>
   </ul>
