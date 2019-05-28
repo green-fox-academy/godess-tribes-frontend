@@ -4,5 +4,9 @@ img{
 }
 li{
   list-style-type: none;
-  color: #607D8B;
+  color: whitesmoke;
+}
+.container{
+background-color: #e0634d;
+border-radius: 20px;
 }
