@@ -15,8 +15,6 @@ export class LoginService {
 
   login(username: string, password: string): Observable<LoginResultModel> {
     return this.http.post<LoginResultModel>(ROOT_URL + '/login', { username, password })
-    .pipe(
-      catchError(this.errorHandlingService.handleError)
-    );
+      .pipe(catchError(this.errorHandlingService.handleError));
   }
 }
