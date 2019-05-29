@@ -8,3 +8,12 @@ a{
     text-align: center;
     padding: 5px;
 }
+.navbar-collapse {
+    padding: 0px;
+}
+.icons{
+    text-align: end;
+}
+.kingdom {
+line-height: 55px;
+}
