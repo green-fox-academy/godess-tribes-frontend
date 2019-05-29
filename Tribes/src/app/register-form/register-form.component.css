@@ -47,3 +47,7 @@
 #button:focus {
     outline: 0;
 }
+
+#button:disabled {
+    opacity: 0.2;
+}

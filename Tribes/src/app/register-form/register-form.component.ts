@@ -67,6 +67,7 @@ export class RegisterFormComponent implements OnInit {
       error => {
         this.isError = true;
         this.error = error;
+        this.processStarted = false;
         });
   }
 }
