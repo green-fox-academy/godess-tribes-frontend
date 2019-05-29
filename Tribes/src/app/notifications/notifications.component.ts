@@ -13,8 +13,6 @@ import { Building } from './../building';
 export class NotificationsComponent implements OnInit {
 
   listToDisplay: Notification[];
-  results: Building[];
-
   constructor() { }
 
   ngOnInit() {
