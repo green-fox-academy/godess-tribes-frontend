@@ -30,6 +30,9 @@ import { BattleComponent } from './battle/battle.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { NotificationComponent } from './notification/notification.component';
+import { AddNewBadgeComponent } from './add-new-badge/add-new-badge.component';
+import { ServerErrorInterceptor } from './interceptors/server-error-interceptor';
+import { GenericErrorComponent } from './generic-error/generic-error.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,8 @@ import { NotificationComponent } from './notification/notification.component';
     PageNotFoundComponent,
     NotificationsComponent,
     NotificationComponent,
+    AddNewBadgeComponent,
+    GenericErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +74,11 @@ import { NotificationComponent } from './notification/notification.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ServerErrorInterceptor,
       multi: true
     }
   ]

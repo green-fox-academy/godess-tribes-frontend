@@ -1,18 +1,49 @@
 .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948;
-  }
+}
 
-  .ng-invalid:not(form)  {
+.ng-invalid:not(form)  {
     border-left: 5px solid #a94442;
-  }
+}
 
-  .submitted {
+.submitted {
     color: #a94442;
     font-size: 20px;
     font-display: bold;
     text-align: center;
-  }
+}
 
-  .mat-dialog-close {
-    color: #a94442;
-  }
+.mat-dialog-close {
+    color: #046777;
+    font-size: x-large;
+    border: none;
+}
+
+.mat-dialog-close:focus{
+    outline: 0;
+}
+
+.container-fluid {
+    width: 90%;
+}
+
+#button {
+    background-color: #e0634d;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#button:hover {
+    background-color: #d48273;
+    opacity: 0.6;
+}
+
+#button:focus {
+    outline: 0;
+}
