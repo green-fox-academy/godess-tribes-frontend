@@ -3,18 +3,18 @@ img {
 	padding: 3px;
 }
 
-.list-group-item {
+.col-md {
 	border: none;
 	padding: 0px;
 	background: transparent;
 }
 
-.list-group-item .inactive {
+.col-md .inactive {
 	filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 }
 
-.list-group-item .inactive :hover {
+.col-md .inactive :hover {
 	filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 	opacity: 0.6;

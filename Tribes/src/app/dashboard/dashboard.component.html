@@ -1,60 +1,56 @@
 <div class="container-center">
   <h3>Click on one of the icons below to see the details</h3>
-  <ul class="list-group list-group-horizontal-md">
-    <li class="list-group-item" style="margin-left: 10px; margin-right: 50px">
+  <div class="row">
+    <div class="col-md-4" >
       <a routerLink="townhall"><img src="assets/images/townhall.png"></a>
-    </li>
-    <li class="list-group-item">
+    </div>
+    <div class="col-md-4">
       <div class="zero-building" *ngIf="numberOfBarracks === 0">
         <div class="inactive">
           <img src="assets/images/barrack.png">
+          <app-add-new-badge></app-add-new-badge>
         </div>
-        <app-add-new-badge></app-add-new-badge>
       </div>
       <div *ngIf="numberOfBarracks > 0">
         <a routerLink="barrack"><img src="assets/images/barrack.png">
-          <app-add-new-badge></app-add-new-badge>
           <span class="badge badge-warning count-notif">x {{ numberOfBarracks }}</span>
+          <app-add-new-badge></app-add-new-badge>
         </a>
       </div>
-    </li>
-  </ul>
-  <ul class="list-group list-group-horizontal-md">
-    <li class="list-group-item">
+    </div>
+    <div class="col-md-4">
       <div class="zero-building" *ngIf="numberOfFarms === 0">
         <div class="inactive">
           <img src="assets/images/farm.png">
+          <app-add-new-badge></app-add-new-badge>
         </div>
-        <app-add-new-badge></app-add-new-badge>
       </div>
       <div *ngIf="numberOfFarms > 0">
         <a routerLink="farm"><img src="assets/images/farm.png">
           <span class="badge badge-warning count-notif">x {{ numberOfFarms }}</span>
+          <app-add-new-badge></app-add-new-badge>
         </a>
-        <app-add-new-badge></app-add-new-badge>
       </div>
-    </li>
-    <li class="list-group-item" style="margin-left: 20px; margin-right: 50px">
+    </div>
+    <div class="col-md-4">
       <div class="zero-building" *ngIf="numberOfMines === 0">
         <div class="inactive">
           <img src="assets/images/mine.png">
+          <app-add-new-badge></app-add-new-badge>
         </div>
-        <app-add-new-badge></app-add-new-badge>
       </div>
       <div *ngIf="numberOfMines > 0">
         <a routerLink="mine"><img src="assets/images/mine.png">
           <span class="badge badge-warning count-notif">x {{ numberOfMines }}</span>
+          <app-add-new-badge></app-add-new-badge>
         </a>
-        <app-add-new-badge></app-add-new-badge>
       </div>
-    </li>
-  </ul>
-  <ul class="list-group list-group-horizontal-md">
-    <li class="list-group-item" style="margin-left: 10px; margin-right: 50px">
+    </div>
+    <div class="col-md-4">
       <a routerLink="soldiers"><img src="assets/images/ribbon.png"></a>
-    </li>
-    <li class="list-group-item" style="margin-left: 10px; margin-right: 50px">
+    </div>
+    <div class="col-md-4">
       <a routerLink="battle"><img src="assets/images/attack.png"></a>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
