@@ -6,10 +6,12 @@
     </div>
     <div class="col-md-4">
       <div *ngIf="numberOfBarracks === 0">
-        <div class="inactive">
-          <img src="assets/images/barrack.png">
+        <div class="badges">
+          <div class="inactive">
+            <img src="assets/images/barrack.png">
+          </div>
+          <app-add-new-badge></app-add-new-badge>
         </div>
-        <app-add-new-badge></app-add-new-badge>
       </div>
       <div *ngIf="numberOfBarracks > 0">
         <div class="badges">

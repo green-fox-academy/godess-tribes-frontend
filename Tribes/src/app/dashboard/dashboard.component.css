@@ -32,6 +32,8 @@ img {
 }
 
 .badges {
+	width: 180px;
+	margin: 0, auto;
 	position: relative;
 }
 
@@ -40,8 +42,8 @@ img {
 	color: #212529;
 	background-color: #ffc107;
 	position: absolute;
-	top: 20px;
-	right: 80px;
+	top: 0px;
+	right: 20px;
 }
 
 .count-notif {
