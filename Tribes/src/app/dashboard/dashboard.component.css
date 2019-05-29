@@ -1,20 +1,15 @@
-img {
-    width: 180px;
-	padding: 3px;
-}
-
-.list-group-item {
+.col-md-4 {
 	border: none;
-	padding: 0px;
+	padding: 10px;
 	background: transparent;
 }
 
-.list-group-item .inactive {
+.col-md-4 .inactive {
 	filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 }
 
-.list-group-item .inactive :hover {
+.col-md-4 .inactive :hover {
 	filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 	opacity: 0.6;
@@ -31,19 +26,26 @@ a :hover {
 	opacity: 0.9;
 }
 
-.count-notif {
-	vertical-align:middle;
-	margin-left:-15px;
-	margin-top: -80px;
-	font-size:30px;
+img {
+    width: 180px;
+	padding: 3px;
 }
 
-.badge-warning {
+.badges {
+	width: 180px;
+	margin: 0, auto;
+	position: relative;
+}
+
+.badge {
 	padding:3px;
 	color: #212529;
-    background-color: #ffc107;
-}
-h3{
-	color: darkgrey;
+	background-color: #ffc107;
+	position: absolute;
+	top: 0px;
+	right: 20px;
 }
 
+.count-notif {
+	font-size:30px;
+}
