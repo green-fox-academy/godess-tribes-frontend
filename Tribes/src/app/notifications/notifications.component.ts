@@ -22,10 +22,8 @@ export class NotificationsComponent implements OnInit {
   }
 
   checkIfBuildingIsProgressing(building: Building): boolean {
-    let currentTime = new Date().getTime();
-    console.log(currentTime);
-    let parsedFinishedAt = building.finishedAt;
-    console.log(parsedFinishedAt);
+    const currentTime = new Date().getTime();
+    const parsedFinishedAt = building.finishedAt;
     return currentTime <= parsedFinishedAt;
   }
 
@@ -33,14 +31,13 @@ export class NotificationsComponent implements OnInit {
     if (building.level === 1) {
       return new Notification(building.buildingTypeENUM, building.level, 'Under construction');
     } else if (building.level > 1 && building.level <= MAX_UPGRADE_LEVELS) {
-      return new Notification(building.buildingTypeENUM, building.level, 'Leveling up from ' + (building.level - 1) + ' to ' + building.level);
+      return new Notification(building.buildingTypeENUM, building.level, 'Leveling up from '
+      + (building.level - 1) + ' to ' + building.level);
     }
-
   }
 
   generateListToDisplay(): void {
     this.listToDisplay = BUILDINGS.filter(building => this.checkIfBuildingIsProgressing(building))
       .map(building => this.createNotification(building));
   }
-
 }
