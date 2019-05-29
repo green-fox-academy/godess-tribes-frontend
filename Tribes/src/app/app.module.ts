@@ -28,6 +28,7 @@ import { BuildingTypeComponent } from './building-type/building-type.component';
 import { SoldiersComponent } from './soldiers/soldiers.component';
 import { BattleComponent } from './battle/battle.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddNewBadgeComponent } from './add-new-badge/add-new-badge.component';
 import { ServerErrorInterceptor } from './interceptors/server-error-interceptor';
 import { GenericErrorComponent } from './generic-error/generic-error.component';
 
@@ -51,6 +52,7 @@ import { GenericErrorComponent } from './generic-error/generic-error.component';
     SoldiersComponent,
     BattleComponent,
     PageNotFoundComponent,
+    AddNewBadgeComponent,
     GenericErrorComponent,
   ],
   imports: [

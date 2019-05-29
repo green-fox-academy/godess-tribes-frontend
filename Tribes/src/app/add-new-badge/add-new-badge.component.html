@@ -1,0 +1,8 @@
+<div class="inactive" *ngIf="costOfNewBuilding > goldAmount">
+  <span class="badge badge-add pull-right">+</span>
+</div>
+<div *ngIf="costOfNewBuilding <= goldAmount">
+  <a routerLink="addNew">
+    <span class="badge badge-add pull-right">+</span>
+  </a>
+</div>
