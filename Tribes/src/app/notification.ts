@@ -4,8 +4,8 @@ export class Notification {
     level: number;
     statusMessage: string;
 
-    constructor(imgURL: string, type: string, level: number, statusMessage: string) {
-        this.imgURL = imgURL;
+    constructor(type: string, level: number, statusMessage: string) {
+        this.imgURL = "./assets/images/"+type.toLowerCase()+".png";
         this.type = type;
         this.level = level;
         this.statusMessage = statusMessage;

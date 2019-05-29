@@ -1,3 +1,4 @@
+import { MAX_UPGRADE_LEVELS } from './../constants';
 import { BuildingService } from './../building.service';
 import { Component, OnInit } from '@angular/core';
 import { BUILDINGS } from './../mock-building';
@@ -25,13 +26,21 @@ export class NotificationsComponent implements OnInit {
     console.log(currentTime);
     let parsedFinishedAt = building.finishedAt;
     console.log(parsedFinishedAt);
-    // let timeDiff: any = currentTime - pardedFinishedAt;
-    return currentTime >= parsedFinishedAt;
+    return currentTime <= parsedFinishedAt;
+  }
+
+  createNotification(building: Building): Notification {
+    if (building.level === 1) {
+      return new Notification(building.buildingTypeENUM, building.level, 'Under construction');
+    } else if (building.level > 1 && building.level <= MAX_UPGRADE_LEVELS) {
+      return new Notification(building.buildingTypeENUM, building.level, 'Leveling up from ' + (building.level - 1) + ' to ' + building.level);
+    }
+
   }
 
   generateListToDisplay(): void {
-    this.results = BUILDINGS.filter(building => this.checkIfBuildingIsProgressing(building));
-
+    this.listToDisplay = BUILDINGS.filter(building => this.checkIfBuildingIsProgressing(building))
+      .map(building => this.createNotification(building));
   }
 
 }

@@ -1,9 +1,7 @@
-<h3>Progressing items</h3>
-<div class="container-fluid">
-<app-notification></app-notification>
-</div>
-<div *ngFor="let building of results">
-    <p>{{building.buildingTypeENUM}}</p>
-    <p>ÜZI</p>
-</div>
 
+<div class="container-fluid">
+    <ul *ngFor="let notification of listToDisplay">
+        <li><img src="{{notification.imgURL}}"> {{notification.type.toUpperCase()}} |
+            {{notification.statusMessage}} <img src="./../../assets/images/progressbar2.png"></li>
+        </ul>
+</div>
