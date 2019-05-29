@@ -1,6 +1,6 @@
 .col-md-4 {
 	border: none;
-	padding: 0px;
+	padding: 10px;
 	background: transparent;
 }
 
@@ -40,8 +40,8 @@ img {
 	color: #212529;
 	background-color: #ffc107;
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 20px;
+	right: 80px;
 }
 
 .count-notif {
