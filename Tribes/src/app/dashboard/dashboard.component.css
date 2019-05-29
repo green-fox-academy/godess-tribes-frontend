@@ -1,20 +1,15 @@
-img {
-    width: 180px;
-	padding: 3px;
-}
-
-.col-md {
+.col-md-4 {
 	border: none;
 	padding: 0px;
 	background: transparent;
 }
 
-.col-md .inactive {
+.col-md-4 .inactive {
 	filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 }
 
-.col-md .inactive :hover {
+.col-md-4 .inactive :hover {
 	filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 	opacity: 0.6;
@@ -31,15 +26,26 @@ a :hover {
 	opacity: 0.9;
 }
 
+img {
+    width: 180px;
+	padding: 3px;
+}
+
+.badges {
+	position: relative;
+}
+
+.badge {
+	padding:3px;
+	color: #212529;
+	background-color: #ffc107;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
 .count-notif {
-	vertical-align:middle;
-	margin-left:-15px;
-	margin-top: -80px;
 	font-size:30px;
 }
 
-.badge-warning {
-	padding:3px;
-	color: #212529;
-    background-color: #ffc107;
-}
+
