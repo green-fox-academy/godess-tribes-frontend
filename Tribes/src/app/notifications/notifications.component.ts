@@ -21,10 +21,12 @@ export class NotificationsComponent implements OnInit {
   }
 
   checkIfBuildingIsProgressing(building: Building): boolean {
-    let currentTime = new Date;
-    let pardedFinishedAt = new Date(building.finishedAt);
+    let currentTime = new Date().getTime();
+    console.log(currentTime);
+    let parsedFinishedAt = building.finishedAt;
+    console.log(parsedFinishedAt);
     // let timeDiff: any = currentTime - pardedFinishedAt;
-    return currentTime >= pardedFinishedAt;
+    return currentTime >= parsedFinishedAt;
   }
 
   generateListToDisplay(): void {
