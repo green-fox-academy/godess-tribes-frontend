@@ -1,6 +1,4 @@
-import { BuildingService } from './building.service';
 import { Building } from './building';
-
 
 export const BUILDINGS: Building[] = [
     new Building (1, 'townhall', 1, 1559113123008, 1559113123008),
