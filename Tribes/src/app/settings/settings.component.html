@@ -1,11 +1,15 @@
 <app-header></app-header>
 <div class="container-fluid">
     <h1>Update your Kingdom name, if you wish!</h1>
-    <form>
+    <form #updateForm="ngForm">
       <div class="form-group">
         <label for="name">Kingdom name</label>
         <input type="text" class="form-control" id="name" required
-        [(ngModel)]="kingdomName" name="name">
+        [(ngModel)]="kingdomName" name="name"
+        #kingdName="ngModel">
+      </div>
+      <div *ngIf="kingdName.invalid && submittedError" class="alert alert-danger">
+          Kingdom name is required.
       </div>
       <div *ngIf="isError" class="alert alert-danger">
         {{error}}

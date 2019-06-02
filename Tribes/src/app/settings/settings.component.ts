@@ -14,6 +14,7 @@ export class SettingsComponent implements OnInit {
   kingdomName: string;
   error: HttpErrorResponse;
   isError = false;
+  submittedError = false;
 
   constructor(private headerService: HeaderService, private router: Router) {
     this.getKingdomName();
@@ -27,12 +28,15 @@ export class SettingsComponent implements OnInit {
   this.headerService.getDataFromBackend().subscribe (response => this.kingdomName = response.kingdomName);
   }
 
-  updateKingdomName (name) {
+  updateKingdomName (valid) {
+    if (!valid) {
+      this.submittedError = true;
+      return;
+    }
     this.headerService.updateKingdomNameOnBackend(this.kingdomName)
     .subscribe(
-      resp => {
+      _resp => {
         this.goBack();
-        console.log(name);
       },
       error => {
         this.isError = true;
