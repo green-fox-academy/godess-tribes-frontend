@@ -24,18 +24,18 @@ export class SettingsComponent implements OnInit {
     this.getKingdomName();
   }
 
-  getKingdomName () {
+  getKingdomName() {
   this.headerService.getDataFromBackend().subscribe (response => this.kingdomName = response.kingdomName);
   }
 
-  updateKingdomName (valid) {
+  updateKingdomName(valid) {
     if (!valid) {
       this.submittedError = true;
       return;
     }
     this.headerService.updateKingdomNameOnBackend(this.kingdomName)
     .subscribe(
-      _resp => {
+      resp => {
         this.goBack();
       },
       error => {
