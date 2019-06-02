@@ -7,10 +7,10 @@
         <input type="text" class="form-control" id="name" required
         [(ngModel)]="kingdomName" name="name">
       </div>
+      <div *ngIf="isError" class="alert alert-danger">
+        {{error}}
+      </div>
       <button (click)="updateKingdomName(kingdomName)" class="btn btn-success">Update</button>
     </form>
-    <div *ngIf="isError">
-      {{error}}
-    </div>
 </div>
 
