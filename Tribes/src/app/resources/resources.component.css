@@ -26,3 +26,12 @@ img{
     margin: 2px;
     padding: 5px;
   }
+li{
+  list-style-type: none;
+  color: whitesmoke;
+}
+.container-fluid{
+background-color:#c75c5c;
+border-radius: 20px;
+padding-top: 10px;
+}

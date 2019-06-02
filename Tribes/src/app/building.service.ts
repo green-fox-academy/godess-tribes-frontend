@@ -1,9 +1,9 @@
 import { BuildingsResponse } from './buildings-response';
-import { SoldierResponse } from './soldiers-response';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ROOT_URL } from './constants';
+import {SoldierResponse} from './soldiers-response';
 
 @Injectable({
   providedIn: 'root'
