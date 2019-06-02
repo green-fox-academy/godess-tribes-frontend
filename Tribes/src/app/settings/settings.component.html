@@ -9,5 +9,8 @@
       </div>
       <button (click)="updateKingdomName(kingdomName)" class="btn btn-success">Update</button>
     </form>
+    <div *ngIf="isError">
+      {{error}}
+    </div>
 </div>
 

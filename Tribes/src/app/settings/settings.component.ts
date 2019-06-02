@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { HeaderService } from '../header.service';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
-import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -14,6 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class SettingsComponent implements OnInit {
   kingdomName: string;
   error: HttpErrorResponse;
+  isError = false;
 
   constructor(private headerService: HeaderService, private router: Router) {
     this.getKingdomName();
@@ -29,11 +29,15 @@ export class SettingsComponent implements OnInit {
 
   updateKingdomName (name) {
     this.headerService.updateKingdomNameOnBackend(this.kingdomName)
-    .subscribe(() => this.goBack());
-    console.log(name);
-    error => {
-      this.error = error;
-    }
+    .subscribe(
+      resp => {
+        this.goBack();
+        console.log(name);
+      },
+      error => {
+        this.isError = true;
+        this.error = error;
+      });
   }
 
   goBack() {
