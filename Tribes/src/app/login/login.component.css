@@ -8,6 +8,10 @@
     background-position: center;
 }
 
+h1, h2 {
+    text-shadow: 2px 2px 8px white;
+}
+
 #button {
     background-color: #046777;
     border-radius: 4px;
@@ -33,15 +37,16 @@
     margin: 50px 50px 100px 100px;
 }
 
-.col-md {
+.col-md-3 {
     display: inline-block;
 }
 
 img {
     height:150px;
-    margin-left: 20px;
 }
 
-h1, h2 {
-    text-shadow: 2px 2px 8px white;
+p {
+    text-align: center;
+    width: 150px;
+    height: 150px;
 }

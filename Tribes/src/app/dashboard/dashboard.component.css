@@ -4,12 +4,12 @@
 	background: transparent;
 }
 
-.col-md-4 .inactive {
+.inactive {
 	filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 }
 
-.col-md-4 .inactive :hover {
+.inactive :hover {
 	filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 	opacity: 0.6;
