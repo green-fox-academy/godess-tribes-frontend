@@ -1,0 +1,24 @@
+{
+  "name": "godess-tribes-frontend",
+  "version": "1.0.0",
+  "description": "This is the repository of Tribes Front-End Project of Team Godess",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd Tribes && ng build --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green-fox-academy/godess-tribes-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/green-fox-academy/godess-tribes-frontend/issues"
+  },
+  "homepage": "https://github.com/green-fox-academy/godess-tribes-frontend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
