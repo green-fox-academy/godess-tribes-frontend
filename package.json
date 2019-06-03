@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "cd Tribes && ng build --prod",
-    "heroku-postbuild": "cd Tribes && ng build --prod",
-    "preinstall": "npm install -g @angular/cli @angular/compiler-cli @angular-devkit/build-angular typescript"
+    "heroku-postbuild": "cd Tribes && ng build --prod"
   },
   "repository": {
     "type": "git",
@@ -39,7 +38,11 @@
     "ngx-show-hide-password": "^2.0.3",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "@angular-devkit/build-angular": "~0.13.0",
+    "@angular/cli": "~7.3.8",
+    "@angular/compiler-cli": "~7.2.0",
+    "typescript": "~3.2.2"
   },
   "engines": {
     "node": "10.15.3"
