@@ -6,3 +6,4 @@ export const COST_NEW_BUILDING = 250;
 export const COST_BASE_UPGRADE = 100;
 export const TOWNHALL_FOOD_CAPACITY = 50;
 export const TOWNHALL_GOLD_CAPACITY = 100;
+export const CONSTRUCTION_TIME = 60;
