@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd Tribes && ng build --prod"
+    "postinstall": "cd Tribes && ng build --prod",
+    "heroku-postbuild": "cd Tribes && ng build --prod"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,13 @@
   },
   "homepage": "https://github.com/green-fox-academy/godess-tribes-frontend#readme",
   "dependencies": {
+    "@angular/cli": "^8.0.1",
+    "@angular/compiler-cli": "^8.0.0",
     "express": "^4.17.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "typescript": "^3.5.1"
+  },
+  "engines": {
+    "node": "10.15.3"
   }
 }
