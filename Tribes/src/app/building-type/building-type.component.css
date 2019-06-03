@@ -18,3 +18,8 @@
 .level-icons {
     display: table;
 }
+
+button {
+    border-radius: 20px;
+    padding: 10px;
+}
