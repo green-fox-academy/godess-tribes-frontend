@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/green-fox-academy/godess-tribes-frontend#readme",
   "dependencies": {
+    "@angular-devkit/build-angular": "^0.800.1",
     "@angular/cli": "^8.0.1",
     "@angular/compiler-cli": "^8.0.0",
     "express": "^4.17.1",
