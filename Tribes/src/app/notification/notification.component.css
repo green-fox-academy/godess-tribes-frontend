@@ -1,0 +1,12 @@
+.container-fluid{
+    background-color: #263740;
+    border-radius: 20px;
+    padding-top: 10px;
+    color: whitesmoke;
+    list-style-type: none;
+}
+
+img{
+    width: 45px;
+    padding: 5px;
+}
