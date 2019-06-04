@@ -10,7 +10,6 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProgressBarComponent implements OnInit {
 
   @Input() notification: Notification;
-  remainingTime: number;
   result: number;
 
   constructor() { }

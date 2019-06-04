@@ -1,5 +1,4 @@
 <div class="progress" style="height: 10px;">
-  <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" attr.aria-valuenow="{{result}}" aria-valuemin="0" aria-valuemax="100">
-      {{result}}
+  <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{width: result + '%'}" attr.aria-valuenow="{{result}}" aria-valuemin="0" aria-valuemax="100">
   </div>
 </div>
