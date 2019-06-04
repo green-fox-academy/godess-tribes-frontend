@@ -10,14 +10,14 @@
           <div class="inactive">
             <img src="assets/images/barrack.png">
           </div>
-          <app-add-new-badge [type]="'barrack'"></app-add-new-badge>
+          <app-add-new-badge [type]="'barrack'" (errorMessageEvent)="receiveErrorMessage($event)"></app-add-new-badge>
         </div>
       </div>
       <div *ngIf="numberOfBarracks > 0">
         <div class="badges">
           <a routerLink="barrack"><img src="assets/images/barrack.png"></a>
           <span class="badge badge-warning count-notif">x {{ numberOfBarracks }}</span>
-          <app-add-new-badge [type]="'barrack'"></app-add-new-badge>
+          <app-add-new-badge [type]="'barrack'" (errorMessageEvent)="receiveErrorMessage($event)"></app-add-new-badge>
         </div>
       </div>
     </div>
@@ -25,14 +25,14 @@
       <div class="badges">
         <a routerLink="farm"><img src="assets/images/farm.png"></a>
         <div class="badge badge-warning count-notif">x {{ numberOfFarms }}</div>
-        <app-add-new-badge [type]="'farm'"></app-add-new-badge>
+        <app-add-new-badge [type]="'farm'" (errorMessageEvent)="receiveErrorMessage($event)"></app-add-new-badge>
       </div>
     </div>
     <div class="col-md-4">
       <div class="badges">
         <a routerLink="mine"><img src="assets/images/mine.png"></a>
         <span class="badge badge-warning count-notif">x {{ numberOfMines }}</span>
-        <app-add-new-badge [type]="'mine'"></app-add-new-badge>
+        <app-add-new-badge [type]="'mine'" (errorMessageEvent)="receiveErrorMessage($event)"></app-add-new-badge>
       </div>
     </div>
     <div class="col-md-4">
@@ -42,4 +42,5 @@
       <a routerLink="battle"><img src="assets/images/attack.png"></a>
     </div>
   </div>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
 </div>

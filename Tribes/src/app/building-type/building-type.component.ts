@@ -23,6 +23,7 @@ export class BuildingTypeComponent implements OnInit {
   townhallLevel: number;
   havingEnoughResourse: boolean;
   goldAmount: number;
+  errorMessage: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -89,6 +90,10 @@ export class BuildingTypeComponent implements OnInit {
   }
 
   addNewBuilding() {
-    this.buildingService.addNewBuilding(this.type);
+    if (this.goldAmount > COST_NEW_BUILDING) {
+      this.buildingService.addNewBuilding(this.type);
+    } else {
+      this.errorMessage =  'You do not have enough money.';
+    }
   }
 }

@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   numberOfFarms: number;
   numberOfMines: number;
   numberOfBarracks: number;
+  errorMessage: string;
 
   constructor(private buildingService: BuildingService, private resourceService: ResourceService) {
     this.buildingService.finishConstruction.subscribe({
@@ -56,5 +57,9 @@ export class DashboardComponent implements OnInit {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfBarracks = response.buildingDTOS
       .filter(building => building.buildingTypeENUM === 'BARRACK').length);
+  }
+
+  receiveErrorMessage($event) {
+    this.errorMessage = $event;
   }
 }

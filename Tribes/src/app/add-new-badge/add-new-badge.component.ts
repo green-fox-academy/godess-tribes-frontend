@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { COST_NEW_BUILDING } from './../constants';
 
 import { ResourceService } from './../resource.service';
@@ -14,6 +14,7 @@ export class AddNewBadgeComponent implements OnInit {
   goldAmount: number;
   costOfNewBuilding = COST_NEW_BUILDING;
   @Input() type: string;
+  @Output() errorMessageEvent = new EventEmitter<string>();
 
   constructor(private resourceService: ResourceService, private buildingService: BuildingService) { }
 
@@ -28,6 +29,10 @@ export class AddNewBadgeComponent implements OnInit {
   }
 
   addNewBuilding() {
-    this.buildingService.addNewBuilding(this.type);
+    if (this.goldAmount > COST_NEW_BUILDING) {
+      this.buildingService.addNewBuilding(this.type);
+    } else {
+      this.errorMessageEvent.emit('You do not have enough money.');
+    }
   }
 }
