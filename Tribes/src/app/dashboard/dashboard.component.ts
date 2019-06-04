@@ -26,6 +26,12 @@ export class DashboardComponent implements OnInit {
     this.getNumberOfBarracks();
   }
 
+  getGoldAmount() {
+    this.resourceService.getDataFromBackend()
+    .subscribe(response => this.goldAmount = response.resources
+      .find(resource => resource.type === 'GOLD').amount);
+  }
+
   getNumberOfFarms() {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfFarms = response.buildingDTOS
