@@ -6,6 +6,10 @@
     -o-background-size: cover;
     background-size: cover;
     background-position: center;
+ }
+
+h1, h2 {
+    text-shadow: 2px 2px 8px white;
 }
 
 h1, h2 {
@@ -22,30 +26,30 @@ h1, h2 {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-}
+ }
 
-#button:hover {
+ #button:hover {
     background-color: #046777;
     opacity: 0.6;
-}
+ }
 
-#button:focus {
+ #button:focus {
     outline: 0;
-}
+ }
 
-.row {
+ .row {
     margin: 50px 50px 100px 100px;
-}
+ }
 
 .col-md-3 {
     display: inline-block;
-}
+ }
 
-img {
+ img {
     height:150px;
 }
 
-p {
+p{
     text-align: center;
     width: 150px;
     height: 150px;
