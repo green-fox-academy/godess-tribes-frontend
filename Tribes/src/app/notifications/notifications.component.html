@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <ul *ngFor="let notification of listToDisplay">
         <li><img src="{{notification.imgURL}}"> {{notification.type.toUpperCase()}} |
-            {{notification.statusMessage}} <img src="./../../assets/images/progressbar2.png"></li>
+            {{notification.statusMessage}} <app-progress-bar></app-progress-bar></li>
         </ul>
 </div>
