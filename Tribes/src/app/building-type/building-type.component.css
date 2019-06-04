@@ -23,3 +23,14 @@ button {
     border-radius: 20px;
     padding: 10px;
 }
+
+.inactive {
+	filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+}
+
+.inactive :hover {
+	filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	opacity: 0.6;
+}
