@@ -1,6 +1,6 @@
-import { NOTIFICATIONS } from './../notification-list-mock';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Notification} from './../notification';
+import { BUILDINGS } from '../mock-building';
 
 @Component({
   selector: 'app-notification',
@@ -9,7 +9,7 @@ import { Notification} from './../notification';
 })
 export class NotificationComponent implements OnInit {
 
-  buildingList = NOTIFICATIONS;
+  @Input() notification: Notification;
 
   constructor() { }
 
