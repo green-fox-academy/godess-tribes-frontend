@@ -1,0 +1,49 @@
+{
+  "name": "godess-tribes-frontend",
+  "version": "1.0.0",
+  "description": "This is the repository of Tribes Front-End Project of Team Godess",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd Tribes && ng build --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/green-fox-academy/godess-tribes-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/green-fox-academy/godess-tribes-frontend/issues"
+  },
+  "homepage": "https://github.com/green-fox-academy/godess-tribes-frontend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "@angular/animations": "^7.2.15",
+    "@angular/cdk": "^7.3.7",
+    "@angular/common": "~7.2.0",
+    "@angular/compiler": "~7.2.0",
+    "@angular/core": "~7.2.0",
+    "@angular/forms": "~7.2.0",
+    "@angular/material": "^7.3.7",
+    "@angular/platform-browser": "~7.2.0",
+    "@angular/platform-browser-dynamic": "~7.2.0",
+    "@angular/router": "~7.2.0",
+    "@fortawesome/angular-fontawesome": "^0.3.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "core-js": "^2.5.4",
+    "ngx-show-hide-password": "^2.0.3",
+    "rxjs": "~6.3.3",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.8.26",
+    "@angular-devkit/build-angular": "~0.13.0",
+    "@angular/cli": "~7.3.8",
+    "@angular/compiler-cli": "~7.2.0",
+    "typescript": "~3.2.2"
+  },
+  "engines": {
+    "node": "10.15.3"
+  }
+}

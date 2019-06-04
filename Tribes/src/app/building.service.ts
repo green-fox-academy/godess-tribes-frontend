@@ -1,4 +1,3 @@
-import { SoldierResponse } from './soldiers-response';
 import { BuildingsResponse } from './buildings-response';
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
@@ -6,7 +5,7 @@ import { Observable } from 'rxjs';
 import { ROOT_URL, CONSTRUCTION_TIME } from './constants';
 import { catchError } from 'rxjs/operators';
 import { ErrorHandlingService } from './error-handling.service';
-
+import {SoldierResponse} from './soldiers-response';
 
 @Injectable({
   providedIn: 'root'
