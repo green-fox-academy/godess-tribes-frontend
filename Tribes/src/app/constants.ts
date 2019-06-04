@@ -1,7 +1,7 @@
-import { HttpHeaders } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 export const TOKEN = 'TOKEN';
-export const ROOT_URL = 'https://safe-taiga-19293.herokuapp.com/';
+export const ROOT_URL = environment.FBG_APP_URL;
 export const MAX_UPGRADE_LEVELS = 3;
 export const PRODUCTION_RATE = 10;
 export const COST_NEW_BUILDING = 250;
