@@ -18,7 +18,15 @@ export class DashboardComponent implements OnInit {
   numberOfMines: number;
   numberOfBarracks: number;
 
-  constructor(private buildingService: BuildingService, private resourceService: ResourceService) { }
+  constructor(private buildingService: BuildingService, private resourceService: ResourceService) {
+    this.buildingService.finishConstruction.subscribe({
+      next: () => {
+          this.getNumberOfFarms();
+          this.getNumberOfMines();
+          this.getNumberOfBarracks();
+      }
+    });
+   }
 
   ngOnInit() {
     this.getNumberOfFarms();

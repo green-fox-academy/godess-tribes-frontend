@@ -27,10 +27,10 @@ export class BuildingService {
   }
 
   addNewBuilding(type: string): void {
-    this.http.post(ROOT_URL + '/kingdom/buildings', {type: type})
+    this.http.post(ROOT_URL + '/kingdom/buildings', {type})
     .pipe(catchError(this.errorHandlingService.handleError))
     .subscribe(response => { this.beginConstruction.emit(response);
-                          setTimeout(() => {this.finishConstruction.emit()}, 1000 * CONSTRUCTION_TIME)},
+                             setTimeout(() => { this.finishConstruction.emit(); }, 1000 * CONSTRUCTION_TIME); },
               error => console.log(error));
   }
 }

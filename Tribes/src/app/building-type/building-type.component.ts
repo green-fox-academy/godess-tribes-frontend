@@ -29,7 +29,13 @@ export class BuildingTypeComponent implements OnInit {
     private buildingService: BuildingService,
     private location: Location,
     private resourceService: ResourceService,
-  ) { }
+  ) {
+    this.buildingService.finishConstruction.subscribe({
+      next: () => {
+          this.getBuildingsByType();
+      }
+    });
+   }
 
   ngOnInit() {
     this.getBuildingsByType();
@@ -80,5 +86,9 @@ export class BuildingTypeComponent implements OnInit {
 
   getTownhallGoldCapacity(level: number): number {
     return TOWNHALL_GOLD_CAPACITY * level;
+  }
+
+  addNewBuilding() {
+    this.buildingService.addNewBuilding(this.type);
   }
 }
