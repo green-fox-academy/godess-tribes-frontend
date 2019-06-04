@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  FBG_APP_URL: 'https://safe-taiga-19293.herokuapp.com'
+  FBG_APP_URL: 'http://localhost:8080'
 };
 
 /*
