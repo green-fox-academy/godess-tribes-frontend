@@ -18,3 +18,7 @@
 .level-icons {
     display: table;
 }
+
+.btn:focus {
+    outline: 0;
+}
