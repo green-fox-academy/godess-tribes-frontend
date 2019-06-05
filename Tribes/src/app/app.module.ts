@@ -33,6 +33,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { AddNewBadgeComponent } from './add-new-badge/add-new-badge.component';
 import { ServerErrorInterceptor } from './interceptors/server-error-interceptor';
 import { GenericErrorComponent } from './generic-error/generic-error.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { GenericErrorComponent } from './generic-error/generic-error.component';
     NotificationComponent,
     AddNewBadgeComponent,
     GenericErrorComponent,
+    ProgressBarComponent,
   ],
   imports: [
     BrowserModule,

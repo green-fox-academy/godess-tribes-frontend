@@ -1,18 +1,18 @@
 export class Building {
     id: number;
-    buildingTypeENUM: string;
+    type: string;
     level: number;
     startedAt: number;
     finishedAt: number;
     imageURL?: string;
 
-    constructor(id: number, buildingTypeEnum: string, level: number, startedAt: number, finishedAt: number) {
+    constructor(id: number, type: string, level: number, startedAt: number, finishedAt: number) {
         this.id = id;
-        this.buildingTypeENUM = buildingTypeEnum;
+        this.type = type;
         this.level = level;
         this.startedAt = startedAt;
         this.finishedAt = finishedAt;
-        this.imageURL = 'assets/images/' + buildingTypeEnum + '.png';
+        this.imageURL = 'assets/images/' + type + '.png';
     }
 
 }

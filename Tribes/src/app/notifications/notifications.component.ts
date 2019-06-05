@@ -1,3 +1,4 @@
+import { NotificationService } from './../notification.service';
 import { MAX_UPGRADE_LEVELS } from './../constants';
 import { BuildingService } from './../building.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,7 @@ import { Building } from './../building';
 export class NotificationsComponent implements OnInit {
 
   listToDisplay: Notification[];
-  constructor() { }
+  constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.generateListToDisplay();
@@ -27,10 +28,10 @@ export class NotificationsComponent implements OnInit {
 
   createNotification(building: Building): Notification {
     if (building.level === 1) {
-      return new Notification(building.buildingTypeENUM, building.level, 'Under construction');
+      return new Notification(building.type, building.level, 'Under construction', building.startedAt, building.finishedAt);
     } else if (building.level > 1 && building.level <= MAX_UPGRADE_LEVELS) {
-      return new Notification(building.buildingTypeENUM, building.level, 'Leveling up from '
-      + (building.level - 1) + ' to ' + building.level);
+      return new Notification(building.type, building.level, 'Leveling up from '
+      + (building.level - 1) + ' to ' + building.level, building.startedAt, building.finishedAt);
     }
   }
 
