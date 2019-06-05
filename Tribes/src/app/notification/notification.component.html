@@ -1,3 +1,4 @@
-<div class="container-fluid">
-    <img src="{{notification.imgURL}}"> {{notification.type.toUpperCase()}} | {{notification.statusMessage}}
+<div class ="container-fluid">
+    <img src="{{notification.imgURL}}">{{notification.type.toUpperCase()}} |
+    {{notification.statusMessage}}<app-progress-bar [notification]="notification"></app-progress-bar>
 </div>
