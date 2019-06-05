@@ -20,8 +20,8 @@ export class ProgressBarComponent implements OnInit {
 
   checkTimeDifference(notification: Notification): number {
     const currentTime = new Date().getTime();
-    let timeDiff = (notification.finishedAt - currentTime) / 1000 / 60;
-    let totalTime = (notification.finishedAt - notification.startedAt) / 1000 / 60;
+    const timeDiff = (notification.finishedAt - currentTime) / 1000 / 60;
+    const totalTime = (notification.finishedAt - notification.startedAt) / 1000 / 60;
     return this.result = 100 - ((timeDiff / totalTime) * 100);
   }
 
