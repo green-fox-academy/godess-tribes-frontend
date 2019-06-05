@@ -1,3 +1,4 @@
+import { NotificationService } from './../notification.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Notification} from './../notification';
 import { BUILDINGS } from '../mock-building';
@@ -11,9 +12,10 @@ export class NotificationComponent implements OnInit {
 
   @Input() notification: Notification;
 
-  constructor() { }
+  constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
+    this.notificationService.getNotification();
   }
 
 }
