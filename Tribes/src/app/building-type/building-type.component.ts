@@ -81,4 +81,8 @@ export class BuildingTypeComponent implements OnInit {
   getTownhallGoldCapacity(level: number): number {
     return TOWNHALL_GOLD_CAPACITY * level;
   }
+
+  checkIfBuildingIsUpgradeable(level: number): boolean {
+    return this.getNumberOfBuildingsByLevel(level) !== 0 && this.townhallLevel > level && this.goldAmount >= this.getUpgradingCost(level);
+  }
 }

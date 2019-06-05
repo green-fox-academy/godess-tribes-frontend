@@ -47,12 +47,12 @@
             <span *ngIf="type === 'barrack'">Training: {{level}} soldier(s) at time</span>
           </div>
           <div class="col-md-3"
-            *ngIf="((level !== 3) && (((getNumberOfBuildingsByLevel(level) === 0) || (townhallLevel === level) || (getUpgradingCost(level) > goldAmount))))">
+            *ngIf="level !== 3 && !checkIfBuildingIsUpgradeable(level)">
             <button class="btn btn-warning inactive">Upgrade<br><small>for
                 {{getUpgradingCost(level)}} gold</small></button>
           </div>
           <div class="col-md-3"
-            *ngIf="level !== 3 && getNumberOfBuildingsByLevel(level) !== 0 && townhallLevel > level && goldAmount >= getUpgradingCost(level)">
+            *ngIf="level !== 3 && checkIfBuildingIsUpgradeable(level)">
             <button class="btn btn-warning">Upgrade<br><small>for
                 {{getUpgradingCost(level)}} gold</small></button>
           </div>
