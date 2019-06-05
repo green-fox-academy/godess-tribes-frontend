@@ -1,3 +1,4 @@
+import { NotificationService } from './../notification.service';
 import { MAX_UPGRADE_LEVELS } from './../constants';
 import { BuildingService } from './../building.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,7 @@ import { Building } from './../building';
 export class NotificationsComponent implements OnInit {
 
   listToDisplay: Notification[];
-  constructor() { }
+  constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.generateListToDisplay();
