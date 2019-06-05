@@ -43,20 +43,20 @@ export class DashboardComponent implements OnInit {
 
   getNumberOfFarms() {
     this.buildingService.getBuildingsFromAPI()
-    .subscribe(response => this.numberOfFarms = response.buildingDTOS
-      .filter(building => building.buildingTypeENUM === 'FARM').length);
+    .subscribe(response => this.numberOfFarms = response.buildings
+      .filter(building => building.type === 'FARM').length);
   }
 
   getNumberOfMines() {
     this.buildingService.getBuildingsFromAPI()
-    .subscribe(response => this.numberOfMines = response.buildingDTOS
-      .filter(building => building.buildingTypeENUM === 'MINE').length);
+    .subscribe(response => this.numberOfMines = response.buildings
+      .filter(building => building.type === 'MINE').length);
   }
 
   getNumberOfBarracks() {
     this.buildingService.getBuildingsFromAPI()
-    .subscribe(response => this.numberOfBarracks = response.buildingDTOS
-      .filter(building => building.buildingTypeENUM === 'BARRACK').length);
+    .subscribe(response => this.numberOfBarracks = response.buildings
+      .filter(building => building.type === 'BARRACK').length);
   }
 
   receiveErrorMessage($event) {
