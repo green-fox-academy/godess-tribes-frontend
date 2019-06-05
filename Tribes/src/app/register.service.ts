@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorHandlingService } from './error-handling.service';
+import { ROOT_URL } from './constants';
 
 import { User } from './user';
 
@@ -10,14 +11,13 @@ import { User } from './user';
   providedIn: 'root'
 })
 export class RegisterService {
-  rootUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient,
               private errorHandlingService: ErrorHandlingService) { }
 
 
   register(username: string, password: string, kingdomName: string): Observable<User> {
-    return this.http.post<User>(this.rootUrl + '/register', {
+    return this.http.post<User>(ROOT_URL + '/register', {
       username,
       password,
       kingdomName,
