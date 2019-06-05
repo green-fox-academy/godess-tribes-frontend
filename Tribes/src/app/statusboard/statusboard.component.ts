@@ -23,7 +23,7 @@ export class StatusboardComponent implements OnInit {
   }
 
   getListOfBuildings() {
-    this.buildingService.getBuildingsFromAPI().subscribe(response => this.listOfBuildings = response.buildingDTOS);
+    this.buildingService.getBuildingsFromAPI().subscribe(response => this.listOfBuildings = response.buildings);
   }
 
   getListOfSoldiers() {

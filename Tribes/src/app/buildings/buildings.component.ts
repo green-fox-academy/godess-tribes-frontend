@@ -19,7 +19,7 @@ export class BuildingsComponent implements OnInit {
   }
 
   getBuildings(): void {
-    this.buildingService.getBuildingsFromAPI().subscribe(response => this.buildings.buildingDTOS = response.buildingDTOS);
+    this.buildingService.getBuildingsFromAPI().subscribe(response => this.buildings.buildings = response.buildings);
   }
 
 }
