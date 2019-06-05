@@ -1,4 +1,4 @@
-.container-fluid{
+.container-fluid {
     background-color: #263740;
     border-radius: 20px;
     padding-top: 10px;
@@ -6,7 +6,7 @@
     list-style-type: none;
 }
 
-img{
+img {
     width: 45px;
     padding: 5px;
 }
