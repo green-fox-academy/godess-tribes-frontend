@@ -27,9 +27,9 @@ export class NotificationsComponent implements OnInit {
 
   createNotification(building: Building): Notification {
     if (building.level === 1) {
-      return new Notification(building.buildingTypeENUM, building.level, 'Under construction', building.startedAt, building.finishedAt);
+      return new Notification(building.type, building.level, 'Under construction', building.startedAt, building.finishedAt);
     } else if (building.level > 1 && building.level <= MAX_UPGRADE_LEVELS) {
-      return new Notification(building.buildingTypeENUM, building.level, 'Leveling up from '
+      return new Notification(building.type, building.level, 'Leveling up from '
       + (building.level - 1) + ' to ' + building.level, building.startedAt, building.finishedAt);
     }
   }
