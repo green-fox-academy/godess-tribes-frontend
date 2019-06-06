@@ -10,30 +10,30 @@ import { AuthService } from './auth/auth.service';
 
 import { AppComponent } from './app.component';
 
-import { KingdomComponent } from './kingdom/kingdom.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { KingdomComponent } from './_components/kingdom/kingdom.component';
+import { DashboardComponent } from './_components/dashboard/dashboard.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { RegisterFormComponent } from './register-form/register-form.component';
-import { LoginComponent } from './login/login.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { StatusboardComponent } from './statusboard/statusboard.component';
-import { HeaderComponent } from './header/header.component';
-import { SettingsComponent } from './settings/settings.component';
-import { MapComponent } from './map/map.component';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { BuildingsComponent } from './buildings/buildings.component';
-import { ResourcesComponent } from './resources/resources.component';
-import { BuildingTypeComponent } from './building-type/building-type.component';
-import { SoldiersComponent } from './soldiers/soldiers.component';
-import { BattleComponent } from './battle/battle.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { NotificationComponent } from './notification/notification.component';
-import { AddNewBadgeComponent } from './add-new-badge/add-new-badge.component';
+import { RegisterFormComponent } from './_components/register-form/register-form.component';
+import { LoginComponent } from './_components/login/login.component';
+import { LoginFormComponent } from './_components/login-form/login-form.component';
+import { StatusboardComponent } from './_components/statusboard/statusboard.component';
+import { HeaderComponent } from './_components/header/header.component';
+import { SettingsComponent } from './_components/settings/settings.component';
+import { MapComponent } from './_components/map/map.component';
+import { LeaderboardComponent } from './_components/leaderboard/leaderboard.component';
+import { BuildingsComponent } from './_components/buildings/buildings.component';
+import { ResourcesComponent } from './_components/resources/resources.component';
+import { BuildingTypeComponent } from './_components/building-type/building-type.component';
+import { SoldiersComponent } from './_components/soldiers/soldiers.component';
+import { BattleComponent } from './_components/battle/battle.component';
+import { PageNotFoundComponent } from './_components/page-not-found/page-not-found.component';
+import { NotificationsComponent } from './_components/notifications/notifications.component';
+import { NotificationComponent } from './_components/notification/notification.component';
+import { AddNewBadgeComponent } from './_components/add-new-badge/add-new-badge.component';
 import { ServerErrorInterceptor } from './interceptors/server-error-interceptor';
-import { GenericErrorComponent } from './generic-error/generic-error.component';
-import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { GenericErrorComponent } from './_components/generic-error/generic-error.component';
+import { ProgressBarComponent } from './_components/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
