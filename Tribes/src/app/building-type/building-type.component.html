@@ -52,7 +52,7 @@
           </div>
           <div class="col-md-3"
             *ngIf="level !== 3 && !checkIfBuildingIsUpgradeable(level)">
-            <button class="btn btn-warning inactive">
+            <button class="btn btn-warning inactive" title="{{checkUpgradingConditions(level)}}">
               <p class="m-0">Upgrade</p>
               <small>for {{getUpgradingCost(level)}} gold</small>
             </button>

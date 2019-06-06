@@ -100,4 +100,14 @@ export class BuildingTypeComponent implements OnInit {
   checkIfBuildingIsUpgradeable(level: number): boolean {
     return this.getNumberOfBuildingsByLevel(level) !== 0 && this.townhallLevel > level && this.goldAmount >= this.getUpgradingCost(level);
   }
+
+  checkUpgradingConditions(level: number): string {
+    if (this.townhallLevel <= level && this.goldAmount < this.getUpgradingCost(level)) {
+      return 'You don\'t have enough money and the townhall level is too low.';
+    } else if (this.townhallLevel <= level) {
+      return 'The townhall level is too low.';
+    } else if (this.goldAmount < this.getUpgradingCost(level)) {
+      return 'You don\'t have enough money';
+    }
+  }
 }
