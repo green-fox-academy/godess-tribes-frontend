@@ -43,7 +43,7 @@ export class LoginFormComponent implements OnInit {
           },
           error => {
             if (error) {
-              this.errorMessage = error.message.message;
+              this.errorMessage = error;
             }
             // TODO: replace it with generic error page
           });
