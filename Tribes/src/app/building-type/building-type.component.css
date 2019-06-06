@@ -24,12 +24,16 @@ button {
     padding: 10px;
 }
 
+button:focus {
+    outline: 0;
+}
+
 .inactive {
 	filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 }
 
-.inactive :hover {
+.inactive:hover {
 	filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 	opacity: 0.6;

@@ -18,12 +18,16 @@
             gold</p>
         </div>
         <div *ngIf="towhalllevel !== 3 && getUpgradingCost(townhallLevel) > goldAmount" class="text-center mt-3">
-          <button class="btn btn-warning inactive">Upgrade<br><small>for
-              {{getUpgradingCost(townhallLevel)}} gold</small></button>
+          <button class="btn btn-warning inactive">
+            <p class="m-0">Upgrade</p>
+            <small>for {{getUpgradingCost(level)}} gold</small>
+          </button>
         </div>
         <div *ngIf="towhalllevel !== 3 || goldAmount > getUpgradingCost(towhalllevel)" class="text-center mt-3">
-          <button class="btn btn-warning">Upgrade<br><small>for
-              {{getUpgradingCost(townhallLevel)}} gold</small></button>
+          <button class="btn btn-warning">
+            <p class="m-0">Upgrade</p>
+            <small>for {{getUpgradingCost(townhallLevel)}} gold</small>
+          </button>
         </div>
       </div>
       <div *ngIf="type !== 'townhall'">
@@ -50,24 +54,28 @@
             *ngIf="level !== 3 && !checkIfBuildingIsUpgradeable(level)">
             <button class="btn btn-warning inactive">
               <p class="m-0">Upgrade</p>
-              <small>for {{getUpgradingCost(level)}} gold</small></button>
+              <small>for {{getUpgradingCost(level)}} gold</small>
+            </button>
           </div>
           <div class="col-md-3"
             *ngIf="level !== 3 && checkIfBuildingIsUpgradeable(level)">
             <button class="btn btn-warning">
               <p class="m-0">Upgrade</p>
-              <small>for {{getUpgradingCost(level)}} gold</small></button>
+              <small>for {{getUpgradingCost(level)}} gold</small>
+            </button>
           </div>
         </div>
         <div class="row justify-content-center">
           <button class="btn btn-danger inactive" *ngIf="costNewBuilding > goldAmount">
             <p class="m-0">Buy a new {{type}}</p>
-            <small>for
-              {{costNewBuilding}} gold</small></button>
+            <small>for {{costNewBuilding}} gold</small>
+          </button>
         </div>
         <div class="row justify-content-center">
-          <button class="btn btn-danger" *ngIf="goldAmount > costNewBuilding">Buy a new {{type}}<br><small>for
-              {{costNewBuilding}} gold</small></button>
+          <button class="btn btn-danger" *ngIf="goldAmount > costNewBuilding">
+            <p class="m-0">Buy a new {{type}}</p>
+            <small>for {{costNewBuilding}} gold</small>
+          </button>
         </div>
       </div>
     </div>
