@@ -47,7 +47,9 @@ export class NotificationsComponent implements OnInit {
   }
 
   generateListToDisplay(): void {
-    this.listToDisplay = BUILDINGS.filter(building => this.checkIfBuildingIsProgressing(building))
-      .map(building => this.createNotification(building));
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.listToDisplay = response.buildings
+      .filter(building => this.checkIfBuildingIsProgressing(building))
+      .map(building => this.createNotification(building)));
   }
 }
