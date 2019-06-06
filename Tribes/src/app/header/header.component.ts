@@ -27,4 +27,7 @@ export class HeaderComponent implements OnInit {
     this.headerService.getDataFromBackend().subscribe(response => this.kingdomName = response.kingdomName);
   }
 
+  logoutUser() {
+    this.headerService.logoutUser();
+  }
 }
