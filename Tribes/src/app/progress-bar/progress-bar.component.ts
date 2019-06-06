@@ -16,14 +16,14 @@ export class ProgressBarComponent implements OnInit {
   constructor(private buildingService: BuildingService) {
     this.buildingService.beginConstruction.subscribe({
       next: () => {
-        this.refreshProgressBar();
+        // this.refreshProgressBar();
       }
     });
   }
 
   ngOnInit() {
     console.log(this.checkTimeDifference(this.notification));
-    this.refreshProgressBar();
+    // this.refreshProgressBar();
   }
 
   checkTimeDifference(notification: Notification): number {
@@ -33,9 +33,9 @@ export class ProgressBarComponent implements OnInit {
     return this.result = 100 - ((minuteDiff / totalMinutes) * 100);
   }
 
-  refreshProgressBar(): void {
-    this.buildingService.beginConstruction.emit();
-    setInterval(() => {this.checkTimeDifference(this.notification)}, 1000);
-  }
+  // refreshProgressBar(): void {
+  //   this.buildingService.beginConstruction.emit();
+  //   setInterval(() => {this.checkTimeDifference(this.notification)}, 1000);
+  // }
 
 }
