@@ -16,7 +16,13 @@ export class AddNewBadgeComponent implements OnInit {
   @Input() type: string;
   @Output() errorMessageEvent = new EventEmitter<string>();
 
-  constructor(private resourceService: ResourceService, private buildingService: BuildingService) { }
+  constructor(private resourceService: ResourceService, private buildingService: BuildingService) {
+    this.buildingService.beginConstruction.subscribe({
+      next: () => {
+          this.getGoldAmount();
+      }
+    });
+   }
 
   ngOnInit() {
     this.getGoldAmount();
