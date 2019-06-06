@@ -1,19 +1,19 @@
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ResourcesComponent } from './resources/resources.component';
-import { BuildingTypeComponent } from './building-type/building-type.component';
-import { BuildingsComponent } from './buildings/buildings.component';
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { MapComponent } from './map/map.component';
-import { SettingsComponent } from './settings/settings.component';
+import { PageNotFoundComponent } from './_components/page-not-found/page-not-found.component';
+import { ResourcesComponent } from './_components/resources/resources.component';
+import { BuildingTypeComponent } from './_components/building-type/building-type.component';
+import { BuildingsComponent } from './_components/buildings/buildings.component';
+import { LeaderboardComponent } from './_components/leaderboard/leaderboard.component';
+import { MapComponent } from './_components/map/map.component';
+import { SettingsComponent } from './_components/settings/settings.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterFormComponent } from './register-form/register-form.component';
-import { LoginComponent } from './login/login.component';
+import { RegisterFormComponent } from './_components/register-form/register-form.component';
+import { LoginComponent } from './_components/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
-import { KingdomComponent } from './kingdom/kingdom.component';
-import { SoldiersComponent } from './soldiers/soldiers.component';
-import { BattleComponent } from './battle/battle.component';
-import { GenericErrorComponent } from './generic-error/generic-error.component';
+import { KingdomComponent } from './_components/kingdom/kingdom.component';
+import { SoldiersComponent } from './_components/soldiers/soldiers.component';
+import { BattleComponent } from './_components/battle/battle.component';
+import { GenericErrorComponent } from './_components/generic-error/generic-error.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
