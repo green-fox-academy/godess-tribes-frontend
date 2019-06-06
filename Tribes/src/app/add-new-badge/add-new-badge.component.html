@@ -1,5 +1,5 @@
-<div class="inactive" *ngIf="costOfNewBuilding > goldAmount">
-  <span class="badge badge-add pull-right">+</span>
+<div *ngIf="costOfNewBuilding > goldAmount">
+  <span class="badge badge-add inactive pull-right">+</span>
 </div>
 <div *ngIf="goldAmount >= costOfNewBuilding">
   <a>
