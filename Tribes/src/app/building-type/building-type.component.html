@@ -17,14 +17,14 @@
           <p>Capacity: {{getTownhallFoodCapacity(townhallLevel)}} food and {{getTownhallGoldCapacity(townhallLevel)}}
             gold</p>
         </div>
-        <div *ngIf="towhalllevel !== 3 && getUpgradingCost(townhallLevel) > goldAmount" class="text-center mt-3">
+        <div *ngIf="townhallLevel !== 3 && getUpgradingCost(townhallLevel) > goldAmount" class="text-center mt-3">
           <button class="btn btn-warning inactive">
             <p class="m-0">Upgrade</p>
-            <small>for {{getUpgradingCost(level)}} gold</small>
+            <small>for {{getUpgradingCost(townhallLevel)}} gold</small>
           </button>
         </div>
-        <div *ngIf="towhalllevel !== 3 || goldAmount > getUpgradingCost(towhalllevel)" class="text-center mt-3">
-          <button class="btn btn-warning">
+        <div *ngIf="townhallLevel !== 3 && goldAmount > getUpgradingCost(townhallLevel)" class="text-center mt-3">
+          <button (click)="upgradeBuilding(townhallLevel)" class="btn btn-warning" >
             <p class="m-0">Upgrade</p>
             <small>for {{getUpgradingCost(townhallLevel)}} gold</small>
           </button>
@@ -59,7 +59,7 @@
           </div>
           <div class="col-md-3"
             *ngIf="level !== 3 && checkIfBuildingIsUpgradeable(level)">
-            <button class="btn btn-warning">
+            <button class="btn btn-warning" (click)="upgradeBuilding(level)">
               <p class="m-0">Upgrade</p>
               <small>for {{getUpgradingCost(level)}} gold</small>
             </button>
@@ -72,7 +72,7 @@
           </button>
         </div>
         <div class="row justify-content-center">
-          <button class="btn btn-danger" *ngIf="goldAmount > costNewBuilding">
+          <button class="btn btn-danger" *ngIf="goldAmount > costNewBuilding" (click)="addNewBuilding()">
             <p class="m-0">Buy a new {{type}}</p>
             <small>for {{costNewBuilding}} gold</small>
           </button>

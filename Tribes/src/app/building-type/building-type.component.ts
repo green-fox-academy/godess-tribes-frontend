@@ -34,6 +34,8 @@ export class BuildingTypeComponent implements OnInit {
     this.buildingService.finishConstruction.subscribe({
       next: () => {
           this.getBuildingsByType();
+          this.getTownhallLevel();
+          this.getGoldAmount();
       }
     });
    }
@@ -102,12 +104,34 @@ export class BuildingTypeComponent implements OnInit {
   }
 
   checkUpgradingConditions(level: number): string {
-    if (this.townhallLevel <= level && this.goldAmount < this.getUpgradingCost(level)) {
-      return 'You don\'t have enough money and the townhall level is too low.';
-    } else if (this.townhallLevel <= level) {
-      return 'The townhall level is too low.';
-    } else if (this.goldAmount < this.getUpgradingCost(level)) {
-      return 'You don\'t have enough money';
+    if (this.getNumberOfBuildingsByLevel(level) === 0) {
+      return 'You don\'t have any building of level ' + level;
+    } else {
+      if (this.townhallLevel <= level && this.goldAmount < this.getUpgradingCost(level)) {
+        return 'You don\'t have enough money and the townhall level is too low.';
+      } else if (this.townhallLevel <= level) {
+        return 'The townhall level is too low.';
+      } else if (this.goldAmount < this.getUpgradingCost(level)) {
+        return 'You don\'t have enough money';
+      }
+    }
+  }
+
+  upgradeBuilding(level) {
+    if (this.type === 'townhall') {
+      if (this.goldAmount >= this.getUpgradingCost(level)){
+        let idToUpgrade: number = this.buildings.find(building => building.type === 'TOWNHALL').id;
+        this.buildingService.upgradeBuilding(idToUpgrade, level + 1);
+      } else {
+        this.errorMessage = 'You don\'t have enough money';
+      }
+    } else {
+      if (this.checkIfBuildingIsUpgradeable) {
+        let idToUpgrade: number = this.buildings.find(building => building.level === level).id;
+        this.buildingService.upgradeBuilding(idToUpgrade, level + 1);
+      } else {
+        this.errorMessage = this.checkUpgradingConditions(level);
+      }
     }
   }
 }

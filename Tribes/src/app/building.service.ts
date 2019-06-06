@@ -36,4 +36,11 @@ export class BuildingService {
     this.beginConstruction.emit();
     setTimeout(() => { this.finishConstruction.emit(); }, 1000 * CONSTRUCTION_TIME);
   }
+
+  upgradeBuilding(idToUpgrade: number, level: number): void {
+    this.http.put(ROOT_URL + '/kingdom/buildings/' + idToUpgrade, { level })
+    .pipe(catchError(this.errorHandlingService.handleError))
+    .subscribe(response => this.handleBuildingProcess(),
+              error => console.error(error));
+  }
 }
