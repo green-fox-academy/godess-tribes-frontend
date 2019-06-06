@@ -38,7 +38,8 @@ img {
 }
 
 .badge {
-	padding:3px;
+	padding: 10px;
+	border-radius: 50%;
 	color: #212529;
 	background-color: #ffc107;
 	position: absolute;
