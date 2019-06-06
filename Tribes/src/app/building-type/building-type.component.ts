@@ -23,13 +23,20 @@ export class BuildingTypeComponent implements OnInit {
   townhallLevel: number;
   havingEnoughResourse: boolean;
   goldAmount: number;
+  errorMessage: string;
 
   constructor(
     private route: ActivatedRoute,
     private buildingService: BuildingService,
     private location: Location,
     private resourceService: ResourceService,
-  ) { }
+  ) {
+    this.buildingService.finishConstruction.subscribe({
+      next: () => {
+          this.getBuildingsByType();
+      }
+    });
+   }
 
   ngOnInit() {
     this.getBuildingsByType();
@@ -80,6 +87,14 @@ export class BuildingTypeComponent implements OnInit {
 
   getTownhallGoldCapacity(level: number): number {
     return TOWNHALL_GOLD_CAPACITY * level;
+  }
+
+  addNewBuilding() {
+    if (this.goldAmount > COST_NEW_BUILDING) {
+      this.buildingService.addNewBuilding(this.type);
+    } else {
+      this.errorMessage =  'You do not have enough money.';
+    }
   }
 
   checkIfBuildingIsUpgradeable(level: number): boolean {

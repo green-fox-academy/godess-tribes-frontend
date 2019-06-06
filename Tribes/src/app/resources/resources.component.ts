@@ -2,6 +2,7 @@ import { ResourceResponse } from '../resource-response';
 import { ResourceService } from './../resource.service';
 import { Component, OnInit } from '@angular/core';
 import { Resource} from './../resource';
+import { BuildingService } from './../building.service';
 
 @Component({
   selector: 'app-resources',
@@ -12,8 +13,17 @@ export class ResourcesComponent implements OnInit {
 
   resources: Resource[];
 
-  constructor(private resourceService: ResourceService) {
-    this.getResources();
+  constructor(private resourceService: ResourceService, private buildingService: BuildingService) {
+    this.buildingService.beginConstruction.subscribe({
+      next: () => {
+          this.getResources();
+      }
+    });
+    this.buildingService.finishConstruction.subscribe({
+      next: () => {
+          this.getResources();
+      }
+    });
   }
 
   ngOnInit() {

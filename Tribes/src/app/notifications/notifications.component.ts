@@ -14,7 +14,18 @@ import { Building } from './../building';
 export class NotificationsComponent implements OnInit {
 
   listToDisplay: Notification[];
-  constructor(private notificationService: NotificationService) { }
+  constructor(private buildingService: BuildingService, private notificationService: NotificationService) {
+    this.buildingService.beginConstruction.subscribe({
+      next: () => {
+          this.generateListToDisplay();
+      }
+    });
+    this.buildingService.finishConstruction.subscribe({
+      next: () => {
+          this.generateListToDisplay();
+      }
+    });
+   }
 
   ngOnInit() {
     this.generateListToDisplay();

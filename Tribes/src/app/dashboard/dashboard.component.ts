@@ -17,8 +17,17 @@ export class DashboardComponent implements OnInit {
   numberOfFarms: number;
   numberOfMines: number;
   numberOfBarracks: number;
+  errorMessage: string;
 
-  constructor(private buildingService: BuildingService, private resourceService: ResourceService) { }
+  constructor(private buildingService: BuildingService, private resourceService: ResourceService) {
+    this.buildingService.finishConstruction.subscribe({
+      next: () => {
+          this.getNumberOfFarms();
+          this.getNumberOfMines();
+          this.getNumberOfBarracks();
+      }
+    });
+   }
 
   ngOnInit() {
     this.getNumberOfFarms();
@@ -48,5 +57,9 @@ export class DashboardComponent implements OnInit {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfBarracks = response.buildings
       .filter(building => building.type === 'BARRACK').length);
+  }
+
+  receiveErrorMessage($event) {
+    this.errorMessage = $event;
   }
 }
