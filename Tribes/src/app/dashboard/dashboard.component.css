@@ -38,14 +38,15 @@ img {
 }
 
 .badge {
-	padding:3px;
+	padding: 12px;
+	border-radius: 50%;
 	color: #212529;
 	background-color: #ffc107;
 	position: absolute;
 	top: 0px;
-	right: 20px;
+	right: 8px;
 }
 
 .count-notif {
-	font-size:30px;
+	font-size: 27px;
 }
