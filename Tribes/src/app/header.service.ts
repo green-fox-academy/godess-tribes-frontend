@@ -31,7 +31,7 @@ export class HeaderService {
   }
 
   logoutUser() {
-    this.router.navigateByUrl('/login');
     localStorage.removeItem('TOKEN');
+    this.router.navigateByUrl('/login');
   }
 }
