@@ -31,6 +31,14 @@ export class BuildingTypeComponent implements OnInit {
     private location: Location,
     private resourceService: ResourceService,
   ) {
+    this.buildingService.beginConstruction.subscribe({
+      next: () => {
+        this.getBuildingsByType();
+        this.getTownhallLevel();
+        this.getGoldAmount();
+      }
+    });
+
     this.buildingService.finishConstruction.subscribe({
       next: () => {
           this.getBuildingsByType();
@@ -134,4 +142,6 @@ export class BuildingTypeComponent implements OnInit {
       }
     }
   }
+
+  
 }

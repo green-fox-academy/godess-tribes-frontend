@@ -18,7 +18,7 @@
             gold</p>
         </div>
         <div *ngIf="townhallLevel !== 3 && getUpgradingCost(townhallLevel) > goldAmount" class="text-center mt-3">
-          <button class="btn btn-warning inactive">
+          <button class="btn btn-warning inactive" title="You don't have enough money">
             <p class="m-0">Upgrade</p>
             <small>for {{getUpgradingCost(townhallLevel)}} gold</small>
           </button>
@@ -66,7 +66,7 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <button class="btn btn-danger inactive" *ngIf="costNewBuilding > goldAmount">
+          <button class="btn btn-danger inactive" *ngIf="costNewBuilding > goldAmount" title="You don't have enough money">
             <p class="m-0">Buy a new {{type}}</p>
             <small>for {{costNewBuilding}} gold</small>
           </button>
