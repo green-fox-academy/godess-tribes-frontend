@@ -95,5 +95,7 @@ export class BuildingTypeComponent implements OnInit {
     } else {
       this.errorMessage =  'You do not have enough money.';
     }
+  checkIfBuildingIsUpgradeable(level: number): boolean {
+    return this.getNumberOfBuildingsByLevel(level) !== 0 && this.townhallLevel > level && this.goldAmount >= this.getUpgradingCost(level);
   }
 }
