@@ -34,7 +34,7 @@ export class NotificationsComponent implements OnInit {
   checkIfBuildingIsProgressing(building: Building): boolean {
     const currentTime = new Date().getTime();
     const parsedFinishedAt = building.finishedAt;
-    return currentTime <= parsedFinishedAt;
+    return currentTime < parsedFinishedAt;
   }
 
   createNotification(building: Building): Notification {
