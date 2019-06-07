@@ -1,0 +1,52 @@
+.col-md-4 {
+	border: none;
+	padding: 10px;
+	background: transparent;
+}
+
+.inactive {
+	filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+}
+
+.inactive :hover {
+	filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	opacity: 0.6;
+}
+
+a :hover {
+    border: none;
+	color: #f2f2f2;
+	padding: 5px;
+	border-radius: 5px;
+	position: relative;
+	box-sizing: border-box;
+	transition: all 300ms ease;
+	opacity: 0.9;
+}
+
+img {
+    width: 180px;
+	padding: 3px;
+}
+
+.badges {
+	width: 180px;
+	margin: 0, auto;
+	position: relative;
+}
+
+.badge {
+	padding: 12px;
+	border-radius: 50%;
+	color: #212529;
+	background-color: #ffc107;
+	position: absolute;
+	top: 0px;
+	right: 8px;
+}
+
+.count-notif {
+	font-size: 27px;
+}

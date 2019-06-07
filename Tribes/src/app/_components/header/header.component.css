@@ -1,0 +1,28 @@
+img {
+    width: 65px;
+}
+
+a {
+    color: whitesmoke;
+    font-size: 25px;
+    text-align: center;
+    padding: 5px;
+}
+
+.navbar-collapse {
+    padding: 0px;
+}
+
+.kingdom {
+line-height: 55px;
+}
+
+.icons {
+    float: right;
+    margin-right: 5%;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    opacity: 0.6;
+}

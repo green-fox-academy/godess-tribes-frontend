@@ -1,0 +1,56 @@
+.container-fluid {
+    background-image: url("/assets/images/background2.jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+ }
+
+h1, h2 {
+    text-shadow: 2px 2px 8px white;
+}
+
+h1, h2 {
+    text-shadow: 2px 2px 8px white;
+}
+
+#button {
+    background-color: #046777;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+ }
+
+ #button:hover {
+    background-color: #046777;
+    opacity: 0.6;
+ }
+
+ #button:focus {
+    outline: 0;
+ }
+
+ .row {
+    margin: 50px 50px 100px 100px;
+ }
+
+.col-md-3 {
+    display: inline-block;
+ }
+
+ img {
+    height:150px;
+}
+
+p{
+    text-align: center;
+    width: 150px;
+    height: 150px;
+}
