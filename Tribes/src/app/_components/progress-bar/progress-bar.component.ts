@@ -40,7 +40,7 @@ export class ProgressBarComponent implements OnInit {
 
   refreshProgressBar(): void {
     this.buildingService.beginConstruction.subscribe();
-    setInterval(() => { this.checkTimeDifference(this.notification) }, 1000);
+    setInterval(() => { this.checkTimeDifference(this.notification); }, 1000);
   }
 
 }
