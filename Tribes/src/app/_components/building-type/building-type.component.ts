@@ -108,12 +108,17 @@ export class BuildingTypeComponent implements OnInit {
   }
 
   checkIfBuildingIsUpgradeable(level: number): boolean {
-    return this.getNumberOfBuildingsByLevel(level) !== 0 && this.townhallLevel > level && this.goldAmount >= this.getUpgradingCost(level);
+    return this.getNumberOfBuildingsByLevel(level) !== 0
+            && this.townhallLevel > level
+            && this.goldAmount >= this.getUpgradingCost(level)
+            && !this.checkIfAllBuildingByLevelIsUnderConstruction(level);
   }
 
   checkUpgradingConditions(level: number): string {
     if (this.getNumberOfBuildingsByLevel(level) === 0) {
       return 'You don\'t have any building of level ' + level;
+    } else if (this.checkIfAllBuildingByLevelIsUnderConstruction(level)) {
+      return 'All buildings of level ' + level + ' are upgrading';
     } else {
       if (this.townhallLevel <= level && this.goldAmount < this.getUpgradingCost(level)) {
         return 'You don\'t have enough money and the townhall level is too low.';
@@ -125,17 +130,18 @@ export class BuildingTypeComponent implements OnInit {
     }
   }
 
-  upgradeBuilding(level) {
-    if (this.type === 'townhall') {
-      if (this.goldAmount >= this.getUpgradingCost(level)){
-        let idToUpgrade: number = this.buildings.find(building => building.type === 'TOWNHALL').id;
+  upgradeBuilding(level: number): void {
+    if (this.type === 'townhall' && !this.checkIfTownhallIsUpgrading()) {
+      if (this.goldAmount >= this.getUpgradingCost(level)) {
+        const idToUpgrade: number = this.buildings.find(building => building.type === 'TOWNHALL').id;
         this.buildingService.upgradeBuilding(idToUpgrade, level + 1);
       } else {
-        this.errorMessage = 'You don\'t have enough money';
+        this.errorMessage = this.checkTownhallUpgradingConditions(level);
       }
     } else {
       if (this.checkIfBuildingIsUpgradeable) {
-        let idToUpgrade: number = this.buildings.find(building => building.level === level).id;
+        const idToUpgrade: number = this.buildings
+                                  .find(building => building.level === level).id;
         this.buildingService.upgradeBuilding(idToUpgrade, level + 1);
       } else {
         this.errorMessage = this.checkUpgradingConditions(level);
@@ -143,5 +149,21 @@ export class BuildingTypeComponent implements OnInit {
     }
   }
 
-  
+  checkIfAllBuildingByLevelIsUnderConstruction(level: number): boolean {
+    const readyBuildings: Building[] = this.buildings.filter(building => !this.buildingService.checkIfBuildingIsProgressing(building));
+    return readyBuildings.length === 0;
+  }
+
+  checkIfTownhallIsUpgrading(): boolean {
+    const townhall: Building = this.buildings.find(building => building.type === 'TOWNHALL');
+    return this.buildingService.checkIfBuildingIsProgressing(townhall);
+  }
+
+  checkTownhallUpgradingConditions(level: number): string {
+    if (this.checkIfTownhallIsUpgrading) {
+      return 'Your towhall is upgrading.';
+    } else if (this.goldAmount < this.getUpgradingCost(level)) {
+      return 'You don\'t have enough money';
+    }
+  }
 }

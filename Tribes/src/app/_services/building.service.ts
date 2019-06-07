@@ -6,6 +6,7 @@ import { ROOT_URL, CONSTRUCTION_TIME } from './../constants';
 import { catchError } from 'rxjs/operators';
 import { ErrorHandlingService } from './error-handling.service';
 import {SoldierResponse} from './../_models/soldiers-response';
+import { Building } from '../_models/building';
 
 @Injectable({
   providedIn: 'root'
@@ -26,21 +27,26 @@ export class BuildingService {
   }
 
   addNewBuilding(type: string): void {
-    this.http.post(ROOT_URL + '/kingdom/buildings', {type})
+    this.http.post<Building>(ROOT_URL + '/kingdom/buildings', {type})
     .pipe(catchError(this.errorHandlingService.handleError))
-    .subscribe(response => this.handleBuildingProcess(),
+    .subscribe(response => this.handleBuildingProcess(response),
               error => console.error(error));
   }
 
-  handleBuildingProcess() {
+  handleBuildingProcess(building: Building): void {
     this.beginConstruction.emit();
-    setTimeout(() => { this.finishConstruction.emit(); }, 1000 * CONSTRUCTION_TIME);
+    setTimeout(() => { this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
   }
 
   upgradeBuilding(idToUpgrade: number, level: number): void {
-    this.http.put(ROOT_URL + '/kingdom/buildings/' + idToUpgrade, { level })
+    this.http.put<Building>(ROOT_URL + '/kingdom/buildings/' + idToUpgrade, { level })
     .pipe(catchError(this.errorHandlingService.handleError))
-    .subscribe(response => this.handleBuildingProcess(),
+    .subscribe(response => this.handleBuildingProcess(response),
               error => console.error(error));
+  }
+
+  checkIfBuildingIsProgressing(building: Building): boolean {
+    const currentTime = new Date().getTime();
+    return currentTime <= building.finishedAt;
   }
 }

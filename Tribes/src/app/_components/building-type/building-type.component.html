@@ -18,7 +18,7 @@
             gold</p>
         </div>
         <div *ngIf="townhallLevel !== 3 && getUpgradingCost(townhallLevel) > goldAmount" class="text-center mt-3">
-          <button class="btn btn-warning inactive" title="You don't have enough money">
+          <button class="btn btn-warning inactive" title="{{checkTownhallUpgradingConditions(townhallLevel)}}">
             <p class="m-0">Upgrade</p>
             <small>for {{getUpgradingCost(townhallLevel)}} gold</small>
           </button>

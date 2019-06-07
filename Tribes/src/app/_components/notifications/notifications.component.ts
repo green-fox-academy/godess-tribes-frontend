@@ -31,12 +31,6 @@ export class NotificationsComponent implements OnInit {
     this.generateListToDisplay();
   }
 
-  checkIfBuildingIsProgressing(building: Building): boolean {
-    const currentTime = new Date().getTime();
-    const parsedFinishedAt = building.finishedAt;
-    return currentTime <= parsedFinishedAt;
-  }
-
   createNotification(building: Building): Notification {
     if (building.level === 1) {
       return new Notification(building.type, building.level, 'Under construction', building.startedAt, building.finishedAt);
@@ -49,7 +43,7 @@ export class NotificationsComponent implements OnInit {
   generateListToDisplay(): void {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.listToDisplay = response.buildings
-      .filter(building => this.checkIfBuildingIsProgressing(building))
+      .filter(building => this.buildingService.checkIfBuildingIsProgressing(building))
       .map(building => this.createNotification(building)));
   }
 }
