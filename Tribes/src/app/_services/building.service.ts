@@ -35,6 +35,6 @@ export class BuildingService {
 
   handleBuildingProcess(building: Building) {
     this.beginConstruction.emit();
-    setTimeout(() => { this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
+    setTimeout(() => {this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
   }
 }
