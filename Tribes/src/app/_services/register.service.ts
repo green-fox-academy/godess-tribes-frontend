@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorHandlingService } from './error-handling.service';
-import { ROOT_URL } from './constants';
+import { ROOT_URL } from './../constants';
 
 import { User } from './../_models/user';
 
