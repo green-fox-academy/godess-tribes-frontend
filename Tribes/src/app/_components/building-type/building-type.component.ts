@@ -108,14 +108,14 @@ export class BuildingTypeComponent implements OnInit {
     }
   }
 
-  checkIfBuildingIsUpgradeable(level: number): boolean {
+  isUpgradePossible(level: number): boolean {
     return this.getNumberOfBuildingsByLevel(level) !== 0
             && this.townhallLevel > level
             && this.goldAmount >= this.getUpgradingCost(level)
             && !this.checkIfAllBuildingByLevelIsUnderConstruction(level);
   }
 
-  checkUpgradingConditions(level: number): string {
+  validateUpgradingConditions(level: number): string {
     if (this.getNumberOfBuildingsByLevel(level) === 0) {
       return 'You don\'t have any building of level ' + level;
     } else if (this.checkIfAllBuildingByLevelIsUnderConstruction(level)) {
@@ -138,16 +138,16 @@ export class BuildingTypeComponent implements OnInit {
         this.goldAmount = this.goldAmount - this.getUpgradingCost(level);
         this.buildingService.upgradeBuilding(idToUpgrade, level + 1);
       } else {
-        this.errorMessage = this.checkTownhallUpgradingConditions(level);
+        this.errorMessage = this.validateTownhallUpgradingConditions(level);
       }
     } else {
-      if (this.checkIfBuildingIsUpgradeable) {
+      if (this.isUpgradePossible(level)) {
         const idToUpgrade: number = this.buildings
                                   .find(building => building.level === level).id;
         this.goldAmount = this.goldAmount - this.getUpgradingCost(level);
         this.buildingService.upgradeBuilding(idToUpgrade, level + 1);
       } else {
-        this.errorMessage = this.checkUpgradingConditions(level);
+        this.errorMessage = this.validateUpgradingConditions(level);
       }
     }
   }
@@ -159,12 +159,10 @@ export class BuildingTypeComponent implements OnInit {
 
   checkIfTownhallIsUpgrading(): boolean {
     const townhall: Building = this.buildings.find(building => building.type === 'TOWNHALL');
-    console.log(townhall.finishedAt);
-    console.log(new Date().getTime());
     return this.buildingService.checkIfBuildingIsProgressing(townhall);
   }
 
-  checkTownhallUpgradingConditions(level: number): string {
+  validateTownhallUpgradingConditions(level: number): string {
     if (this.checkIfTownhallIsUpgrading()) {
       return 'Your towhall is upgrading.';
     } else if (this.goldAmount < this.getUpgradingCost(level)) {
@@ -174,9 +172,9 @@ export class BuildingTypeComponent implements OnInit {
 
   createUpgradingErrorMessage(level: number) {
     if (this.type.toLowerCase() === 'townhall') {
-      this.errorMessage = this.checkTownhallUpgradingConditions(level);
+      this.errorMessage = this.validateTownhallUpgradingConditions(level);
     } else {
-      this.errorMessage = this.checkUpgradingConditions(level);
+      this.errorMessage = this.validateUpgradingConditions(level);
     }
     setTimeout(() => { this.errorMessage = undefined; }, 5000);
   }
