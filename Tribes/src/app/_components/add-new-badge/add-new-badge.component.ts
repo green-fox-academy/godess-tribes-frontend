@@ -35,10 +35,11 @@ export class AddNewBadgeComponent implements OnInit {
   }
 
   addNewBuilding() {
-    if (this.goldAmount > COST_NEW_BUILDING) {
+    if (this.goldAmount >= COST_NEW_BUILDING) {
+      this.goldAmount = this.goldAmount - COST_NEW_BUILDING;
       this.buildingService.addNewBuilding(this.type);
     } else {
-      this.errorMessageEvent.emit('You do not have enough money.');
+      this.errorMessageEvent.emit('You don\'t have enough money to buy a new ' + this.type);
     }
   }
 }

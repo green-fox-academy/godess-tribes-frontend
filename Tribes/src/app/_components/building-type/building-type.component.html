@@ -18,7 +18,7 @@
             gold</p>
         </div>
         <div *ngIf="townhallLevel !== 3 && getUpgradingCost(townhallLevel) > goldAmount" class="text-center mt-3">
-          <button class="btn btn-warning inactive" title="{{checkTownhallUpgradingConditions(townhallLevel)}}">
+          <button class="btn btn-warning inactive" (click)="createUpgradingErrorMessage(townhallLevel)">
             <p class="m-0">Upgrade</p>
             <small>for {{getUpgradingCost(townhallLevel)}} gold</small>
           </button>
@@ -52,7 +52,7 @@
           </div>
           <div class="col-md-3"
             *ngIf="level !== 3 && !checkIfBuildingIsUpgradeable(level)">
-            <button class="btn btn-warning inactive" title="{{checkUpgradingConditions(level)}}">
+            <button class="btn btn-warning inactive" (click)="createUpgradingErrorMessage(level)">
               <p class="m-0">Upgrade</p>
               <small>for {{getUpgradingCost(level)}} gold</small>
             </button>
@@ -66,22 +66,22 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <button class="btn btn-danger inactive" *ngIf="costNewBuilding > goldAmount" title="You don't have enough money">
+          <button class="btn btn-danger inactive" *ngIf="costNewBuilding > goldAmount" (click)="createAddNewErrorMessage()">
             <p class="m-0">Buy a new {{type}}</p>
             <small>for {{costNewBuilding}} gold</small>
           </button>
         </div>
         <div class="row justify-content-center">
-          <button class="btn btn-danger" *ngIf="goldAmount > costNewBuilding" (click)="addNewBuilding()">
+          <button class="btn btn-danger mb-3" *ngIf="goldAmount > costNewBuilding" (click)="addNewBuilding()">
             <p class="m-0">Buy a new {{type}}</p>
             <small>for {{costNewBuilding}} gold</small>
           </button>
         </div>
       </div>
+      <div *ngIf="errorMessage" class="alert alert-danger text-center mt-3">{{errorMessage}}</div>
     </div>
     <div class="col-md-4">
       <app-statusboard></app-statusboard>
     </div>
   </div>
-  <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
 </div>

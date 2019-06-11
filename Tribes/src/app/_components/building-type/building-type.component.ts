@@ -156,14 +156,29 @@ export class BuildingTypeComponent implements OnInit {
 
   checkIfTownhallIsUpgrading(): boolean {
     const townhall: Building = this.buildings.find(building => building.type === 'TOWNHALL');
+    console.log(townhall.finishedAt);
+    console.log(new Date().getTime());
     return this.buildingService.checkIfBuildingIsProgressing(townhall);
   }
 
   checkTownhallUpgradingConditions(level: number): string {
-    if (this.checkIfTownhallIsUpgrading) {
+    if (this.checkIfTownhallIsUpgrading()) {
       return 'Your towhall is upgrading.';
     } else if (this.goldAmount < this.getUpgradingCost(level)) {
       return 'You don\'t have enough money';
     }
+  }
+
+  createUpgradingErrorMessage(level: number) {
+    if (this.type.toLowerCase() === 'townhall') {
+      this.errorMessage = this.checkTownhallUpgradingConditions(level);
+    } else {
+      this.errorMessage = this.checkUpgradingConditions(level);
+    }
+    setTimeout(() => { this.errorMessage = undefined; }, 5000);
+  }
+
+  createAddNewErrorMessage() {
+    this.errorMessage = 'You don\'t have enough money to buy a new ' + this.type;
   }
 }
