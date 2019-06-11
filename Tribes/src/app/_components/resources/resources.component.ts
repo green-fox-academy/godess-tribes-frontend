@@ -39,7 +39,8 @@ export class ResourcesComponent implements OnInit {
   getResources() {
     this.resourceService.getDataFromBackend()
       .subscribe(response => { this.resources = response.resources;
-                              this.goldAmount = response.resources.find(resource => resource.type === 'GOLD').amount;});
+                               this.goldAmount = response.resources.find(resource => resource.type === 'GOLD').amount;
+                             });
   }
 
   updateRessourceAfterConstruction(sum: number): void {
