@@ -101,6 +101,7 @@ export class BuildingTypeComponent implements OnInit {
 
   addNewBuilding() {
     if (this.goldAmount > COST_NEW_BUILDING) {
+      this.goldAmount = this.goldAmount - COST_NEW_BUILDING;
       this.buildingService.addNewBuilding(this.type);
     } else {
       this.errorMessage =  'You do not have enough money.';
@@ -134,6 +135,7 @@ export class BuildingTypeComponent implements OnInit {
     if (this.type === 'townhall' && !this.checkIfTownhallIsUpgrading()) {
       if (this.goldAmount >= this.getUpgradingCost(level)) {
         const idToUpgrade: number = this.buildings.find(building => building.type === 'TOWNHALL').id;
+        this.goldAmount = this.goldAmount - this.getUpgradingCost(level);
         this.buildingService.upgradeBuilding(idToUpgrade, level + 1);
       } else {
         this.errorMessage = this.checkTownhallUpgradingConditions(level);
@@ -142,6 +144,7 @@ export class BuildingTypeComponent implements OnInit {
       if (this.checkIfBuildingIsUpgradeable) {
         const idToUpgrade: number = this.buildings
                                   .find(building => building.level === level).id;
+        this.goldAmount = this.goldAmount - this.getUpgradingCost(level);
         this.buildingService.upgradeBuilding(idToUpgrade, level + 1);
       } else {
         this.errorMessage = this.checkUpgradingConditions(level);
@@ -180,5 +183,6 @@ export class BuildingTypeComponent implements OnInit {
 
   createAddNewErrorMessage() {
     this.errorMessage = 'You don\'t have enough money to buy a new ' + this.type;
+    setTimeout(() => { this.errorMessage = undefined; }, 5000);
   }
 }

@@ -12,6 +12,7 @@ import { BuildingService } from '../../_services/building.service';
 export class ResourcesComponent implements OnInit {
 
   resources: Resource[];
+  goldAmount: number;
 
   constructor(private resourceService: ResourceService, private buildingService: BuildingService) {
     this.buildingService.beginConstruction.subscribe({
@@ -24,6 +25,11 @@ export class ResourcesComponent implements OnInit {
           this.getResources();
       }
     });
+    this.buildingService.updateRessourceByConstruction.subscribe({
+      next: (sum) => {
+        this.updateRessourceAfterConstruction(sum);
+      }
+    });
   }
 
   ngOnInit() {
@@ -31,6 +37,12 @@ export class ResourcesComponent implements OnInit {
   }
 
   getResources() {
-    this.resourceService.getDataFromBackend().subscribe(response => this.resources = response.resources);
+    this.resourceService.getDataFromBackend()
+      .subscribe(response => { this.resources = response.resources;
+                              this.goldAmount = response.resources.find(resource => resource.type === 'GOLD').amount;});
+  }
+
+  updateRessourceAfterConstruction(sum: number): void {
+    this.goldAmount -= sum;
   }
 }

@@ -2,7 +2,7 @@ import { BuildingsResponse } from './../_models/buildings-response';
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ROOT_URL, CONSTRUCTION_TIME } from './../constants';
+import { ROOT_URL, COST_BASE_UPGRADE, COST_NEW_BUILDING } from './../constants';
 import { catchError } from 'rxjs/operators';
 import { ErrorHandlingService } from './error-handling.service';
 import {SoldierResponse} from './../_models/soldiers-response';
@@ -14,6 +14,7 @@ import { Building } from '../_models/building';
 export class BuildingService {
   public beginConstruction: EventEmitter<any> = new EventEmitter();
   public finishConstruction: EventEmitter<any> = new EventEmitter();
+  public updateRessourceByConstruction: EventEmitter<any> = new EventEmitter();
   interval;
 
   constructor(private http: HttpClient, private errorHandlingService: ErrorHandlingService) { }
@@ -27,6 +28,7 @@ export class BuildingService {
   }
 
   addNewBuilding(type: string): void {
+    this.updateRessourceByConstruction.emit(COST_NEW_BUILDING);
     this.http.post<Building>(ROOT_URL + '/kingdom/buildings', {type})
     .pipe(catchError(this.errorHandlingService.handleError))
     .subscribe(response => this.handleBuildingProcess(response),
@@ -39,6 +41,7 @@ export class BuildingService {
   }
 
   upgradeBuilding(idToUpgrade: number, level: number): void {
+    this.updateRessourceByConstruction.emit(COST_BASE_UPGRADE * (level - 1));
     this.http.put<Building>(ROOT_URL + '/kingdom/buildings/' + idToUpgrade, { level })
     .pipe(catchError(this.errorHandlingService.handleError))
     .subscribe(response => this.handleBuildingProcess(response),

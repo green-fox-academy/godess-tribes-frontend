@@ -39,7 +39,11 @@ export class AddNewBadgeComponent implements OnInit {
       this.goldAmount = this.goldAmount - COST_NEW_BUILDING;
       this.buildingService.addNewBuilding(this.type);
     } else {
-      this.errorMessageEvent.emit('You don\'t have enough money to buy a new ' + this.type);
+      this.createAddNewErrorMessage();
     }
+  }
+
+  createAddNewErrorMessage() {
+    this.errorMessageEvent.emit('You don\'t have enough money to buy a new ' + this.type);
   }
 }

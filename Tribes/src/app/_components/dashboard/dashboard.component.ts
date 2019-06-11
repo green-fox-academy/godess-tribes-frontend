@@ -61,5 +61,6 @@ export class DashboardComponent implements OnInit {
 
   receiveErrorMessage($event) {
     this.errorMessage = $event;
+    setTimeout(() => { this.errorMessage = undefined; }, 5000);
   }
 }
