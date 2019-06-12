@@ -142,8 +142,10 @@ export class BuildingTypeComponent implements OnInit {
       }
     } else {
       if (this.isUpgradePossible(level)) {
+        this.getBuildingsByType();
         const idToUpgrade: number = this.buildings
-                                  .find(building => building.level === level).id;
+                                  .find(building => building.level === level
+                                                    && !this.buildingService.checkIfBuildingIsProgressing(building)).id;
         this.goldAmount = this.goldAmount - this.getUpgradingCost(level);
         this.buildingService.upgradeBuilding(idToUpgrade, level + 1);
       } else {
