@@ -18,23 +18,22 @@ export class SoldiersComponent implements OnInit {
   costNewSoldier = COST_NEW_SOLDIER;
 
   constructor(private soldiersService: SoldiersService, private resourceService: ResourceService) {
-    this.soldiersService.finishConstruction.subscribe({
+    this.soldiersService.finishTraining.subscribe({
       next: () => {
-          this.getSoldiersByLevel();
+          this.getSoldiersList();
       }
     });
    }
 
   ngOnInit() {
-    this.getSoldiersByLevel();
+    this.getSoldiersList();
     this.createLevelArray();
     this.getGoldAmount();
 
   }
 
-  getSoldiersByLevel() {
-    this.soldiersService.getSoldiersFromAPI()
-    .subscribe(response => this.soldiers = response.soldiers);
+  getSoldiersList() {
+    this.soldiersService.getSoldiersFromAPI().subscribe(response => this.soldiers = response.soldiers);
   }
 
   getNumberOfSoldiersByLevel(level: number): number {

@@ -10,8 +10,8 @@ import { Soldier } from './../_models/soldier';
 })
 export class SoldiersService {
 
-  public finishConstruction: EventEmitter<any> = new EventEmitter();
-  public beginConstruction: EventEmitter<any> = new EventEmitter();
+  public finishTraining: EventEmitter<any> = new EventEmitter();
+  public beginTraining: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) { }
 
