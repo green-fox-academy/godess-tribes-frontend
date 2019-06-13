@@ -2,6 +2,8 @@ export class Soldier {
 
     id: number;
     level: number;
-    startedAt: Date;
-    finishedAt: Date;
+    startedAt: number;
+    finishedAt: number;
+    type?: string = 'soldier';
+
 }

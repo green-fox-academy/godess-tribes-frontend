@@ -1,3 +1,5 @@
+import { catchError } from 'rxjs/operators';
+import { ErrorHandlingService } from './error-handling.service';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { ROOT_URL, CONSTRUCTION_TIME } from './../constants';
@@ -12,11 +14,24 @@ export class SoldiersService {
 
   public finishTraining: EventEmitter<any> = new EventEmitter();
   public beginTraining: EventEmitter<any> = new EventEmitter();
+  interval;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private errorHandlingService: ErrorHandlingService) { }
 
   getSoldiersFromAPI(): Observable<SoldierResponse> {
     return this.http.get<SoldierResponse>(ROOT_URL + '/kingdom/soldiers');
+  }
+
+  addNewSoldier(type: string): void {
+    this.http.post<Soldier>(ROOT_URL + '/kingdom/soldiers', {type})
+    .pipe(catchError(this.errorHandlingService.handleError))
+    .subscribe(response => this.handleTrainingProcess(response),
+              error => console.error(error));
+  }
+
+  handleTrainingProcess(soldier: Soldier) {
+    this.beginTraining.emit();
+    setTimeout(() => {this.finishTraining.emit(); }, soldier.finishedAt - soldier.startedAt);
   }
 
 }

@@ -35,13 +35,13 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <button class="btn btn-danger inactive" *ngIf="costNewSoldier > goldAmount">
+        <button class="btn btn-danger inactive" *ngIf="costNewSoldier > goldAmount || numberOfBarrack == 0" (click)="AddNewSoldier()">
           <p class="m-0">Buy a new soldier</p>
           <small>for {{costNewSoldier}} gold</small>
         </button>
       </div>
       <div class="row justify-content-center">
-        <button class="btn btn-danger" *ngIf="goldAmount > costNewSoldier">
+        <button class="btn btn-danger" *ngIf="goldAmount > costNewSoldier && numberOfBarrack > 1" (click)="AddNewSoldier()">
           <p class="m-0">Buy a new soldier</p>
           <small>for {{costNewSoldier}} gold</small>
         </button>

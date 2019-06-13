@@ -1,5 +1,6 @@
+import { BuildingService } from './../../_services/building.service';
 import { ResourceService } from './../../_services/resource.service';
-import { MAX_UPGRADE_LEVELS, COST_BASE_UPGRADE, COST_NEW_SOLDIER, COST_SOLDIER_UPGRADE } from '../../constants';
+import { MAX_UPGRADE_LEVELS, COST_NEW_SOLDIER, COST_SOLDIER_UPGRADE } from '../../constants';
 import { SoldiersService } from './../../_services/soldiers.service';
 import { Soldier } from './../../_models/soldier';
 import { Component, OnInit } from '@angular/core';
@@ -16,8 +17,9 @@ export class SoldiersComponent implements OnInit {
   level: number;
   goldAmount: number;
   costNewSoldier = COST_NEW_SOLDIER;
+  numberOfBarracks: number;
 
-  constructor(private soldiersService: SoldiersService, private resourceService: ResourceService) {
+  constructor(private soldiersService: SoldiersService, private resourceService: ResourceService, private buildingService: BuildingService) {
     this.soldiersService.finishTraining.subscribe({
       next: () => {
           this.getSoldiersList();
@@ -29,7 +31,6 @@ export class SoldiersComponent implements OnInit {
     this.getSoldiersList();
     this.createLevelArray();
     this.getGoldAmount();
-
   }
 
   getSoldiersList() {
@@ -55,8 +56,14 @@ export class SoldiersComponent implements OnInit {
     .subscribe(response => this.goldAmount = response.resources.find(resource => resource.type === 'GOLD').amount);
   }
 
+  getNumberOfBarracks() {
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.numberOfBarracks = response.buildings
+      .filter(building => building.type === 'BARRACK').length);
+  }
+
   isUpgradePossible(level: number): boolean {
-    return this.getNumberOfSoldiersByLevel(level) !== 0 && this.goldAmount >= this.getUpgradingCost(level);
+    return this.numberOfBarracks >= 1 && this.goldAmount >= this.getUpgradingCost(level);
   }
 
 }
