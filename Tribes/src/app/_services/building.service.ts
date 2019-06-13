@@ -37,6 +37,7 @@ export class BuildingService {
 
   handleBuildingProcess(building: Building): void {
     this.beginConstruction.emit();
+    localStorage.setItem('finishedAt' + building.id, building.finishedAt.toString());
     setTimeout(() => { this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
   }
 
@@ -51,5 +52,23 @@ export class BuildingService {
   checkIfBuildingIsProgressing(building: Building): boolean {
     const currentTime = new Date().getTime();
     return currentTime <= building.finishedAt;
+  }
+
+  setTimeoutsAgain() {
+    if (localStorage.length > 1) {
+      for (let i = 0; i < localStorage.length; i++) {
+        let key: string = localStorage.key(i);
+        if (key !== 'TOKEN') {
+          let finishedAt: number = +localStorage.getItem(key);
+          let now = new Date().getTime();
+          if (finishedAt < now) {
+            localStorage.removeItem(key);
+          } else {
+            setTimeout(() => { this.finishConstruction.emit();
+                               localStorage.removeItem(key) }, finishedAt - now);
+          }
+        }
+      }
+    }
   }
 }

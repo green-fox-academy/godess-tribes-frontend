@@ -53,6 +53,7 @@ export class BuildingTypeComponent implements OnInit {
     this.createLevelArray();
     this.getTownhallLevel();
     this.getGoldAmount();
+    this.buildingService.setTimeoutsAgain();
   }
 
   getBuildingsByType() {
@@ -155,8 +156,8 @@ export class BuildingTypeComponent implements OnInit {
   }
 
   checkIfAllBuildingByLevelIsUnderConstruction(level: number): boolean {
-    const readyBuildings: Building[] = this.buildings.filter(building => !this.buildingService.checkIfBuildingIsProgressing(building));
-    return readyBuildings.length === 0;
+    const readyBuildings: Building[] = this.buildings.filter(building => building.level === level && !this.buildingService.checkIfBuildingIsProgressing(building));
+    return readyBuildings.length === 0 && this.getNumberOfBuildingsByLevel(level) > 0;
   }
 
   checkIfTownhallIsUpgrading(): boolean {

@@ -22,7 +22,6 @@ export class NotificationsComponent implements OnInit {
     });
     this.buildingService.finishConstruction.subscribe({
       next: () => {
-          console.log('vége');
           this.generateListToDisplay();
       }
     });

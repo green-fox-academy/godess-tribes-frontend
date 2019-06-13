@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BuildingService } from 'src/app/_services/building.service';
 
 @Component({
   selector: 'app-kingdom',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KingdomComponent implements OnInit {
 
-  constructor() { }
+  constructor(private buildingService: BuildingService) { }
 
   ngOnInit() {
+    this.buildingService.setTimeoutsAgain();
   }
 
 }
