@@ -156,7 +156,8 @@ export class BuildingTypeComponent implements OnInit {
   }
 
   checkIfAllBuildingByLevelIsUnderConstruction(level: number): boolean {
-    const readyBuildings: Building[] = this.buildings.filter(building => building.level === level && !this.buildingService.checkIfBuildingIsProgressing(building));
+    const readyBuildings: Building[] = this.buildings.filter(building => building.level === level
+                                                                         && !this.buildingService.checkIfBuildingIsProgressing(building));
     return readyBuildings.length === 0 && this.getNumberOfBuildingsByLevel(level) > 0;
   }
 

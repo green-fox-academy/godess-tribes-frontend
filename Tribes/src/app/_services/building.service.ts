@@ -16,6 +16,7 @@ export class BuildingService {
   public finishConstruction: EventEmitter<any> = new EventEmitter();
   public updateRessourceByConstruction: EventEmitter<any> = new EventEmitter();
   interval;
+  keyTimeouts = 'APP_TIMEOUTS';
 
   constructor(private http: HttpClient, private errorHandlingService: ErrorHandlingService) { }
 
@@ -37,7 +38,7 @@ export class BuildingService {
 
   handleBuildingProcess(building: Building): void {
     this.beginConstruction.emit();
-    localStorage.setItem('finishedAt' + building.id, building.finishedAt.toString());
+    this.saveFinishedAtInLocalStorage(building.finishedAt);
     setTimeout(() => { this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
   }
 
@@ -54,21 +55,25 @@ export class BuildingService {
     return currentTime <= building.finishedAt;
   }
 
+  saveFinishedAtInLocalStorage(finishedAt: number) {
+    if (localStorage.getItem(this.keyTimeouts) === null) {
+      localStorage.setItem(this.keyTimeouts, JSON.stringify([finishedAt]));
+    } else {
+      let savedTimeouts = [];
+      const now = new Date().getTime();
+      savedTimeouts = JSON.parse(localStorage.getItem(this.keyTimeouts));
+      savedTimeouts = savedTimeouts.filter(timeout => (timeout > now));
+      savedTimeouts.push(finishedAt);
+      localStorage.setItem(this.keyTimeouts, JSON.stringify(savedTimeouts));
+    }
+  }
+
   setTimeoutsAgain() {
-    if (localStorage.length > 1) {
-      for (let i = 0; i < localStorage.length; i++) {
-        let key: string = localStorage.key(i);
-        if (key !== 'TOKEN') {
-          let finishedAt: number = +localStorage.getItem(key);
-          let now = new Date().getTime();
-          if (finishedAt < now) {
-            localStorage.removeItem(key);
-          } else {
-            setTimeout(() => { this.finishConstruction.emit();
-                               localStorage.removeItem(key) }, finishedAt - now);
-          }
-        }
-      }
+    if (localStorage.getItem(this.keyTimeouts)) {
+      let savedTimeouts = [];
+      savedTimeouts = JSON.parse(localStorage.getItem(this.keyTimeouts)).filter(timeout => (timeout > new Date().getTime()));
+      savedTimeouts.forEach(timeout => { setTimeout(() => { this.finishConstruction.emit(); }, timeout - new Date().getTime()); });
+      localStorage.setItem(this.keyTimeouts, JSON.stringify(savedTimeouts));
     }
   }
 }
