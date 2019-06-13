@@ -1,3 +1,4 @@
+import { SoldiersService } from './../../_services/soldiers.service';
 import { SoldierResponse } from '../../_models/soldiers-response';
 import { Soldier } from '../../_models/soldier';
 import { BuildingsResponse } from '../../_models/buildings-response';
@@ -15,7 +16,7 @@ export class StatusboardComponent implements OnInit {
   listOfBuildings: Building[] = [];
   listOfSoldiers: Soldier[] = [];
 
-  constructor(private buildingService: BuildingService) { }
+  constructor(private buildingService: BuildingService, private soldiersSrevice: SoldiersService) { }
 
   ngOnInit() {
     this.getListOfBuildings();
@@ -27,7 +28,7 @@ export class StatusboardComponent implements OnInit {
   }
 
   getListOfSoldiers() {
-    this.buildingService.getSoldiersFromAPI().subscribe(response => this.listOfSoldiers = response.soldiers);
+    this.soldiersSrevice.getSoldiersFromAPI().subscribe(response => this.listOfSoldiers = response.soldiers);
   }
 
 }
