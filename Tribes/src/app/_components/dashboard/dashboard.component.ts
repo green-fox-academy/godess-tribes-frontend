@@ -1,3 +1,4 @@
+import { SoldiersService } from '../../_services/soldiers.service'
 import { BuildingsResponse } from '../../_models/buildings-response';
 import { Component, OnInit } from '@angular/core';
 import { BuildingService } from '../../_services/building.service';
@@ -17,14 +18,16 @@ export class DashboardComponent implements OnInit {
   numberOfFarms: number;
   numberOfMines: number;
   numberOfBarracks: number;
+  numberOfSoldiers: number;
   errorMessage: string;
 
-  constructor(private buildingService: BuildingService, private resourceService: ResourceService) {
+  constructor(private buildingService: BuildingService, private resourceService: ResourceService, private soldierService: SoldiersService) {
     this.buildingService.finishConstruction.subscribe({
       next: () => {
           this.getNumberOfFarms();
           this.getNumberOfMines();
           this.getNumberOfBarracks();
+          this.getNumberOfSoldiers();
       }
     });
    }
@@ -33,6 +36,7 @@ export class DashboardComponent implements OnInit {
     this.getNumberOfFarms();
     this.getNumberOfMines();
     this.getNumberOfBarracks();
+    this.getNumberOfSoldiers();
   }
 
   getGoldAmount() {
@@ -57,6 +61,11 @@ export class DashboardComponent implements OnInit {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfBarracks = response.buildings
       .filter(building => building.type === 'BARRACK' && building.level !== 0).length);
+  }
+
+  getNumberOfSoldiers() {
+    this.soldierService.getSoldiersFromAPI()
+    .subscribe(response => this.numberOfSoldiers = response.soldiers.length);
   }
 
   receiveErrorMessage($event) {
