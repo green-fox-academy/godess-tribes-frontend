@@ -6,32 +6,45 @@
     <div class="col-md-8">
       <button class="btn btn-danger back" onclick="window.location.href ='kingdom'">Back</button>
       <div class="row align-items-center justify-content-center mb-5">
-        <img src="../../../assets/images/generate_soldiers.png" class="main-image" />
+        <img src="../../../assets/images/soldier.png" class="main-image" />
         <div class="h2"> Details of your army</div>
       </div>
 
       <div *ngFor="let level of levels" class="row mt-5 align-items-center">
         <div class="col-2 level-icons">
           <div *ngFor="let i of [].constructor(level)" class="mx-auto text-center image-position">
-            <img src="../../../assets/images/generate_soldiers.png" class="level-image" />
+            <img src="../../../assets/images/ribbon.png" class="level-image" />
           </div>
         </div>
-        <div class="col-md-4">
-          <span *ngIf="getNumberOfSoldiersByLevel(level) > 0">{{getNumberOfSoldiersByLevel(level)}} soldier(s) of level {{level}}</span>
+        <div class="col-md-5">
+          <span *ngIf="getNumberOfSoldiersByLevel(level) > 0">You have {{getNumberOfSoldiersByLevel(level)}} soldier(s)
+            of level {{level}}</span>
           <span *ngIf="getNumberOfSoldiersByLevel(level) == 0">You don't have any soldier of level {{level}}</span>
         </div>
-        <div class="col-md-4" *ngIf="level !== 3">
+        <div class="col-md-5" *ngIf="level !== 3 && !isUpgradePossible(level)">
           <button class="btn btn-warning inactive">
-            <p class="m-0">Upgrade</p>
+            <p class="m-0">Advance your soldier</p>
             <small>for {{getUpgradingCost(level)}} gold</small>
           </button>
         </div>
-        <div class="col-md-4" *ngIf="level !== 3">
+        <div class="col-md-5" *ngIf="level !== 3 && isUpgradePossible(level)">
           <button class="btn btn-warning">
-            <p class="m-0">Upgrade</p>
+            <p class="m-0">Advance your soldier</p>
             <small>for {{getUpgradingCost(level)}} gold</small>
           </button>
         </div>
+      </div>
+      <div class="row justify-content-center">
+        <button class="btn btn-danger inactive" *ngIf="costNewSoldier > goldAmount">
+          <p class="m-0">Buy a new soldier</p>
+          <small>for {{costNewSoldier}} gold</small>
+        </button>
+      </div>
+      <div class="row justify-content-center">
+        <button class="btn btn-danger" *ngIf="goldAmount > costNewSoldier">
+          <p class="m-0">Buy a new soldier</p>
+          <small>for {{costNewSoldier}} gold</small>
+        </button>
       </div>
     </div>
     <div class="col-md-4">
