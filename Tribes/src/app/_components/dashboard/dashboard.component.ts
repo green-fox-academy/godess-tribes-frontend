@@ -1,4 +1,4 @@
-import { SoldiersService } from '../../_services/soldiers.service'
+import { SoldiersService } from '../../_services/soldiers.service';
 import { BuildingsResponse } from '../../_models/buildings-response';
 import { Component, OnInit, Input } from '@angular/core';
 import { BuildingService } from '../../_services/building.service';

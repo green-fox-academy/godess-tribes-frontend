@@ -4,6 +4,6 @@ export class Soldier {
     level: number;
     startedAt: number;
     finishedAt: number;
-    type?: string = 'soldier';
+    type?: string;
 
 }

@@ -21,18 +21,19 @@ export class AddNewBadgeComponent implements OnInit {
   costOfNewSoldier = COST_NEW_SOLDIER;
   numberOfBarracks: number;
 
-  constructor(private resourceService: ResourceService, private buildingService: BuildingService, private soldiersService: SoldiersService) {
-    this.buildingService.beginConstruction.subscribe({
-      next: () => {
-        this.getGoldAmount();
-      }
-    });
-    this.soldiersService.beginTraining.subscribe({
-      next: () => {
-        this.getGoldAmount();
-        this.getNumberOfBarracks();
-      }
-    });
+  constructor(private resourceService: ResourceService, private buildingService: BuildingService, 
+    private soldiersService: SoldiersService) {
+      this.buildingService.beginConstruction.subscribe({
+        next: () => {
+          this.getGoldAmount();
+        }
+      });
+      this.soldiersService.beginTraining.subscribe({
+        next: () => {
+          this.getGoldAmount();
+          this.getNumberOfBarracks();
+        }
+      });
   }
 
   ngOnInit() {

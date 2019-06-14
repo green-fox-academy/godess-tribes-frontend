@@ -14,17 +14,18 @@ export class SoldiersComponent implements OnInit {
 
   soldiers: Soldier[] = [];
   levels: number[] = [];
-  level: number;
   goldAmount: number;
   costNewSoldier = COST_NEW_SOLDIER;
   numberOfBarracks: number;
   barrackLevel: number;
+  soldierLevel: number;
 
-  constructor(private soldiersService: SoldiersService, private resourceService: ResourceService, private buildingService: BuildingService) {
-    this.soldiersService.finishTraining.subscribe({
-      next: () => {
+  constructor(private soldiersService: SoldiersService, private resourceService: ResourceService, 
+    private buildingService: BuildingService) {
+      this.soldiersService.finishTraining.subscribe({
+        next: () => {
           this.getSoldiersList();
-      }
+        }
     });
    }
 
@@ -34,6 +35,7 @@ export class SoldiersComponent implements OnInit {
     this.getGoldAmount();
     this.getNumberOfBarracks();
     this.getBarrackLevel();
+    this.getSoldierLevel();
   }
 
   getSoldiersList() {
@@ -56,17 +58,19 @@ export class SoldiersComponent implements OnInit {
 
   getGoldAmount() {
     this.resourceService.getDataFromBackend()
-    .subscribe(response => this.goldAmount = response.resources.find(resource => resource.type === 'GOLD').amount);
+    .subscribe(response => this.goldAmount = response.resources
+                            .find(resource => resource.type === 'GOLD').amount);
   }
 
   getNumberOfBarracks() {
     this.buildingService.getBuildingsFromAPI()
     .subscribe(response => this.numberOfBarracks = response.buildings
-      .filter(building => building.type === 'BARRACK').length);
+                            .filter(building => building.type === 'BARRACK').length);
   }
 
   getNumberOfBarracksByLevel(level: number): number {
-    return this.soldiers.filter(soldier => soldier.level === level).length;
+    return this.soldiers
+            .filter(soldier => soldier.level === level).length;
   }
 
   isUpgradePossible(level: number): boolean {
@@ -81,8 +85,8 @@ export class SoldiersComponent implements OnInit {
 
   getSoldierLevel(): void {
     this.soldiersService.getSoldiersFromAPI()
-    .subscribe(response => this.level = response.soldiers
-      .find(soldier => soldier.level).level);
+    .subscribe(response => this.soldierLevel = response.soldiers
+                            .find(soldier => soldier.level).level);
   }
 
 }
