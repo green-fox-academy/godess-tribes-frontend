@@ -22,8 +22,8 @@ export class SoldiersService {
     return this.http.get<SoldierResponse>(ROOT_URL + '/kingdom/soldiers');
   }
 
-  addNewSoldier(type: string): void {
-    this.http.post<Soldier>(ROOT_URL + '/kingdom/soldiers', {type})
+  addNewSoldier(soldier: Soldier): void {
+    this.http.post<Soldier>(ROOT_URL + '/kingdom/soldiers', {soldier})
     .pipe(catchError(this.errorHandlingService.handleError))
     .subscribe(response => this.handleTrainingProcess(response),
               error => console.error(error));

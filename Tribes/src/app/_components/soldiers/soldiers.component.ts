@@ -18,6 +18,7 @@ export class SoldiersComponent implements OnInit {
   goldAmount: number;
   costNewSoldier = COST_NEW_SOLDIER;
   numberOfBarracks: number;
+  barrackLevel: number;
 
   constructor(private soldiersService: SoldiersService, private resourceService: ResourceService, private buildingService: BuildingService) {
     this.soldiersService.finishTraining.subscribe({
@@ -31,6 +32,8 @@ export class SoldiersComponent implements OnInit {
     this.getSoldiersList();
     this.createLevelArray();
     this.getGoldAmount();
+    this.getNumberOfBarracks();
+    this.getBarrackLevel();
   }
 
   getSoldiersList() {
@@ -62,8 +65,24 @@ export class SoldiersComponent implements OnInit {
       .filter(building => building.type === 'BARRACK').length);
   }
 
+  getNumberOfBarracksByLevel(level: number): number {
+    return this.soldiers.filter(soldier => soldier.level === level).length;
+  }
+
   isUpgradePossible(level: number): boolean {
-    return this.numberOfBarracks >= 1 && this.goldAmount >= this.getUpgradingCost(level);
+    return this.getNumberOfBarracksByLevel(level) >= 1 && this.goldAmount >= this.getUpgradingCost(level);
+  }
+
+  getBarrackLevel(): void {
+    this.buildingService.getBuildingsFromAPI()
+    .subscribe(response => this.barrackLevel = response.buildings
+                            .find(building => building.type === 'BARRACK').level);
+  }
+
+  getSoldierLevel(): void {
+    this.soldiersService.getSoldiersFromAPI()
+    .subscribe(response => this.level = response.soldiers
+      .find(soldier => soldier.level).level);
   }
 
 }

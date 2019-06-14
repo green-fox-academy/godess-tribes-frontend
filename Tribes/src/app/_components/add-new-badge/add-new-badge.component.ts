@@ -63,7 +63,7 @@ export class AddNewBadgeComponent implements OnInit {
 
   addNewSoldier() {
     if (this.goldAmount > COST_NEW_SOLDIER) {
-      this.soldiersService.addNewSoldier('soldier');
+      this.soldiersService.addNewSoldier(this.soldier);
     } else {
       this.errorMessageEvent.emit('You do not have enough money.');
     }
