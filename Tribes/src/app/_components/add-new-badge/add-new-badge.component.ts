@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { COST_NEW_BUILDING } from '../../constants';
-import { COST_NEW_SOLDIER } from './../../constants';
-import { Soldier} from '../../_models/soldier';
+import { COST_NEW_BUILDING, COST_NEW_SOLDIER } from '../../constants';
+import { Soldier } from '../../_models/soldier';
 
 import { ResourceService } from '../../_services/resource.service';
 import { BuildingService } from '../../_services/building.service';
@@ -25,16 +24,16 @@ export class AddNewBadgeComponent implements OnInit {
   constructor(private resourceService: ResourceService, private buildingService: BuildingService, private soldiersService: SoldiersService) {
     this.buildingService.beginConstruction.subscribe({
       next: () => {
-          this.getGoldAmount();
+        this.getGoldAmount();
       }
     });
     this.soldiersService.beginTraining.subscribe({
       next: () => {
-          this.getGoldAmount();
-          this.getNumberOfBarracks();
+        this.getGoldAmount();
+        this.getNumberOfBarracks();
       }
     });
-   }
+  }
 
   ngOnInit() {
     this.getGoldAmount();
@@ -43,8 +42,8 @@ export class AddNewBadgeComponent implements OnInit {
 
   getGoldAmount() {
     this.resourceService.getDataFromBackend()
-    .subscribe(response => this.goldAmount = response.resources
-      .find(resource => resource.type === 'GOLD').amount);
+      .subscribe(response => this.goldAmount = response.resources
+        .find(resource => resource.type === 'GOLD').amount);
   }
 
   addNewBuilding() {
@@ -57,8 +56,8 @@ export class AddNewBadgeComponent implements OnInit {
 
   getNumberOfBarracks() {
     this.buildingService.getBuildingsFromAPI()
-    .subscribe(response => this.numberOfBarracks = response.buildings
-      .filter(building => building.type === 'BARRACK').length);
+      .subscribe(response => this.numberOfBarracks = response.buildings
+        .filter(building => building.type === 'BARRACK').length);
   }
 
   addNewSoldier() {

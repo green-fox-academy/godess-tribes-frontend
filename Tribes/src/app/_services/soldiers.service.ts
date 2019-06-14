@@ -24,8 +24,8 @@ export class SoldiersService {
 
   addNewSoldier(soldier: Soldier): void {
     this.http.post<Soldier>(ROOT_URL + '/kingdom/soldiers', {soldier})
-    .pipe(catchError(this.errorHandlingService.handleError))
-    .subscribe(response => this.handleTrainingProcess(response),
+      .pipe(catchError(this.errorHandlingService.handleError))
+        .subscribe(response => this.handleTrainingProcess(response),
               error => console.error(error));
   }
 
