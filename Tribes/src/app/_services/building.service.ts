@@ -38,8 +38,9 @@ export class BuildingService {
 
   handleBuildingProcess(building: Building): void {
     this.beginConstruction.emit();
-    this.saveFinishedAtInLocalStorage(building.finishedAt);
-    setTimeout(() => { this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
+    //this.saveFinishedAtInLocalStorage(building.finishedAt);
+    setTimeout(() => { console.warn(building.id);
+      this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
   }
 
   upgradeBuilding(idToUpgrade: number, level: number): void {
