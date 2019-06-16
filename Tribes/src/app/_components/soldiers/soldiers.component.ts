@@ -19,8 +19,9 @@ export class SoldiersComponent implements OnInit {
   numberOfBarracks: number;
   barrackLevel: number;
   soldierLevel: number;
+  soldierId: number;
 
-  constructor(private soldiersService: SoldiersService, private resourceService: ResourceService, 
+  constructor(private soldiersService: SoldiersService, private resourceService: ResourceService,
     private buildingService: BuildingService) {
       this.soldiersService.finishTraining.subscribe({
         next: () => {
@@ -35,7 +36,7 @@ export class SoldiersComponent implements OnInit {
     this.getGoldAmount();
     this.getNumberOfBarracks();
     this.getBarrackLevel();
-    this.getSoldierLevel();
+    this.getSoldierLevel(this.soldierId);
   }
 
   getSoldiersList() {
@@ -83,10 +84,11 @@ export class SoldiersComponent implements OnInit {
                             .find(building => building.type === 'BARRACK').level);
   }
 
-  getSoldierLevel(): void {
+  getSoldierLevel(id: number): number {
     this.soldiersService.getSoldiersFromAPI()
     .subscribe(response => this.soldierLevel = response.soldiers
-                            .find(soldier => soldier.level).level);
+                            .find(soldier => soldier.id === id).level);
+return this.soldierLevel;
   }
 
 }
