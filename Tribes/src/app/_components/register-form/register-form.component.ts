@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -67,6 +68,7 @@ export class RegisterFormComponent implements OnInit {
       error => {
         this.isError = true;
         this.error = error;
+        console.log('test');
         this.processStarted = false;
         });
   }

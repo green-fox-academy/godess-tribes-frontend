@@ -3,6 +3,7 @@ import { LoginResultModel } from '../../_models/login-result-model';
 import { LoginService } from '../../_services/login.service';
 import { UserService } from '../../_services/user.service';
 import {Router} from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-form',
@@ -14,7 +15,7 @@ export class LoginFormComponent implements OnInit {
   loginResultModel: LoginResultModel;
   username: string;
   password: string;
-  errorMessage: string;
+  error: HttpErrorResponse;
   submitted = false;
   submittedError: boolean;
 
@@ -43,7 +44,7 @@ export class LoginFormComponent implements OnInit {
           },
           error => {
             if (error) {
-              this.errorMessage = error;
+              this.error = error;
             }
             // TODO: replace it with generic error page
           });
