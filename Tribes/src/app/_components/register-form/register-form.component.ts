@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from '../../_services/register.service';
-import { UserService } from '../../_services/user.service';
-import { LoginService } from '../../_services/login.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
 
+import { RegisterService } from '../../_services/register.service';
+import { UserService } from '../../_services/user.service';
+import { LoginService } from '../../_services/login.service';
 
 @Component({
   selector: 'app-register-form',
