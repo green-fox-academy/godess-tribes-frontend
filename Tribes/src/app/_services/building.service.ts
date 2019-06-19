@@ -38,7 +38,7 @@ export class BuildingService {
 
   handleBuildingProcess(building: Building): void {
     this.beginConstruction.emit();
-    //this.saveFinishedAtInLocalStorage(building.finishedAt);
+    this.saveFinishedAtInLocalStorage(building.finishedAt);
     setTimeout(() => { console.warn(building.id);
       this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
   }

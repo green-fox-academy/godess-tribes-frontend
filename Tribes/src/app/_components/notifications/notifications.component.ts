@@ -14,6 +14,7 @@ import { Building } from '../../_models/building';
 export class NotificationsComponent implements OnInit {
 
   listToDisplay: Notification[];
+  emptyMessage: String;
   constructor(private buildingService: BuildingService, private notificationService: NotificationService) {
     this.buildingService.beginConstruction.subscribe({
       next: () => {
@@ -42,8 +43,11 @@ export class NotificationsComponent implements OnInit {
 
   generateListToDisplay(): void {
     this.buildingService.getBuildingsFromAPI()
-    .subscribe(response => this.listToDisplay = response.buildings
+    .subscribe(response => { this.listToDisplay = response.buildings
       .filter(building => this.buildingService.checkIfBuildingIsProgressing(building))
-      .map(building => this.createNotification(building)));
+      .map(building => this.createNotification(building));
+      if(this.listToDisplay.length === 0) {
+        this.emptyMessage = 'Currently no progressing items';
+      }});
   }
 }
