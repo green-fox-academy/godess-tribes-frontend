@@ -26,8 +26,8 @@ export class ResourcesComponent implements OnInit {
       }
     });
     this.buildingService.updateRessourceByConstruction.subscribe({
-      next: (sum) => {
-        this.updateRessourceAfterConstruction(sum);
+      next: (upgradeCost) => {
+        this.updateRessourceAfterConstruction(upgradeCost);
       }
     });
   }
@@ -43,7 +43,7 @@ export class ResourcesComponent implements OnInit {
                              });
   }
 
-  updateRessourceAfterConstruction(sum: number): void {
-    this.goldAmount -= sum;
+  updateRessourceAfterConstruction(upgradeCost: number): void {
+    this.goldAmount -= upgradeCost;
   }
 }

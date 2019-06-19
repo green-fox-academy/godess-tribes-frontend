@@ -40,7 +40,7 @@ export class BuildingService {
     this.beginConstruction.emit();
     this.saveFinishedAtInLocalStorage(building.finishedAt);
     setTimeout(() => { console.warn(building.id);
-      this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
+                       this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
   }
 
   upgradeBuilding(idToUpgrade: number, level: number): void {
