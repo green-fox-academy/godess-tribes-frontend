@@ -26,6 +26,11 @@ export class NotificationsComponent implements OnInit {
           this.generateListToDisplay();
       }
     });
+    this.buildingService.updateRessourceByConstruction.subscribe({
+      next: () => {
+        this.emptyMessage = undefined;
+      }
+    });
    }
 
   ngOnInit() {
