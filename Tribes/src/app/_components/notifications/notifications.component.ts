@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { BUILDINGS } from '../../_mocks/mock-building';
 import { Notification } from '../../_models/notification';
 import { Building } from '../../_models/building';
+import { Soldier} from '../../_models/soldier';
 
 @Component({
   selector: 'app-notifications',
@@ -37,12 +38,27 @@ export class NotificationsComponent implements OnInit {
     return currentTime < parsedFinishedAt;
   }
 
+  checkIfSoldierIsProgressing(soldier: Soldier): boolean {
+    const currentTime = new Date().getTime();
+    const parsedFinishedAt = soldier.finishedAt;
+    return currentTime < parsedFinishedAt;
+  }
+
   createNotification(building: Building): Notification {
-    if (building.level === 1) {
+    if (building.level === 0) {
       return new Notification(building.type, building.level, 'Under construction', building.startedAt, building.finishedAt);
     } else if (building.level > 1 && building.level <= MAX_UPGRADE_LEVELS) {
       return new Notification(building.type, building.level, 'Leveling up from '
-      + (building.level - 1) + ' to ' + building.level, building.startedAt, building.finishedAt);
+      + (building.level) + ' to ' + building.level + 1, building.startedAt, building.finishedAt);
+    }
+  }
+
+  createNotificationSoldier(soldier: Soldier): Notification {
+    if (soldier.level === 0) {
+      return new Notification(soldier.type, soldier.level, 'About to join the army', soldier.startedAt, soldier.finishedAt);
+    } else if (soldier.level > 1 && soldier.level <= MAX_UPGRADE_LEVELS) {
+      return new Notification(soldier.type, soldier.level, 'Training from '
+      + (soldier.level) + ' to ' + soldier.level + 1, soldier.startedAt, soldier.finishedAt);
     }
   }
 
