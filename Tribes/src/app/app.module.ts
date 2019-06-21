@@ -34,6 +34,7 @@ import { AddNewBadgeComponent } from './_components/add-new-badge/add-new-badge.
 import { ServerErrorInterceptor } from './interceptors/server-error-interceptor';
 import { GenericErrorComponent } from './_components/generic-error/generic-error.component';
 import { ProgressBarComponent } from './_components/progress-bar/progress-bar.component';
+import { AddNewSoldierBadgeComponent } from './_components/add-new-soldier-badge/add-new-soldier-badge.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ProgressBarComponent } from './_components/progress-bar/progress-bar.co
     AddNewBadgeComponent,
     GenericErrorComponent,
     ProgressBarComponent,
+    AddNewSoldierBadgeComponent,
   ],
   imports: [
     BrowserModule,

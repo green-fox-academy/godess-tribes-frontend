@@ -39,12 +39,12 @@
       <div class="badges">
         <a routerLink="soldiers"><img src="assets/images/soldier.png"></a>
         <span class="badge badge-warning count-notif">x {{ numberOfSoldiers }}</span>
-        <app-add-new-badge [type]="'soldier'" (errorMessageEvent)="receiveErrorMessage($event)"></app-add-new-badge>
+        <app-add-new-soldier-badge [type]="'soldier'" (errorMessageEvent)="receiveErrorMessage($event)"></app-add-new-soldier-badge>
       </div>
     </div>
     <div class="col-md-4">
       <a routerLink="battle"><img src="assets/images/attack.png"></a>
     </div>
   </div>
-  <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">{{errorMessage}}</div>
 </div>

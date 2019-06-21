@@ -1,3 +1,4 @@
 <div class="container-fluid">
     <app-notification *ngFor="let notification of listToDisplay" [notification]="notification"></app-notification>
+    <p *ngIf="emptyMessage" class="text-center">{{emptyMessage}}</p>
 </div>

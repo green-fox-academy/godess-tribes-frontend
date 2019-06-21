@@ -15,6 +15,7 @@ import { Soldier} from '../../_models/soldier';
 export class NotificationsComponent implements OnInit {
 
   listToDisplay: Notification[];
+  emptyMessage: string;
   constructor(private buildingService: BuildingService, private notificationService: NotificationService) {
     this.buildingService.beginConstruction.subscribe({
       next: () => {
@@ -24,6 +25,11 @@ export class NotificationsComponent implements OnInit {
     this.buildingService.finishConstruction.subscribe({
       next: () => {
           this.generateListToDisplay();
+      }
+    });
+    this.buildingService.updateRessourceByConstruction.subscribe({
+      next: () => {
+        this.emptyMessage = undefined;
       }
     });
    }
@@ -47,7 +53,7 @@ export class NotificationsComponent implements OnInit {
   createNotification(building: Building): Notification {
     if (building.level === 0) {
       return new Notification(building.type, building.level, 'Under construction', building.startedAt, building.finishedAt);
-    } else if (building.level > 1 && building.level <= MAX_UPGRADE_LEVELS) {
+    } else if (building.level > 0 && building.level < MAX_UPGRADE_LEVELS) {
       return new Notification(building.type, building.level, 'Leveling up from '
       + (building.level) + ' to ' + building.level + 1, building.startedAt, building.finishedAt);
     }
@@ -64,8 +70,11 @@ export class NotificationsComponent implements OnInit {
 
   generateListToDisplay(): void {
     this.buildingService.getBuildingsFromAPI()
-    .subscribe(response => this.listToDisplay = response.buildings
-      .filter(building => this.checkIfBuildingIsProgressing(building))
-      .map(building => this.createNotification(building)));
+    .subscribe(response => { this.listToDisplay = response.buildings
+                             .filter(building => this.buildingService.checkIfBuildingIsProgressing(building))
+                             .map(building => this.createNotification(building));
+                             if (this.listToDisplay.length === 0) {
+                                  this.emptyMessage = 'Currently no progressing items';
+                            }});
   }
 }

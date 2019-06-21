@@ -22,7 +22,7 @@ export class SoldiersComponent implements OnInit {
   soldierId: number;
 
   constructor(private soldiersService: SoldiersService, private resourceService: ResourceService,
-    private buildingService: BuildingService) {
+              private buildingService: BuildingService) {
       this.soldiersService.finishTraining.subscribe({
         next: () => {
           this.getSoldiersList();
@@ -88,7 +88,7 @@ export class SoldiersComponent implements OnInit {
     this.soldiersService.getSoldiersFromAPI()
     .subscribe(response => this.soldierLevel = response.soldiers
                             .find(soldier => soldier.id === id).level);
-return this.soldierLevel;
+    return this.soldierLevel;
   }
 
 }
