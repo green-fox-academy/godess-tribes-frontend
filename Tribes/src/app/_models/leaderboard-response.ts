@@ -1,5 +1,5 @@
+import  {LeaderboardItem} from './leaderboard-item';
 export class LeaderboardResponse {
 
-    kingdomName: String;
-    buildings: number;
+    leaderboards: LeaderboardItem[];
 }

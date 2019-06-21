@@ -12,7 +12,7 @@ export class LeaderboardService {
 
   constructor(private http : HttpClient) { }
 
-  getKingdomListWithBuildingsFromBackend(): Observable<LeaderboardResponse[]> {
-    return this.http.get<LeaderboardResponse[]>(ROOT_URL + '/leaderboard/buildings')
+  getKingdomListWithBuildingsFromBackend(): Observable<LeaderboardResponse> {
+    return this.http.get<LeaderboardResponse>(ROOT_URL + '/leaderboard/buildings')
   }
 }

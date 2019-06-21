@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LeaderboardResponse } from 'src/app/_models/leaderboard-response';
+import { LeaderboardService } from 'src/app/_services/leaderboard.service';
+import { LeaderboardItem } from 'src/app/_models/leaderboard-item';
 
 @Component({
   selector: 'app-leaderboard',
@@ -7,11 +8,15 @@ import { LeaderboardResponse } from 'src/app/_models/leaderboard-response';
   styleUrls: ['./leaderboard.component.css']
 })
 export class LeaderboardComponent implements OnInit {
-  kingdoms: LeaderboardResponse[];
+  kingdoms: LeaderboardItem[];
 
-  constructor() { }
+  constructor(private leaderboardService: LeaderboardService) { }
 
   ngOnInit() {
+  }
+
+  getKingdoms () {
+    this.leaderboardService.getKingdomListWithBuildingsFromBackend().subscribe(response => this.kingdoms = response.leaderboards);
   }
 
 }
