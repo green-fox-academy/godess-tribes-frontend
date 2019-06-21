@@ -2,18 +2,29 @@
   <div>
     <app-header></app-header>
   </div>
-  <div>
-    <a href="/leaderboard/buildings">Show leaderBoard by buildings</a>
-  </div>
-  <div>
-    <a href="/leaderboard/soldiers">Show leaderBoard by soldiers</a>
+  <div class="row">
+    <div class="col-md-4">
+      <button onclick="window.location.href = '/leaderboard/buildings'" >Show leaderboard by buildings</button>
+    </div>
+    <div class="col-md-4">
+      <button onclick="window.location.href = '/leaderboard/soldiers'">Show leaderboard by soldiers</button>
+    </div>
   </div>
 
-  <ul>
-    <li *ngFor="let kingdom of kingdoms">
-      <span>{{kingdom.kingdomName}}</span>
-      <span>{{kingdom.buildings}}</span>
-    </li>
-  </ul>
-
+  <div *ngIf="side=='/leaderboard/buildings'">
+    <ul>
+      <li *ngFor="let kingdom of kingdoms">
+        <span>{{kingdom.kingdomName}}</span>
+        <span>{{kingdom.buildings}}</span>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="side=='/leaderboard/soldiers'">
+    <ul>
+      <li *ngFor="let kingdom of kingdoms">
+        <span>{{kingdom.kingdomName}}</span>
+        <span>{{kingdom.soldiers}}</span>
+      </li>
+    </ul>
+  </div>
 </div>
