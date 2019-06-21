@@ -2,29 +2,52 @@
   <div>
     <app-header></app-header>
   </div>
+  <div class="row, text-center" >
+    <h1>Champions league leaderboard</h1>
+  </div>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <button onclick="window.location.href = '/leaderboard/buildings'" >Show leaderboard by buildings</button>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <button onclick="window.location.href = '/leaderboard/soldiers'">Show leaderboard by soldiers</button>
     </div>
   </div>
 
   <div *ngIf="side=='/leaderboard/buildings'">
-    <ul>
-      <li *ngFor="let kingdom of kingdoms">
-        <span>{{kingdom.kingdomName}}</span>
-        <span>{{kingdom.buildings}}</span>
-      </li>
-    </ul>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>position</th>
+        <th>kingdom name</th>
+        <th>number of buildings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let kingdom of kingdoms">
+        <td>1</td>
+        <td>{{kingdom.kingdomName}}</td>
+        <td>{{kingdom.buildings}}</td>
+      </tr>
+    </tbody>
+  </table>
   </div>
   <div *ngIf="side=='/leaderboard/soldiers'">
-    <ul>
-      <li *ngFor="let kingdom of kingdoms">
-        <span>{{kingdom.kingdomName}}</span>
-        <span>{{kingdom.soldiers}}</span>
-      </li>
-    </ul>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>position</th>
+          <th>kingdom name</th>
+          <th>number of soldiers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let kingdom of kingdoms">
+          <td>1</td>
+          <td>{{kingdom.kingdomName}}</td>
+          <td>{{kingdom.soldiers}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
