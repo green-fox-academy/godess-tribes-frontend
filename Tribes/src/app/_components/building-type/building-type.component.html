@@ -31,25 +31,25 @@
         </div>
       </div>
       <div *ngIf="type !== 'townhall'">
-          <div class="row align-items-center justify-content-center mb-5">
-            <img src="assets/images/{{type}}.png" class="main-image" />
+        <div class="row align-items-center justify-content-center mb-5">
+          <img src="assets/images/{{type}}.png" class="main-image" />
             <div class="h2"> Details of your {{type}}s</div>
+        </div>
+        <div *ngFor="let level of levels" class="row mt-5 align-items-center">
+          <div class="col-md-2 level-icons">
+            <div *ngFor="let i of [].constructor(level)" class="mx-auto text-center image-position">
+              <img src="assets/images/{{type}}.png" class="level-image" />
+            </div>
           </div>
-          <div *ngFor="let level of levels" class="row mt-5 align-items-center">
-            <div class="col-2 level-icons">
-              <div *ngFor="let i of [].constructor(level)" class="mx-auto text-center image-position">
-                <img src="assets/images/{{type}}.png" class="level-image" />
-              </div>
-            </div>
-            <div class="col-md-4">
-              <span *ngIf="getNumberOfBuildingsByLevel(level) > 0">{{getNumberOfBuildingsByLevel(level)}} {{type}}(s) of
+          <div class="col-md-4">
+            <span *ngIf="getNumberOfBuildingsByLevel(level) > 0">{{getNumberOfBuildingsByLevel(level)}} {{type}}(s) of
                 level {{level}}</span>
-              <span *ngIf="getNumberOfBuildingsByLevel(level) == 0">You don't have any {{type}} of level {{level}}</span>
-            </div>
-            <div class="col-md-3">
-              <span *ngIf="type !== 'barrack'">Production: {{getProductionRate(level)}}/min.</span>
-              <span *ngIf="type === 'barrack'">Training: {{level}} soldier(s) at time</span>
-            </div>
+            <span *ngIf="getNumberOfBuildingsByLevel(level) == 0">You don't have any {{type}} of level {{level}}</span>
+          </div>
+          <div class="col-md-3">
+            <span *ngIf="type !== 'barrack'">Production: {{getProductionRate(level)}}/min.</span>
+            <span *ngIf="type === 'barrack'">Training: {{level}} soldier(s) at time</span>
+          </div>
           <div class="col-md-3"
             *ngIf="level !== 3 && !isUpgradePossible(level)">
             <button class="btn btn-warning inactive" (click)="createUpgradingErrorMessage(level)">
@@ -61,7 +61,7 @@
             *ngIf="level !== 3 && isUpgradePossible(level)">
             <button class="btn btn-warning" (click)="upgradeBuilding(level)">
               <p class="m-0">Upgrade</p>
-              <small>for {{getUpgradingCost(townhallLevel)}} gold</small>
+              <small>for {{getUpgradingCost(level)}} gold</small>
             </button>
           </div>
         </div>
@@ -79,7 +79,10 @@
         </div>
       </div>
       <div *ngIf="errorMessage" class="alert alert-danger text-center mt-3">{{errorMessage}}</div>
-      <div class="col-md-4">
-          <app-statusboard></app-statusboard>
-      </div>
+    </div>
+    <div class="col-md-4">
+      <app-statusboard></app-statusboard>
+    </div>
+  </div>
 </div>
+
