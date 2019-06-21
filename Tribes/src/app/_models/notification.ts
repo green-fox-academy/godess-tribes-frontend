@@ -1,6 +1,6 @@
 export class Notification {
     imgURL?: string;
-    type: string;
+    type?: string;
     level: number;
     statusMessage: string;
     startedAt: number;
@@ -14,4 +14,5 @@ export class Notification {
         this.startedAt = startedAt;
         this.finishedAt = finishedAt;
     }
+
 }

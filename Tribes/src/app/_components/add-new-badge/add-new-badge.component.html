@@ -1,6 +1,7 @@
-<div *ngIf="costOfNewBuilding > goldAmount">
-  <div class="badge badge-add inactive pull-right" (click)="createAddNewErrorMessage()">+</div>
-</div>
-<div *ngIf="goldAmount >= costOfNewBuilding">
-  <div class="badge badge-add pull-right" (click)="addNewBuilding()">+</div>
+  <div *ngIf="(costOfNewBuilding > goldAmount) || (costOfNewSoldier > goldAmount || numberOfBarracks == 0)">
+    <div class="badge badge-add inactive pull-right" (click)="createAddNewErrorMessage()">+</div>
+  </div>
+  <div *ngIf="(goldAmount >= costOfNewBuilding) || (goldAmount >= costOfNewSoldier && numberOfBarracks >= 1)">
+    <div class="badge badge-add pull-right" (click)="addNewBuilding()">+</div>
+  </div>
 </div>

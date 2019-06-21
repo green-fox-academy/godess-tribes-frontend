@@ -7,11 +7,11 @@ import { BuildingService } from '../../_services/building.service';
 import { SoldiersService } from './../../_services/soldiers.service';
 
 @Component({
-  selector: 'app-add-new-badge',
-  templateUrl: './add-new-badge.component.html',
-  styleUrls: ['./add-new-badge.component.css']
+  selector: 'app-add-new-soldier-badge',
+  templateUrl: './add-new-soldier-badge.component.html',
+  styleUrls: ['./add-new-soldier-badge.component.css']
 })
-export class AddNewBadgeComponent implements OnInit {
+export class AddNewSoldierBadgeComponent implements OnInit {
 
   goldAmount: number;
   costOfNewBuilding = COST_NEW_BUILDING;
@@ -47,17 +47,8 @@ export class AddNewBadgeComponent implements OnInit {
         .find(resource => resource.type === 'GOLD').amount);
   }
 
-  addNewBuilding() {
-    if (this.goldAmount >= COST_NEW_BUILDING) {
-      this.goldAmount = this.goldAmount - COST_NEW_BUILDING;
-      this.buildingService.addNewBuilding(this.type);
-    } else {
-      this.createAddNewErrorMessage();
-    }
-  }
-
   createAddNewErrorMessage() {
-    this.errorMessageEvent.emit('You don\'t have enough money to buy a new ' + this.type);
+    this.errorMessageEvent.emit('You don\'t have enough money to buy a new soldier.');
   }
 
   getNumberOfBarracks() {
@@ -69,8 +60,6 @@ export class AddNewBadgeComponent implements OnInit {
   addNewSoldier() {
     if (this.goldAmount > COST_NEW_SOLDIER) {
       this.soldiersService.addNewSoldier(this.soldier);
-    } else {
-      this.errorMessageEvent.emit('You do not have enough money.');
     }
   }
 }

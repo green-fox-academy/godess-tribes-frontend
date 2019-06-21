@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { ROOT_URL, COST_BASE_UPGRADE, COST_NEW_BUILDING } from './../constants';
 import { catchError } from 'rxjs/operators';
 import { ErrorHandlingService } from './error-handling.service';
-import {SoldierResponse} from './../_models/soldiers-response';
 import { Building } from '../_models/building';
 
 @Injectable({
@@ -22,10 +21,6 @@ export class BuildingService {
 
   getBuildingsFromAPI(): Observable<BuildingsResponse> {
     return this.http.get<BuildingsResponse>(ROOT_URL + '/kingdom/buildings');
-  }
-
-  getSoldiersFromAPI(): Observable<SoldierResponse> {
-    return this.http.get<SoldierResponse>(ROOT_URL + '/kingdom/soldiers');
   }
 
   addNewBuilding(type: string): void {
