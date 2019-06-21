@@ -17,7 +17,8 @@ export class LeaderboardComponent implements OnInit {
   }
 
   getKingdoms () {
-    this.leaderboardService.getKingdomListWithBuildingsFromBackend().subscribe(response => this.kingdoms = response.leaderboards);
+    this.leaderboardService.getKingdomListWithBuildingsFromBackend().subscribe(response =>
+      {this.kingdoms = response.leaderboard});
   }
 
 }
