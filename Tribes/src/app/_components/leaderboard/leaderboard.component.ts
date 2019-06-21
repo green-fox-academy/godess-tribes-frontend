@@ -13,6 +13,7 @@ export class LeaderboardComponent implements OnInit {
   constructor(private leaderboardService: LeaderboardService) { }
 
   ngOnInit() {
+    this.getKingdoms();
   }
 
   getKingdoms () {

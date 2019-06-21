@@ -28,6 +28,8 @@ const routes: Routes = [
   { path: 'kingdom/battle', component: BattleComponent, canActivate: [AuthGuard] },
   { path: 'kingdom/:type', component: BuildingTypeComponent, canActivate: [AuthGuard] },
   { path: 'kingdom/resources', component: ResourcesComponent, canActivate: [AuthGuard] },
+  { path: 'leaderboard/buildings', component: LeaderboardComponent, canActivate: [AuthGuard] },
+  { path: 'leaderboard/soldiers', component: LeaderboardComponent, canActivate: [AuthGuard] },
   { path: 'error', component: GenericErrorComponent},
   { path: '**', component: PageNotFoundComponent},
 ];

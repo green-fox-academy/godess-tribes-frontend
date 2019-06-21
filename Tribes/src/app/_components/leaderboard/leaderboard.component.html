@@ -2,7 +2,16 @@
   <div>
     <app-header></app-header>
   </div>
-  <p>
-    leaderboard works!
-  </p>
+  <div>
+    <a href="/leaderboard/buildings">Show leaderBoard by buildings</a>
+  </div>
+  <div>
+    <a href="/leaderboard/soldiers">Show leaderBoard by soldiers</a>
+  </div>
+
+  <ul>
+    <li *ngFor="let kingdom of kingdoms">
+      {{kingdom.kingdomName}}
+    </li>
+  </ul>
 </div>
