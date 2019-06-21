@@ -21,8 +21,8 @@ export class AddNewSoldierBadgeComponent implements OnInit {
   costOfNewSoldier = COST_NEW_SOLDIER;
   numberOfBarracks: number;
 
-  constructor(private resourceService: ResourceService, private buildingService: BuildingService, 
-    private soldiersService: SoldiersService) {
+  constructor(private resourceService: ResourceService, private buildingService: BuildingService,
+              private soldiersService: SoldiersService) {
       this.buildingService.beginConstruction.subscribe({
         next: () => {
           this.getGoldAmount();
