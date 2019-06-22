@@ -15,4 +15,8 @@ export class LeaderboardService {
   getKingdomListWithBuildingsFromBackend(): Observable<LeaderboardResponse> {
     return this.http.get<LeaderboardResponse>(ROOT_URL + '/leaderboard/buildings')
   }
+
+  getKingdomListWithSoldiersFromBackend(): Observable<LeaderboardResponse> {
+    return this.http.get<LeaderboardResponse>(ROOT_URL + '/leaderboard/soldiers')
+  }
 }
