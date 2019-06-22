@@ -1,3 +1,4 @@
+<body>
 <div class="container-fluid">
   <div>
     <app-header></app-header>
@@ -5,7 +6,7 @@
 
   <div *ngIf="side=='/leaderboard'">
     <div class="row, text-center" >
-      <h1>Champions league leaderboard</h1>
+      <h1>Check out the richest kingdoms...</h1>
     </div>
     <div class="row">
       <div class="col-md-6 text-center">
@@ -23,7 +24,6 @@
 
   <div *ngIf="side=='/leaderboard/buildings'">
     <h1 class="text-center">Best players as per buildings' number</h1>
-    <button class="toRight" onclick="window.location.href = '/leaderboard/soldiers'">Show leaderboard by soldiers</button>
     <table class="table table-striped">
       <thead>
       <tr>
@@ -40,10 +40,11 @@
       </tr>
     </tbody>
   </table>
+  <button onclick="window.location.href = '/leaderboard/soldiers'">Rank by soldiers</button>
   </div>
   <div *ngIf="side=='/leaderboard/soldiers'">
     <h1 class="text-center">Best players as per soldiers' number</h1>
-    <button class="toRight" onclick="window.location.href = '/leaderboard/buildings'" >Show leaderboard by buildings</button>
+    <button class="toRight" onclick="window.location.href = '/leaderboard/buildings'" >Rank by buildings</button>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -60,5 +61,7 @@
         </tr>
       </tbody>
     </table>
+    <button class="toRight" onclick="window.location.href = '/leaderboard/buildings'" >Rank by buildings</button>
   </div>
 </div>
+</body>
