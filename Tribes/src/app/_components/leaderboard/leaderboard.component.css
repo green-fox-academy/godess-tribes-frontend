@@ -1,25 +1,45 @@
+body, html {
+    height: 100%;
+  }
+
 .container-fluid {
     background-image: url("/assets/images/background2.jpg");
     background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
     background-position: center;
- }
- .bg {
-    height: 100%;
  }
 
  h1 {
-     margin: 20px;
+     margin: 40px;
  }
 
-tbody tr :nth-child(even){
+ button {
+     margin-bottom: 20px;
+     border-radius: 4px;
+ }
+
+ .toRight {
+     float: right;
+ }
+
+ img {
+    width: 180px;
+    padding: 3px;
+    margin: 20px;
+}
+
+tbody {
+    border: 1px;
+}
+
+tbody tr:nth-child(even){
     background-color: #A9F5E1;
   }
-tbody tr :nth-child(odd){
-    background-color: #CEF6CE;
+tbody tr:nth-child(odd){
+    background-color: #d0efd0;
   }
 
 th {

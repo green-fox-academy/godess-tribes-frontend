@@ -2,17 +2,28 @@
   <div>
     <app-header></app-header>
   </div>
-  <div class="row, text-center" >
-    <h1>Champions league leaderboard</h1>
-  </div>
-  <div class="row">
-      <button onclick="window.location.href = '/leaderboard/buildings'" >Show leaderboard by buildings</button>
+
+  <div *ngIf="side=='/leaderboard'">
+    <div class="row, text-center" >
+      <h1>Champions league leaderboard</h1>
     </div>
     <div class="row">
-      <button onclick="window.location.href = '/leaderboard/soldiers'">Show leaderboard by soldiers</button>
+      <div class="col-md-6 text-center">
+        <img src="assets/images/townhall.png">
+        <br />
+        <button onclick="window.location.href = '/leaderboard/buildings'" >Rank by buildings</button>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="assets/images/soldier2.png">
+        <br />
+        <button onclick="window.location.href = '/leaderboard/soldiers'">Rank by soldiers</button>
+      </div>
     </div>
+  </div>
 
   <div *ngIf="side=='/leaderboard/buildings'">
+    <h1 class="text-center">Best players as per buildings' number</h1>
+    <button class="toRight" onclick="window.location.href = '/leaderboard/soldiers'">Show leaderboard by soldiers</button>
     <table class="table table-striped">
       <thead>
       <tr>
@@ -31,6 +42,8 @@
   </table>
   </div>
   <div *ngIf="side=='/leaderboard/soldiers'">
+    <h1 class="text-center">Best players as per soldiers' number</h1>
+    <button class="toRight" onclick="window.location.href = '/leaderboard/buildings'" >Show leaderboard by buildings</button>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -40,8 +53,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let kingdom of kingdoms">
-          <td>1</td>
+        <tr *ngFor="let kingdom of kingdoms; let i = index">
+          <td>{{i + 1}}</td>
           <td>{{kingdom.kingdomName}}</td>
           <td>{{kingdom.soldiers}}</td>
         </tr>
