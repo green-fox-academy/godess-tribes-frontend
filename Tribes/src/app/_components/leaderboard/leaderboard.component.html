@@ -6,13 +6,11 @@
     <h1>Champions league leaderboard</h1>
   </div>
   <div class="row">
-    <div class="col-md-6">
       <button onclick="window.location.href = '/leaderboard/buildings'" >Show leaderboard by buildings</button>
     </div>
-    <div class="col-md-6">
+    <div class="row">
       <button onclick="window.location.href = '/leaderboard/soldiers'">Show leaderboard by soldiers</button>
     </div>
-  </div>
 
   <div *ngIf="side=='/leaderboard/buildings'">
     <table class="table table-striped">
@@ -24,8 +22,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let kingdom of kingdoms">
-        <td>1</td>
+      <tr *ngFor="let kingdom of kingdoms; let i = index">
+        <td>{{i + 1}}</td>
         <td>{{kingdom.kingdomName}}</td>
         <td>{{kingdom.buildings}}</td>
       </tr>
