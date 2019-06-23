@@ -6,6 +6,8 @@ import { ROOT_URL, COST_BASE_UPGRADE, COST_NEW_BUILDING } from './../constants';
 import { catchError } from 'rxjs/operators';
 import { ErrorHandlingService } from './error-handling.service';
 import { Building } from '../_models/building';
+import { share, map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,29 +18,48 @@ export class BuildingService {
   public updateRessourceByConstruction: EventEmitter<any> = new EventEmitter();
   interval;
   keyTimeouts = 'APP_TIMEOUTS';
+  buildingListObservable: Observable<BuildingsResponse>;
+  buildingListData: BuildingsResponse;
 
-  constructor(private http: HttpClient, private errorHandlingService: ErrorHandlingService) { }
+
+  constructor(private http: HttpClient, private errorHandlingService: ErrorHandlingService) {}
 
   getBuildingsFromAPI(): Observable<BuildingsResponse> {
-    return this.http.get<BuildingsResponse>(ROOT_URL + '/kingdom/buildings');
+    if (this.buildingListData) {
+      return of(this.buildingListData);
+    } else if (this.buildingListObservable) {
+      return this.buildingListObservable;
+    } else {
+      this.buildingListObservable = this.http.get<BuildingsResponse>(ROOT_URL + '/kingdom/buildings')
+      .pipe(map(response => this.buildingListData = response),
+            share());
+      return this.buildingListObservable;
+    }
+  }
+
+  refreshBuildingListFromAPI(): void {
+    this.buildingListData = null;
+    this.buildingListObservable = null;
   }
 
   addNewBuilding(type: string): void {
+    this.refreshBuildingListFromAPI();
     this.updateRessourceByConstruction.emit(COST_NEW_BUILDING);
     this.http.post<Building>(ROOT_URL + '/kingdom/buildings', {type})
     .pipe(catchError(this.errorHandlingService.handleError))
-    .subscribe(response => this.handleBuildingProcess(response),
+    .subscribe(response => { this.handleBuildingProcess(response)},
               error => console.error(error));
   }
 
   handleBuildingProcess(building: Building): void {
     this.beginConstruction.emit();
     this.saveFinishedAtInLocalStorage(building.finishedAt);
-    setTimeout(() => { console.warn(building.id);
+    setTimeout(() => { this.refreshBuildingListFromAPI();
                        this.finishConstruction.emit(); }, building.finishedAt - building.startedAt);
   }
 
   upgradeBuilding(idToUpgrade: number, level: number): void {
+    this.refreshBuildingListFromAPI();
     this.updateRessourceByConstruction.emit(COST_BASE_UPGRADE * (level - 1));
     this.http.put<Building>(ROOT_URL + '/kingdom/buildings/' + idToUpgrade, { level })
     .pipe(catchError(this.errorHandlingService.handleError))

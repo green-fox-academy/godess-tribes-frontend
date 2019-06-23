@@ -17,23 +17,26 @@ export class ResourcesComponent implements OnInit {
   constructor(private resourceService: ResourceService, private buildingService: BuildingService) {
     this.buildingService.beginConstruction.subscribe({
       next: () => {
+          this.resourceService.refreshResourcesFromAPI();
           this.getResources();
       }
     });
     this.buildingService.finishConstruction.subscribe({
       next: () => {
+          this.resourceService.refreshResourcesFromAPI();
           this.getResources();
       }
     });
     this.buildingService.updateRessourceByConstruction.subscribe({
       next: (upgradeCost) => {
-        this.updateRessourceAfterConstruction(upgradeCost);
+        this.resourceService.updateRessourceAfterConstruction(upgradeCost);
       }
     });
   }
 
   ngOnInit() {
-   this.getResources();
+    this.resourceService.refreshResourcesFromAPI();
+    this.getResources();
   }
 
   getResources() {
@@ -41,9 +44,5 @@ export class ResourcesComponent implements OnInit {
       .subscribe(response => { this.resources = response.resources;
                                this.goldAmount = response.resources.find(resource => resource.type === 'GOLD').amount;
                              });
-  }
-
-  updateRessourceAfterConstruction(upgradeCost: number): void {
-    this.goldAmount -= upgradeCost;
   }
 }
