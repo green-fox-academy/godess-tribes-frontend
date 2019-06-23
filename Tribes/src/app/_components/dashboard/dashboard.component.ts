@@ -47,20 +47,20 @@ export class DashboardComponent implements OnInit {
 
   getNumberOfFarms() {
     this.buildingService.getBuildingsFromAPI()
-      .subscribe(response => this.numberOfFarms = response.buildings
-        .filter(building => building.type === 'FARM' && building.level !== 0).length);
+    .subscribe(response => this.numberOfFarms = response.buildings
+      .filter(building => building.type === 'FARM' && building.level > 0).length);
   }
 
   getNumberOfMines() {
     this.buildingService.getBuildingsFromAPI()
-      .subscribe(response => this.numberOfMines = response.buildings
-        .filter(building => building.type === 'MINE' && building.level !== 0).length);
+    .subscribe(response => this.numberOfMines = response.buildings
+      .filter(building => building.type === 'MINE' && building.level > 0).length);
   }
 
   getNumberOfBarracks() {
     this.buildingService.getBuildingsFromAPI()
       .subscribe(response => this.numberOfBarracks = response.buildings
-        .filter(building => building.type === 'BARRACK' && building.level !== 0).length);
+        .filter(building => building.type === 'BARRACK' && building.level > 0).length);
   }
 
   getNumberOfSoldiers() {
@@ -70,5 +70,6 @@ export class DashboardComponent implements OnInit {
 
   receiveErrorMessage($event) {
     this.errorMessage = $event;
+    setTimeout(() => { this.errorMessage = undefined; }, 5000);
   }
 }
