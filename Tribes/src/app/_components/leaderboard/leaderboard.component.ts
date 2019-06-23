@@ -15,21 +15,29 @@ import { LeaderboardResponse } from 'src/app/_models/leaderboard-response';
 export class LeaderboardComponent implements OnInit {
   kingdoms: LeaderboardItem[];
   side : string;
-  compareDate : number;
 
   constructor(private leaderboardService: LeaderboardService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getKingdoms();
+    this.side = this.router.url;
+    if (this.side == "/leaderboard/buildings") {
+      this.getKingdomsByBuildings();
+    }
+    if (this.side == "/leaderboard/soldiers")
+    this.getKingdomBySoldiers();
     // console.log(arguments, this.router.arguments);
   }
 
-  getKingdoms () {
-    this.side = this.router.url;
+  getKingdomsByBuildings () {
+  //  this.side = this.router.url;
     this.leaderboardService.getKingdomListWithBuildingsFromBackend().subscribe(response =>
       {this.kingdoms = response.leaderboard.sort(this.compareData)});
- /*    this.leaderboardService.getKingdomListWithSoldiersFromBackend().subscribe(response =>
-      {this.kingdoms = response.leaderboard}); */
+  }
+
+  getKingdomBySoldiers () {
+    this.leaderboardService.getKingdomListWithSoldiersFromBackend().subscribe(response =>
+      {this.kingdoms = response.leaderboard.sort(this.compareData)});
+
   }
 
   compareData = function(kingdom1: LeaderboardItem, kingdom2: LeaderboardItem) {

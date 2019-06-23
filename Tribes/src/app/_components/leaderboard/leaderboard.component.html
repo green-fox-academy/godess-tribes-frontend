@@ -15,18 +15,18 @@
       <div class="col-md-6 text-center">
         <img src="assets/images/townhall.png">
         <br />
-        <button  class="placeholder" onclick="window.location.href = '/leaderboard/buildings'" >Rank by buildings</button>
+        <button onclick="window.location.href = '/leaderboard/buildings'" >Rank by buildings</button>
       </div>
       <div class="col-md-6 text-center">
         <img src="assets/images/soldier2.png">
         <br />
-        <button class="placeholder" onclick="window.location.href = '/leaderboard/soldiers'">Rank by soldiers</button>
+        <button onclick="window.location.href = '/leaderboard/soldiers'">Rank by soldiers</button>
       </div>
     </div>
   </div>
 
   <div *ngIf="side=='/leaderboard/buildings'">
-    <div class="row">
+    <div class="row text-center">
       <button routerLink="/kingdom">Back</button>
     </div>
     <h1 class="text-center">Best players as per buildings' number</h1>
@@ -46,7 +46,9 @@
       </tr>
     </tbody>
   </table>
+  <div class="text-center">
   <button onclick="window.location.href = '/leaderboard/soldiers'">Rank by soldiers</button>
+  </div>
   </div>
 
   <div *ngIf="side=='/leaderboard/soldiers'">
@@ -70,7 +72,9 @@
         </tr>
       </tbody>
     </table>
+    <div class="text-center">
     <button onclick="window.location.href = '/leaderboard/buildings'" >Rank by buildings</button>
+    </div>
   </div>
 </div>
 </body>

@@ -1,21 +1,9 @@
-body, html {
-    height: 100%;
-    text-align: center;
-  }
-
-/* .bg {
-    height: 100%;
-} */
-
-.container-fluid {
+body {
     background-image: url("/assets/images/background2.jpg");
-    background-repeat: no-repeat;
-    /* -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%; */
-    background-position: center;
- }
+    background-color: #cccccc;
+    background-size: cover;
+    padding-bottom: 170px;
+  }
 
 h1 {
      margin-bottom: 40px;
@@ -40,6 +28,7 @@ th {
 
 tbody {
     border: 1px;
+    text-align: center;
 }
 
 tbody tr:nth-child(even){
@@ -59,8 +48,4 @@ img {
    width: 180px;
    padding: 3px;
    margin-bottom: 20px;
-}
-
-button.placeholder {
-    margin-bottom: 110px;
 }
