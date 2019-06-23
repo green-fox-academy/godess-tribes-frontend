@@ -1,8 +1,8 @@
 body {
+    min-height: 100vh;
     background-image: url("/assets/images/background2.jpg");
     background-color: #cccccc;
     background-size: cover;
-    padding-bottom: 170px;
   }
 
 h1 {
