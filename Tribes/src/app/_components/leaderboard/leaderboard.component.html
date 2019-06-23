@@ -5,6 +5,9 @@
   </div>
 
   <div *ngIf="side=='/leaderboard'">
+    <div class="row">
+      <button routerLink="/kingdom">Back</button>
+    </div>
     <div class="row, text-center" >
       <h1>Check out the richest kingdoms...</h1>
     </div>
@@ -12,17 +15,20 @@
       <div class="col-md-6 text-center">
         <img src="assets/images/townhall.png">
         <br />
-        <button onclick="window.location.href = '/leaderboard/buildings'" >Rank by buildings</button>
+        <button  class="placeholder" onclick="window.location.href = '/leaderboard/buildings'" >Rank by buildings</button>
       </div>
       <div class="col-md-6 text-center">
         <img src="assets/images/soldier2.png">
         <br />
-        <button onclick="window.location.href = '/leaderboard/soldiers'">Rank by soldiers</button>
+        <button class="placeholder" onclick="window.location.href = '/leaderboard/soldiers'">Rank by soldiers</button>
       </div>
     </div>
   </div>
 
   <div *ngIf="side=='/leaderboard/buildings'">
+    <div class="row">
+      <button routerLink="/kingdom">Back</button>
+    </div>
     <h1 class="text-center">Best players as per buildings' number</h1>
     <table class="table table-striped">
       <thead>
@@ -42,7 +48,11 @@
   </table>
   <button onclick="window.location.href = '/leaderboard/soldiers'">Rank by soldiers</button>
   </div>
+
   <div *ngIf="side=='/leaderboard/soldiers'">
+    <div class="row">
+      <button routerLink="/kingdom">Back</button>
+    </div>
     <h1 class="text-center">Best players as per soldiers' number</h1>
     <table class="table table-striped">
         <thead>
